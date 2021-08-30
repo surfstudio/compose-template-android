@@ -1,8 +1,8 @@
 @file:Suppress("unchecked_cast")
 
-apply("../gradleSrc/versions.gradle.kts")
-apply("../gradleSrc/configuration.gradle.kts")
-apply("../gradleSrc/dependencies.gradle.kts")
+apply("../../gradleSrc/versions.gradle.kts")
+apply("../../gradleSrc/configuration.gradle.kts")
+apply("../../gradleSrc/dependencies.gradle.kts")
 
 val ex = project.extra
 
@@ -14,7 +14,7 @@ val targetSdkCommon: Int by ex
 val minSdkCommon: Int by ex
 
 plugins {
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
 }
@@ -27,10 +27,6 @@ android {
 
         minSdk = minSdkCommon
         targetSdk = targetSdkCommon
-
-        applicationId = "ru.surf.template"
-        versionCode = 1
-        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -57,12 +53,6 @@ android {
     }
 }
 
-// modules
-dependencies {
-    implementation(project(":modules:users"))
-}
-
-// libraries
 dependencies {
     // imports dependencies
     val dependencyCompose: () -> Unit by ex

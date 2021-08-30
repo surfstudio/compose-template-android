@@ -3,9 +3,9 @@
 //////////////////////////////////////////
 
 // android
-extra["compileSdk"] = 31
-extra["minSdk"] = 23
-extra["targetSdk"] = 31
+extra["compileSdkCommon"] = 31
+extra["targetSdkCommon"] = 31
+extra["minSdkCommon"] = 23
 
 // base
 extra["kotlinVersion"] = "1.5.10"

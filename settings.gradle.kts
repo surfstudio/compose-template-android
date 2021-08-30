@@ -1,6 +1,6 @@
 pluginManagement {
 
-    apply("versions.gradle.kts")
+    apply("gradleSrc/versions.gradle.kts")
 
     val gradleVersion: String by extra
     val kotlinVersion: String by extra
@@ -27,3 +27,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Template"
 include(":app")
+
+// include modules
+include(":modules:users")

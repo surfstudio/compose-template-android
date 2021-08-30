@@ -1,6 +1,6 @@
 buildscript {
 
-    apply("versions.gradle.kts")
+    apply("gradleSrc/versions.gradle.kts")
 
     val kotlinVersion: String by extra
     val gradleVersion: String by extra
