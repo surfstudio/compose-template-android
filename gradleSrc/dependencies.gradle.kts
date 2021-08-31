@@ -121,5 +121,6 @@ val debugImplementation = "debugImplementation"
 val testImplementation = "testImplementation"
 val implementation = "implementation"
 val kapt = "kapt"
+val ksp = "ksp"
 
 val ex = project.extra
