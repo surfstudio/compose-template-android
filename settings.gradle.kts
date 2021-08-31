@@ -4,6 +4,7 @@ pluginManagement {
 
     val gradleVersion: String by extra
     val kotlinVersion: String by extra
+    val gradleVersionsPlugin: String by extra
 
     repositories {
         gradlePluginPortal()
@@ -15,7 +16,9 @@ pluginManagement {
         id("com.android.application") version gradleVersion
         id("com.android.library") version gradleVersion
         id("org.jetbrains.kotlin.android") version kotlinVersion
+        id("com.github.ben-manes.versions") version gradleVersionsPlugin
         kotlin("kapt") version kotlinVersion
+        kotlin("plugin.serialization") version kotlinVersion
     }
 }
 dependencyResolutionManagement {

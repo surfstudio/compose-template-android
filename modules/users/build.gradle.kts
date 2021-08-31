@@ -1,8 +1,8 @@
 @file:Suppress("unchecked_cast")
 
 apply("../../gradleSrc/versions.gradle.kts")
-apply("../../gradleSrc/configuration.gradle.kts")
 apply("../../gradleSrc/dependencies.gradle.kts")
+apply("../../gradleSrc/configuration.gradle.kts")
 
 val ex = project.extra
 

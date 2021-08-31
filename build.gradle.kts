@@ -1,19 +1,7 @@
 buildscript {
-
-    apply("gradleSrc/versions.gradle.kts")
-
-    val kotlinVersion: String by extra
-    val gradleVersion: String by extra
-
-    repositories {
-        google()
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:$gradleVersion")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-    }
+    apply("${project.rootDir}/gradleSrc/buildscript.gradle.kts")
+    val configurationBuildscript: ScriptHandlerScope.() -> Unit by project
+    configurationBuildscript()
 }
 
 tasks.register("clean", Delete::class) {

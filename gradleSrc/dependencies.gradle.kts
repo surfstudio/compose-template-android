@@ -120,5 +120,6 @@ val androidTestImplementation = "androidTestImplementation"
 val debugImplementation = "debugImplementation"
 val testImplementation = "testImplementation"
 val implementation = "implementation"
-val ex = project.extra
 val kapt = "kapt"
+
+val ex = project.extra

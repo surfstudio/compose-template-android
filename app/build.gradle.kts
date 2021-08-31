@@ -1,8 +1,8 @@
 @file:Suppress("unchecked_cast")
 
 apply("../gradleSrc/versions.gradle.kts")
-apply("../gradleSrc/configuration.gradle.kts")
 apply("../gradleSrc/dependencies.gradle.kts")
+apply("../gradleSrc/configuration.gradle.kts")
 
 val ex = project.extra
 
@@ -14,9 +14,22 @@ val targetSdkCommon: Int by ex
 val minSdkCommon: Int by ex
 
 plugins {
+
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
     kotlin("kapt")
+
+    // https://dagger.dev/hilt/
+    id("dagger.hilt.android.plugin")
+    // https://github.com/Kotlin/kotlinx.serialization
+    kotlin("plugin.serialization")
+    // https://developers.google.com/android/guides/google-services-plugin
+    id("com.google.gms.google-services")
+    // https://firebase.google.com/products/crashlytics
+    id("com.google.firebase.crashlytics")
+    // https://github.com/ben-manes/gradle-versions-plugin
+    id("com.github.ben-manes.versions")
 }
 
 android {
