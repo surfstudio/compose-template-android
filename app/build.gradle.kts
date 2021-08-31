@@ -20,6 +20,7 @@ plugins {
 
     kotlin("kapt")
 
+    id("com.google.devtools.ksp")
     // https://dagger.dev/hilt/
     id("dagger.hilt.android.plugin")
     // https://github.com/Kotlin/kotlinx.serialization

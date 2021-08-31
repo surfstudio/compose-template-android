@@ -2,23 +2,6 @@
 //// Versions
 //////////////////////////////////////////
 
-// buildscript
-extra["configurationBuildscript"] = { scope: ScriptHandlerScope ->
-    scope.apply {
-        repositories {
-            google()
-            mavenCentral()
-        }
-        dependencies {
-            classpath("com.android.tools.build:gradle:7.0.1")
-            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.10")
-            classpath("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
-            classpath("com.google.gms:google-services:4.3.10")
-            classpath("com.google.firebase:firebase-crashlytics-gradle:2.7.1")
-        }
-    }
-}
-
 // android
 extra["compileSdkCommon"] = 31
 extra["targetSdkCommon"] = 31
@@ -27,6 +10,7 @@ extra["minSdkCommon"] = 23
 // base
 extra["kotlinVersion"] = "1.5.10"
 extra["gradleVersion"] = "7.0.1"
+extra["kspVersion"] = "1.5.10-1.0.0-beta02"
 
 // ktor
 extra["ktorVersion"] = "1.6.3"
