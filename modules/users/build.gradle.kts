@@ -55,7 +55,7 @@ android {
 
 dependencies {
     // imports dependencies
-    val dependencyCompose: () -> Unit by ex
+    val dependencyCompose: DependencyHandlerScope.() -> Unit by ex
 
     // implementation
     dependencyCompose()
