@@ -3,42 +3,37 @@ package ru.surf.template
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.activity.viewModels
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.graphics.toArgb
+import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
+import ru.surf.template.base.LocalBackPressedDispatcher
+import ru.surf.template.base.LocalMainViewModel
+import ru.surf.template.navigation.NavGraph
 import ru.surf.template.ui.theme.TemplateTheme
-import ru.surf.users.UserModule
+import ru.surf.template.ui.viewModels.MainViewModel
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val viewModel: MainViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TemplateTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    Greeting(UserModule.text())
+            CompositionLocalProvider(
+                LocalMainViewModel provides viewModel,
+                LocalBackPressedDispatcher provides this.onBackPressedDispatcher
+            ) {
+                TemplateTheme {
+                    // change status bar color
+                    this@MainActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
+                    // select graph
+                    NavGraph(rememberNavController())
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    TemplateTheme {
-        Greeting("Android")
     }
 }

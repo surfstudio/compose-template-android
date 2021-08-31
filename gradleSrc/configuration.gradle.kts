@@ -21,8 +21,16 @@ extra["configurationSource"] = { ex: Any ->
 }
 
 extra["configurationCompose"] = { ex: Any ->
+    val composeVersion: String by project.extra
     if (ex is com.android.build.gradle.internal.dsl.BaseAppModuleExtension) {
-        val composeVersion: String by project.extra
+        ex.composeOptions {
+            kotlinCompilerExtensionVersion = composeVersion
+        }
+        ex.buildFeatures {
+            compose = true
+        }
+    }
+    if (ex is com.android.build.gradle.LibraryExtension) {
         ex.composeOptions {
             kotlinCompilerExtensionVersion = composeVersion
         }

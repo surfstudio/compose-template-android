@@ -12,6 +12,16 @@ extra["kotlinVersion"] = "1.5.10"
 extra["gradleVersion"] = "7.0.1"
 extra["kspVersion"] = "1.5.10-1.0.0-beta02"
 
+// coil
+extra["coilVersion"] = "1.3.2"
+extra["appcompatVersion"] = "1.3.1"
+
+// paging
+extra["pagingComposeVersion"] = "1.0.0-alpha12"
+
+// lottie
+extra["lottieVersions"] = "4.0.0"
+
 // ktor
 extra["ktorVersion"] = "1.6.3"
 

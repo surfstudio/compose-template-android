@@ -55,8 +55,26 @@ android {
 
 dependencies {
     // imports dependencies
+    val dependencyLottie: DependencyHandlerScope.() -> Unit by ex
+    val dependencyPaging: DependencyHandlerScope.() -> Unit by ex
+    val dependencyCoil: DependencyHandlerScope.() -> Unit by ex
+    val dependencyKtor: DependencyHandlerScope.() -> Unit by ex
     val dependencyCompose: DependencyHandlerScope.() -> Unit by ex
+    val dependencyAccompanist: DependencyHandlerScope.() -> Unit by ex
+    val dependencyFirebase: DependencyHandlerScope.() -> Unit by ex
+    val dependencyRoom: DependencyHandlerScope.() -> Unit by ex
+    val dependencyHilt: DependencyHandlerScope.() -> Unit by ex
+    val dependencyOther: DependencyHandlerScope.() -> Unit by ex
 
     // implementation
+    dependencyLottie()
+    dependencyPaging()
+    dependencyCoil()
+    dependencyKtor()
     dependencyCompose()
+    dependencyAccompanist()
+    dependencyFirebase()
+    dependencyRoom()
+    dependencyHilt()
+    dependencyOther()
 }

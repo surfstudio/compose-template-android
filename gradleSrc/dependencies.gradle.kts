@@ -4,6 +4,36 @@
 
 val extra = mutableMapOf<String, DependencyHandlerScope.() -> Unit>()
 
+// Lottie
+// https://github.com/airbnb/lottie/blob/master/android-compose.md
+extra["dependencyLottie"] = {
+
+    val lottieVersions: String by ex
+
+    implementation("com.airbnb.android:lottie:$lottieVersions")
+    implementation("com.airbnb.android:lottie-compose:$lottieVersions")
+}
+
+// Paging
+// https://developer.android.com/jetpack/androidx/releases/paging
+extra["dependencyPaging"] = {
+
+    val pagingComposeVersion: String by ex
+
+    implementation("androidx.paging:paging-compose:$pagingComposeVersion")
+}
+
+// Coil
+// https://coil-kt.github.io/coil/compose/
+extra["dependencyCoil"] = {
+
+    val coilVersion: String by ex
+    val appcompatVersion: String by ex
+
+    implementation("io.coil-kt:coil-compose:$coilVersion")
+    implementation("androidx.appcompat:appcompat:$appcompatVersion")
+}
+
 // Ktor Client
 // https://ktor.io/docs/client.html
 extra["dependencyKtor"] = {
