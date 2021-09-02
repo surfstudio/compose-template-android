@@ -17,6 +17,8 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
+    // https://github.com/Kotlin/kotlinx.serialization
+    kotlin("plugin.serialization")
 }
 
 android {

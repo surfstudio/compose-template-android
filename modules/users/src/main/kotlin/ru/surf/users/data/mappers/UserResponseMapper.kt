@@ -5,7 +5,7 @@ import ru.surf.users.data.responses.UserResponse
 
 fun UserResponse.toModel(): UserModel {
     return UserModel(
-        id = code ?: "",
+        id = code.toString(),
         name = name ?: "",
     )
 }

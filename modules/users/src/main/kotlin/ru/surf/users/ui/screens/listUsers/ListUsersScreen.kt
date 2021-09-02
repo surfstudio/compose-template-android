@@ -1,11 +1,11 @@
 package ru.surf.users.ui.screens.listUsers
 
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
+import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.events.UsersEvents
 import ru.surf.users.ui.viewModels.UsersViewModel
 
@@ -14,10 +14,14 @@ fun ListUsersScreen(
     viewModel: UsersViewModel,
     onEvent: (UsersEvents) -> Unit = {},
 ) {
-    Surface(
-        modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colors.background
-    ) {
-        Text(text = "Hello!")
-    }
+    val search: String? by viewModel.search.collectAsState()
+    val items: LazyPagingItems<UserModel> = viewModel.listUsers.collectAsLazyPagingItems()
+    val searchItems: LazyPagingItems<UserModel> = viewModel.searchListUsers.collectAsLazyPagingItems()
+
+    ListUsersBody(
+        search = search,
+        items = items,
+        searchItems = searchItems,
+        onEvent = onEvent,
+    )
 }

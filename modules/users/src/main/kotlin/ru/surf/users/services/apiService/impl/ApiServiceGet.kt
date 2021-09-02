@@ -22,10 +22,10 @@ interface ApiServiceGet {
         return withContext(Dispatchers.IO) {
             if (BuildConfig.DEBUG) delay(1000L) // Simulate slow internet
             executeWithResponse {
-                httpClient.get<List<UserResponse>>("${ConstantsApp.API_URL}/chats") {
-                    search?.let { parameter("search", search) }
-                    parameter("offset", offset)
+                httpClient.get<List<UserResponse>>("${ConstantsApp.API_URL}/users") {
                     parameter("limit", PAGE_LIMIT)
+                    parameter("offset", offset)
+                    search?.let { parameter("search", search) }
                 }.toModels()
             }
         }

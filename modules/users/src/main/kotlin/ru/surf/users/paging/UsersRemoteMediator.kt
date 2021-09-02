@@ -9,6 +9,7 @@ import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
 import ru.surf.users.utils.ConstantsPaging.CACHE_TIMEOUT
+import ru.surf.users.utils.ConstantsPaging.PAGE_LIMIT
 import timber.log.Timber
 import kotlin.math.roundToInt
 
@@ -17,6 +18,10 @@ class UsersRemoteMediator(
     private val data: UsersDataService,
     private val apiService: UsersApiService,
 ) : RemoteMediator<Int, UserModel>() {
+
+    companion object {
+        var key: Int? = null
+    }
 
     override suspend fun initialize(): InitializeAction {
         return if (System.currentTimeMillis() - data.preferences.lastUpdateListUsers >= CACHE_TIMEOUT) {
@@ -32,16 +37,20 @@ class UsersRemoteMediator(
     ): MediatorResult {
         return try {
 
-            val page = when (loadType) {
-                LoadType.REFRESH -> null
+            val offset = when (loadType) {
+                LoadType.REFRESH -> {
+                    key = null
+                    key
+                }
                 LoadType.PREPEND -> return MediatorResult.Success(endOfPaginationReached = true)
-                LoadType.APPEND -> (data.countUserModel() / state.config.pageSize.toFloat())
-                    .roundToInt()
-                    .plus(1)
+                LoadType.APPEND -> {
+                    key = (key ?: 0).plus(1)
+                    key
+                }
             }
 
             val response = apiService.getListUsers(
-                offset = page ?: 0
+                offset = (offset ?: 0) * PAGE_LIMIT
             )
 
             response.success { models ->
@@ -50,18 +59,14 @@ class UsersRemoteMediator(
                         preferences.lastUpdateListUsers = System.currentTimeMillis()
                         clearUserModel()
                     }
-                    if (!response.isEndDouble(state.lastItemOrNull()?.id) || loadType != LoadType.APPEND) {
-                        insertUserModel(*models.toTypedArray())
-                    }
+                    insertUserModel(*models.toTypedArray())
                 }
             }.error {
                 Timber.e(it)
             }
 
             MediatorResult.Success(
-                endOfPaginationReached = response.isError
-                        || response.isEmpty
-                        || response.isEndDouble(state.lastItemOrNull()?.id)
+                endOfPaginationReached = response.isError || response.isEmpty
             )
 
         } catch (e: Exception) {
