@@ -1,0 +1,14 @@
+# Database Room
+# https://developer.android.com/training/data-storage/room
+
+[versions]
+roomVersion = "2.3.0"
+
+[libraries]
+room-core = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" } # kapt
+
+[bundles]
+room = ["room-core", "room-ktx"]
+roomKapt = ["room-compiler"]

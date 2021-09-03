@@ -1,0 +1,11 @@
+# Paging
+# https://developer.android.com/jetpack/androidx/releases/paging
+
+[versions]
+pagingCompose = "1.0.0-alpha12"
+
+[libraries]
+paging-core = { module = "androidx.paging:paging-compose", version.ref = "pagingCompose" }
+
+[bundles]
+paging = ["paging-core"]

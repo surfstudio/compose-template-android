@@ -1,0 +1,12 @@
+# Lottie
+# https://github.com/airbnb/lottie/blob/master/android-compose.md
+
+[versions]
+lottieVersions = "4.0.0"
+
+[libraries]
+lottie-core = { module = "com.airbnb.android:lottie", version.ref = "lottieVersions" }
+lottie-compose = { module = "com.airbnb.android:lottie-compose", version.ref = "lottieVersions" }
+
+[bundles]
+lottie = ["lottie-core", "lottie-compose"]

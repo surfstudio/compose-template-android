@@ -1,11 +1,10 @@
+
+
 pluginManagement {
 
-    apply("gradleSrc/versions.gradle.kts")
-
-    val gradleVersion: String by extra
-    val kotlinVersion: String by extra
-    val gradleVersionsPlugin: String by extra
-    val kspVersion: String by extra
+    val gradleVersion: String by settings
+    val kotlinVersion: String by settings
+    val gradleVersionsPlugin: String by settings
 
     repositories {
         gradlePluginPortal()
@@ -17,19 +16,30 @@ pluginManagement {
         id("com.android.application") version gradleVersion
         id("com.android.library") version gradleVersion
         id("org.jetbrains.kotlin.android") version kotlinVersion
-        id("com.github.ben-manes.versions") version gradleVersionsPlugin
-        id("com.google.devtools.ksp") version kspVersion
         kotlin("kapt") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
+        id("com.github.ben-manes.versions") version gradleVersionsPlugin
     }
 }
+
+// https://docs.gradle.org/current/userguide/platforms.html#sub:central-declaration-of-dependencies
+enableFeaturePreview("VERSION_CATALOGS")
+
 dependencyResolutionManagement {
+
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
     repositories {
         google()
         mavenCentral()
     }
+    versionCatalogs {
+        create("libs") {
+            from(fileTree("dependencies"))
+        }
+    }
 }
+
 rootProject.name = "Template"
 include(":app")
 

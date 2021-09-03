@@ -1,0 +1,15 @@
+# Ktor Client
+# https://ktor.io/docs/client.html
+
+[versions]
+ktor = "1.6.3"
+
+[libraries]
+ktor-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
+ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
+ktor-json = { module = "io.ktor:ktor-client-json", version.ref = "ktor" }
+ktor-serialization = { module = "io.ktor:ktor-client-serialization-jvm", version.ref = "ktor" }
+ktor-logging = { module = "io.ktor:ktor-client-logging-jvm", version.ref = "ktor" }
+
+[bundles]
+ktor = ["ktor-websockets", "ktor-okhttp", "ktor-json", "ktor-serialization", "ktor-logging"]

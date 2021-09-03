@@ -1,0 +1,15 @@
+[versions]
+timberVersion = "5.0.1"
+startupVersion = "1.1.0"
+
+[libraries]
+# Timber
+# https://github.com/JakeWharton/timber
+other-timber = { module = "com.jakewharton.timber:timber", version.ref = "timberVersion" }
+# Startup
+# https://developer.android.com/jetpack/androidx/releases/startup
+other-startup = { module = "androidx.startup:startup-runtime", version.ref = "startupVersion" }
+
+[bundles]
+other = ["other-timber", "other-startup"]
+
