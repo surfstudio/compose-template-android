@@ -48,6 +48,8 @@ android {
 
 // libraries
 dependencies {
+
+    implementation(libs.bundles.surf)
     implementation(libs.bundles.room)
     implementation(libs.bundles.paging)
     implementation(libs.bundles.other)

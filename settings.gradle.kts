@@ -1,5 +1,3 @@
-
-
 pluginManagement {
 
     val gradleVersion: String by settings
@@ -19,6 +17,8 @@ pluginManagement {
         kotlin("kapt") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
         id("com.github.ben-manes.versions") version gradleVersionsPlugin
+        id("com.jfrog.artifactory") version "4.24.16"
+        id("com.diffplug.spotless") version "5.12.5"
     }
 }
 
@@ -32,6 +32,7 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://artifactory.keygenqt.com/artifactory/open-source")
     }
     versionCatalogs {
         create("libs") {
@@ -45,3 +46,7 @@ include(":app")
 
 // include modules
 include(":modules:users")
+
+// include libs
+//include(":compose-modifier-ext")
+//project(":compose-modifier-ext").projectDir = File(settingsDir, "../libs/compose-modifier-ext")

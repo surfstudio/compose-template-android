@@ -19,7 +19,7 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.SwipeRefreshState
-import ru.surf.users.extensions.visible
+import com.keygenqt.modifier.visible
 import timber.log.Timber
 
 @Composable
