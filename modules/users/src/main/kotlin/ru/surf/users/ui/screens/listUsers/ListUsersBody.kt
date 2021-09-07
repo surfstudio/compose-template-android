@@ -7,8 +7,8 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
+import com.keygenqt.accompanist.SwipeRefreshList
 import ru.surf.users.R
-import ru.surf.users.compose.CommonList
 import ru.surf.users.compose.MainScaffold
 import ru.surf.users.compose.PlugBlock
 import ru.surf.users.data.models.UserModel
@@ -36,7 +36,7 @@ fun ListUsersBody(
             )
         }
         search?.let {
-            CommonList(
+            SwipeRefreshList(
                 modifier = Modifier,
                 items = searchItems,
                 state = rememberSwipeRefreshState(searchItems.loadState.refresh is LoadState.Loading),
@@ -45,7 +45,7 @@ fun ListUsersBody(
                 ListUserItem(model = model)
             }
         } ?: run {
-            CommonList(
+            SwipeRefreshList(
                 modifier = Modifier,
                 items = items,
                 state = rememberSwipeRefreshState(items.loadState.refresh is LoadState.Loading),
