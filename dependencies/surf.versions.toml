@@ -3,6 +3,7 @@ modifier = "0.0.2"
 response = "0.0.1"
 routing = "0.0.1"
 surf_accompanist = "0.0.2"
+forms = "0.0.1"
 
 [libraries]
 # https://github.com/keygenqt/compose-modifier-ext
@@ -13,6 +14,8 @@ surf-response = { module = "com.keygenqt.response:android-response-result", vers
 surf-routing= { module = "com.keygenqt.routing:compose-routing", version.ref = "routing" }
 # https://github.com/keygenqt/surf-accompanist
 surf-accompanist= { module = "com.keygenqt.accompanist:surf-accompanist", version.ref = "surf_accompanist" }
+# https://github.com/keygenqt/compose-forms
+surf-forms= { module = "com.keygenqt.forms:compose-forms", version.ref = "forms" }
 
 [bundles]
-surf = ["surf-modifier", "surf-response", "surf-routing", "surf-accompanist"]
+surf = ["surf-modifier", "surf-response", "surf-routing", "surf-accompanist", "surf-forms"]

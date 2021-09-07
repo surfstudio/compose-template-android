@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import ru.surf.users.R
-import ru.surf.users.form.states.StateSimpleEditText
+import com.keygenqt.forms.states.StateSimpleEditText
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
