@@ -1,9 +1,0 @@
-[versions]
-modifier = "0.0.2"
-
-[libraries]
-# https://github.com/keygenqt/compose-modifier-ext
-surf-modifier = { module = "com.keygenqt.modifier:compose-modifier-ext", version.ref = "modifier" }
-
-[bundles]
-surf = ["surf-modifier"]

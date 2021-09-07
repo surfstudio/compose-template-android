@@ -2,7 +2,7 @@ package ru.surf.users.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import ru.surf.users.base.pagingSucceeded
+import com.keygenqt.response.pagingSucceeded
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.utils.ConstantsPaging

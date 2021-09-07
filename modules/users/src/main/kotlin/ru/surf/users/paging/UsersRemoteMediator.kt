@@ -4,14 +4,16 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import ru.surf.users.base.*
+import com.keygenqt.response.error
+import com.keygenqt.response.isEmpty
+import com.keygenqt.response.isError
+import com.keygenqt.response.success
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
 import ru.surf.users.utils.ConstantsPaging.CACHE_TIMEOUT
 import ru.surf.users.utils.ConstantsPaging.PAGE_LIMIT
 import timber.log.Timber
-import kotlin.math.roundToInt
 
 @OptIn(ExperimentalPagingApi::class)
 class UsersRemoteMediator(

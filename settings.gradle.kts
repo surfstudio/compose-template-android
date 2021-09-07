@@ -48,5 +48,17 @@ include(":app")
 include(":modules:users")
 
 // include libs
+include(":android-response-result")
+project(":android-response-result").projectDir = File(settingsDir, "../libs/android-response-result")
+
+//include(":compose-forms")
+//project(":compose-forms").projectDir = File(settingsDir, "../libs/compose-forms")
+//
 //include(":compose-modifier-ext")
 //project(":compose-modifier-ext").projectDir = File(settingsDir, "../libs/compose-modifier-ext")
+//
+//include(":compose-routing")
+//project(":compose-routing").projectDir = File(settingsDir, "../libs/compose-routing")
+//
+//include(":surf-accompanist")
+//project(":surf-accompanist").projectDir = File(settingsDir, "../libs/surf-accompanist")

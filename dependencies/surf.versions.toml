@@ -1,2 +1,12 @@
-#
-#
+[versions]
+modifier = "0.0.2"
+response = "0.0.1"
+
+[libraries]
+# https://github.com/keygenqt/compose-modifier-ext
+surf-modifier = { module = "com.keygenqt.modifier:compose-modifier-ext", version.ref = "modifier" }
+# https://github.com/keygenqt/android-response-result
+surf-response = { module = "com.keygenqt.response:android-response-result", version.ref = "response" }
+
+[bundles]
+surf = ["surf-modifier", "surf-response"]

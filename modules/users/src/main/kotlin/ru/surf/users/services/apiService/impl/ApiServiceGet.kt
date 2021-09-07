@@ -1,13 +1,13 @@
 package ru.surf.users.services.apiService.impl
 
+import com.keygenqt.response.ResponseResult
+import com.keygenqt.response.executeWithResponse
 import io.ktor.client.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import ru.surf.users.BuildConfig
-import ru.surf.users.base.ResponseResult
-import ru.surf.users.base.executeWithResponse
 import ru.surf.users.data.mappers.toModels
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.data.responses.UserResponse
