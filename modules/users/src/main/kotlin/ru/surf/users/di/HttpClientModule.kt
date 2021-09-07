@@ -13,7 +13,6 @@ import io.ktor.client.features.logging.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 import kotlinx.serialization.json.Json
-import ru.surf.users.base.RestHttpClient
 import timber.log.Timber
 
 @Module
@@ -27,7 +26,6 @@ object HttpClientModule {
     }
 
     @Provides
-    @RestHttpClient
     fun provideHttpClient(): HttpClient {
         return HttpClient(OkHttp) {
             // Json

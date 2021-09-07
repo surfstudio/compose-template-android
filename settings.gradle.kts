@@ -48,8 +48,8 @@ include(":app")
 include(":modules:users")
 
 // include libs
-include(":android-response-result")
-project(":android-response-result").projectDir = File(settingsDir, "../libs/android-response-result")
+//include(":android-response-result")
+//project(":android-response-result").projectDir = File(settingsDir, "../libs/android-response-result")
 
 //include(":compose-forms")
 //project(":compose-forms").projectDir = File(settingsDir, "../libs/compose-forms")

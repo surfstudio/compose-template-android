@@ -9,7 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import ru.surf.users.base.AppDatabase
-import ru.surf.users.base.preferences.AppPreferences
+import ru.surf.users.base.AppPreferences
 
 @Module
 @InstallIn(SingletonComponent::class)

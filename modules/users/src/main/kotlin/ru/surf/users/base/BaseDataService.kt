@@ -1,7 +1,6 @@
 package ru.surf.users.base
 
 import androidx.room.withTransaction
-import ru.surf.users.base.preferences.AppPreferences
 
 interface BaseDataService<T : Any> {
 

@@ -1,6 +1,6 @@
 package ru.surf.users.navigation.nav.impl
 
-import ru.surf.users.base.NavScreen
+import com.keygenqt.routing.NavScreen
 
 object UsersNavScreen {
     val ListUsersScreen = object : NavScreen {

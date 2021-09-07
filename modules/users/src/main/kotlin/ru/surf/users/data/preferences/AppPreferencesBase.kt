@@ -1,4 +1,4 @@
-package ru.surf.users.base.preferences
+package ru.surf.users.data.preferences
 
 import android.content.SharedPreferences
 
