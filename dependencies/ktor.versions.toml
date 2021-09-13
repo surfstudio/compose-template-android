@@ -1,9 +1,6 @@
 # Ktor Client
 # https://ktor.io/docs/client.html
 
-[versions]
-ktor = "1.6.3"
-
 [libraries]
 ktor-websockets = { module = "io.ktor:ktor-client-websockets", version.ref = "ktor" }
 ktor-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }

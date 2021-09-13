@@ -28,8 +28,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import com.keygenqt.forms.base.FormFieldState
 import ru.surf.users.R
-import com.keygenqt.forms.states.StateSimpleEditText
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
@@ -50,7 +50,7 @@ fun MainScaffold(
 
     val softwareKeyboardController = LocalSoftwareKeyboardController.current
     var isShowSearch by remember { mutableStateOf(false) }
-    val state = remember { StateSimpleEditText() }
+    val state = remember { FormFieldState() }
     val requester = remember { FocusRequester() }
     val focusManager = LocalFocusManager.current
 

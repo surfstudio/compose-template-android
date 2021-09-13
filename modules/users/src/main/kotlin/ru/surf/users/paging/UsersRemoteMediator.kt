@@ -4,10 +4,10 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.keygenqt.response.error
-import com.keygenqt.response.isEmpty
-import com.keygenqt.response.isError
-import com.keygenqt.response.success
+import com.keygenqt.response.extensions.error
+import com.keygenqt.response.extensions.isEmpty
+import com.keygenqt.response.extensions.isError
+import com.keygenqt.response.extensions.success
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService

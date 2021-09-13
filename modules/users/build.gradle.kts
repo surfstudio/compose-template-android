@@ -51,7 +51,7 @@ dependencies {
 
 //    implementation(project(":android-response-result"))
 //    implementation(project(":compose-forms"))
-//    implementation(project(":compose-modifier-ext"))
+//    implementation(project(":compose-forms"))
 //    implementation(project(":compose-routing"))
 //    implementation(project(":surf-accompanist"))
 

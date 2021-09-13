@@ -1,0 +1,48 @@
+[versions]
+# Accompanist
+# https://github.com/google/accompanist
+accompanist = "0.17.0"
+# Coil
+# https://coil-kt.github.io/coil/compose/
+coilVersion = "1.3.2"
+appcompatVersion = "1.3.1"
+# Jetpack Compose
+# https://developer.android.com/jetpack/compose
+compose = "1.0.2"
+activityCompose = "1.3.0"
+# Firebase
+# https://firebase.google.com
+analytics = "19.0.1"
+crashlytics = "18.2.1"
+# Hilt
+# https://dagger.dev/hilt/
+hiltCore = "2.38.1"
+hilt = "1.0.0"
+hiltComposeNavigation = "1.0.0-alpha03"
+# Ktor Client
+# https://ktor.io/docs/client.html
+ktor = "1.6.3"
+# Lottie
+# https://github.com/airbnb/lottie/blob/master/android-compose.md
+lottieVersions = "4.0.0"
+# Timber
+# https://github.com/JakeWharton/timber
+timberVersion = "5.0.1"
+# Startup
+# https://developer.android.com/jetpack/androidx/releases/startup
+startupVersion = "1.1.0"
+# Paging
+# https://developer.android.com/jetpack/androidx/releases/paging
+pagingCompose = "1.0.0-alpha12"
+# Database Room
+# https://developer.android.com/training/data-storage/room
+roomVersion = "2.3.0"
+# Custom libs
+composeModifierExt = "0.0.5"
+androidResponseResult = "0.0.4"
+composeRouting = "0.0.1"
+surfAccompanist = "0.0.2"
+composeForms = "0.0.3"
+# Tests
+mockWebServer = "4.9.1"
+mockitoCore = "3.10.0"

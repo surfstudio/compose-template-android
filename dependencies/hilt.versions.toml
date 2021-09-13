@@ -1,11 +1,6 @@
 # Hilt
 # https://dagger.dev/hilt/
 
-[versions]
-hiltCore = "2.38.1"
-hilt = "1.0.0"
-hiltComposeNavigation = "1.0.0-alpha03"
-
 [libraries]
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltCore" }
 hilt-dagger = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltCore" }

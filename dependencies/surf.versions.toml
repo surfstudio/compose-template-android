@@ -1,21 +1,14 @@
-[versions]
-modifier = "0.0.2"
-response = "0.0.1"
-routing = "0.0.1"
-surf_accompanist = "0.0.2"
-forms = "0.0.1"
-
 [libraries]
 # https://github.com/keygenqt/compose-modifier-ext
-surf-modifier = { module = "com.keygenqt.modifier:compose-modifier-ext", version.ref = "modifier" }
+surf-modifier = { module = "com.keygenqt.modifier:compose-modifier-ext", version.ref = "composeModifierExt" }
 # https://github.com/keygenqt/android-response-result
-surf-response = { module = "com.keygenqt.response:android-response-result", version.ref = "response" }
+surf-response = { module = "com.keygenqt.response:android-response-result", version.ref = "androidResponseResult" }
 # https://github.com/keygenqt/compose-routing
-surf-routing= { module = "com.keygenqt.routing:compose-routing", version.ref = "routing" }
+surf-routing = { module = "com.keygenqt.routing:compose-routing", version.ref = "composeRouting" }
 # https://github.com/keygenqt/surf-accompanist
-surf-accompanist= { module = "com.keygenqt.accompanist:surf-accompanist", version.ref = "surf_accompanist" }
+surf-accompanist = { module = "com.keygenqt.accompanist:surf-accompanist", version.ref = "surfAccompanist" }
 # https://github.com/keygenqt/compose-forms
-surf-forms= { module = "com.keygenqt.forms:compose-forms", version.ref = "forms" }
+surf-forms = { module = "com.keygenqt.forms:compose-forms", version.ref = "composeForms" }
 
 [bundles]
 surf = ["surf-modifier", "surf-response", "surf-routing", "surf-accompanist", "surf-forms"]

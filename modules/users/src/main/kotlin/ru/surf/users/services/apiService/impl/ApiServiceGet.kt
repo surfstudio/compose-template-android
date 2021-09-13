@@ -1,7 +1,7 @@
 package ru.surf.users.services.apiService.impl
 
+import com.keygenqt.response.LocalTryExecuteWithResponse.executeWithResponse
 import com.keygenqt.response.ResponseResult
-import com.keygenqt.response.executeWithResponse
 import io.ktor.client.*
 import io.ktor.client.request.*
 import kotlinx.coroutines.Dispatchers
