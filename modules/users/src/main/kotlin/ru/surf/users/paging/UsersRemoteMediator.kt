@@ -8,11 +8,11 @@ import com.keygenqt.response.extensions.error
 import com.keygenqt.response.extensions.isEmpty
 import com.keygenqt.response.extensions.isError
 import com.keygenqt.response.extensions.success
+import ru.surf.core.utils.ConstantsPaging.CACHE_TIMEOUT
+import ru.surf.core.utils.ConstantsPaging.PAGE_LIMIT
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
-import ru.surf.users.utils.ConstantsPaging.CACHE_TIMEOUT
-import ru.surf.users.utils.ConstantsPaging.PAGE_LIMIT
 import timber.log.Timber
 
 @OptIn(ExperimentalPagingApi::class)

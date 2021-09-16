@@ -1,16 +1,18 @@
 package ru.surf.users.data.preferences
 
 import android.content.SharedPreferences
+import ru.surf.core.base.CorePreferences
+import ru.surf.core.interfaces.IAppPreferences
 
-interface AppPreferencesBase {
+interface AppPreferencesBase : IAppPreferences {
 
-    val p: SharedPreferences
+    override val p: SharedPreferences
 
     enum class KEYS {
         IS_START_PAGE,
     }
 
-    fun clearAfterLogout() {
+    override fun clearAfterLogout() {
 
     }
 

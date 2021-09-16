@@ -5,7 +5,7 @@ import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 import ru.surf.users.data.responses.UserResponse
-import ru.surf.users.utils.ConstantsPaging
+import ru.surf.core.utils.ConstantsPaging
 
 interface ApiGet {
     @GET("users")

@@ -4,8 +4,10 @@
 [libraries]
 room-core = { module = "androidx.room:room-runtime", version.ref = "roomVersion" }
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomVersion" }
+room-sqlcipher = { module = "net.zetetic:android-database-sqlcipher", version = "4.4.3" }
+room-sqlite = { module = "androidx.sqlite:sqlite", version = "2.0.1" }
 room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" } # kapt
 
 [bundles]
-room = ["room-core", "room-ktx"]
+room = ["room-core", "room-ktx", "room-sqlcipher", "room-sqlite"]
 roomKapt = ["room-compiler"]

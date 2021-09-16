@@ -12,13 +12,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import ru.surf.users.data.models.UserModel
-import ru.surf.users.ui.events.UsersEvents
+import ru.surf.users.ui.actions.UsersActions
 
 
 @Composable
 fun ListUserItem(
     model: UserModel,
-    onEvent: (UsersEvents) -> Unit = {},
+    onEvent: (UsersActions) -> Unit = {},
 ) {
     Card(
         shape = MaterialTheme.shapes.medium,

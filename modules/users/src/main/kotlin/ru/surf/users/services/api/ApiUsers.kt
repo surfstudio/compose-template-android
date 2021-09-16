@@ -16,6 +16,7 @@
  
 package ru.surf.users.services.api
 
+import ru.surf.core.services.api.impl.ApiDelete
 import ru.surf.users.services.api.impl.*
 
 interface ApiUsers : ApiDelete, ApiGet, ApiPatch, ApiPost, ApiPut

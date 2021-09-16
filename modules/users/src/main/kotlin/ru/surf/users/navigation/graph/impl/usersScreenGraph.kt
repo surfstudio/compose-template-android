@@ -5,7 +5,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import ru.surf.users.navigation.actions.UsersNavActions
 import ru.surf.users.navigation.nav.UsersNav
-import ru.surf.users.ui.events.UsersEvents
+import ru.surf.users.ui.actions.UsersActions
 import ru.surf.users.ui.screens.listUsers.ListUsersScreen
 import ru.surf.users.ui.viewModels.UsersViewModel
 
@@ -16,7 +16,7 @@ fun NavGraphBuilder.usersScreenGraph(
         val viewModel: UsersViewModel = hiltViewModel()
         ListUsersScreen(viewModel = viewModel) { event ->
             when (event) {
-                is UsersEvents.Search -> viewModel.search(event.text)
+                is UsersActions.Search -> viewModel.search(event.text)
             }
         }
     }

@@ -49,11 +49,8 @@ android {
 // libraries
 dependencies {
 
-//    implementation(project(":android-response-result"))
-//    implementation(project(":compose-forms"))
-//    implementation(project(":compose-forms"))
-//    implementation(project(":compose-routing"))
-//    implementation(project(":surf-accompanist"))
+    // Common module for all modules
+    implementation(project(":modules:core"))
 
     implementation(libs.bundles.surf)
     implementation(libs.bundles.room)

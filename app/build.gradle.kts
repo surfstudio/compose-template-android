@@ -64,15 +64,12 @@ android {
 
 // modules
 dependencies {
-    implementation(project(":modules:_common"))
-    implementation(project(":modules:other"))
+    implementation(project(":modules:core"))
     implementation(project(":modules:users"))
 }
 
 // libraries
 dependencies {
-
-//    implementation(project(":compose-forms"))
 
     implementation(libs.bundles.surf)
     implementation(libs.bundles.room)

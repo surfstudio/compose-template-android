@@ -5,7 +5,7 @@ import androidx.paging.PagingState
 import com.keygenqt.response.extensions.pagingSucceeded
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
-import ru.surf.users.utils.ConstantsPaging
+import ru.surf.core.utils.ConstantsPaging
 
 class UsersPageSource(
     private val search: String?,

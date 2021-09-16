@@ -1,16 +1,18 @@
 package ru.surf.users.data.preferences
 
 import android.content.SharedPreferences
+import ru.surf.core.base.CorePreferences
+import ru.surf.core.interfaces.IAppPreferences
 
-interface AppPreferencesListCache {
+interface AppPreferencesListCache : IAppPreferences {
 
-    val p: SharedPreferences
+    override val p: SharedPreferences
 
     enum class KEYS {
         LAST_UPDATE_LIST_USERS,
     }
 
-    fun clearAfterLogout() {
+    override fun clearAfterLogout() {
         lastUpdateListUsers = 0L
     }
 

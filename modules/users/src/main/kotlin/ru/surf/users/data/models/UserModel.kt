@@ -3,7 +3,7 @@ package ru.surf.users.data.models
 import androidx.compose.runtime.Immutable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import ru.surf.users.base.interfaces.IModel
+import ru.surf.core.interfaces.IModel
 
 @Entity
 @Immutable
