@@ -1,10 +1,10 @@
 package ru.surf.users.services.apiService
 
-import io.ktor.client.*
+import ru.surf.users.services.api.ApiUsers
 import ru.surf.users.services.apiService.impl.*
 
 class UsersApiService(
-    override val httpClient: HttpClient,
+    override val api: ApiUsers,
 ) :
     ApiServiceDelete,
     ApiServiceGet,

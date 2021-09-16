@@ -1,7 +1,7 @@
 package ru.surf.users.services.apiService.impl
 
-import io.ktor.client.*
+import ru.surf.users.services.api.ApiUsers
 
 interface ApiServicePost {
-    val httpClient: HttpClient
+    val api: ApiUsers
 }

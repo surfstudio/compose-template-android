@@ -64,18 +64,22 @@ android {
 
 // modules
 dependencies {
+    implementation(project(":modules:_common"))
+    implementation(project(":modules:other"))
     implementation(project(":modules:users"))
 }
 
 // libraries
 dependencies {
 
+//    implementation(project(":compose-forms"))
+
     implementation(libs.bundles.surf)
     implementation(libs.bundles.room)
     implementation(libs.bundles.paging)
     implementation(libs.bundles.other)
     implementation(libs.bundles.lottie)
-    implementation(libs.bundles.ktor)
+    implementation(libs.bundles.retrofit2)
     implementation(libs.bundles.firebase)
     implementation(libs.bundles.coil)
     implementation(libs.bundles.accompanist)

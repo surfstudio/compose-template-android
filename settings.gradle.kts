@@ -45,6 +45,9 @@ rootProject.name = "Template"
 include(":app")
 
 // include modules
+include(":modules:_template")
+include(":modules:_common")
+include(":modules:other")
 include(":modules:users")
 
 // include libs

@@ -1,18 +1,18 @@
 package ru.surf.users.di
 
+import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.ktor.client.*
-import io.ktor.client.engine.okhttp.*
-import io.ktor.client.features.*
-import io.ktor.client.features.json.*
-import io.ktor.client.features.json.serializer.*
-import io.ktor.client.features.logging.*
-import io.ktor.client.request.*
-import io.ktor.http.*
+import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import ru.surf.users.services.api.ApiUsers
+import ru.surf.users.utils.ConstantsApp.API_URL
 import timber.log.Timber
 
 @Module
@@ -26,36 +26,33 @@ object HttpClientModule {
     }
 
     @Provides
-    fun provideHttpClient(): HttpClient {
-        return HttpClient(OkHttp) {
-            // Json
-            install(JsonFeature) {
-                serializer = KotlinxSerializer(json)
-            }
-            // Logging
-            install(Logging) {
-                logger = object : Logger {
-                    override fun log(message: String) {
-                        Timber.d(message)
-                    }
+    fun provideOkHttpClient(): OkHttpClient {
+        return OkHttpClient.Builder()
+            .addInterceptor(HttpLoggingInterceptor { message -> Timber.i(message) }.apply {
+                level = HttpLoggingInterceptor.Level.BODY
+            })
+            .addInterceptor {
+                val original = it.request()
+                val request = original.newBuilder().apply {
+                    // headers
                 }
-                level = LogLevel.ALL
+                    .method(original.method, original.body)
+                    .build()
+                it.proceed(request)
             }
-            // Timeout
-            install(HttpTimeout) {
-                requestTimeoutMillis = 15000L
-                connectTimeoutMillis = 15000L
-                socketTimeoutMillis = 15000L
-            }
-            // Apply to All Requests
-            defaultRequest {
-//                if (preferences.token.isNotBlank()) {
-//                    header("Authorization", "Basic ${preferences.token}")
-//                }
-                // Content Type
-                if (this.method != HttpMethod.Get) contentType(ContentType.Application.Json)
-                accept(ContentType.Application.Json)
-            }
-        }
+            .build()
     }
+
+    @OptIn(ExperimentalSerializationApi::class)
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+        return Retrofit.Builder()
+            .client(okHttpClient)
+            .baseUrl(API_URL)
+            .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
+            .build()
+    }
+
+    @Provides
+    fun provideApiUsers(retrofit: Retrofit) = retrofit.create(ApiUsers::class.java)
 }

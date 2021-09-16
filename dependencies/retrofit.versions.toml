@@ -1,0 +1,11 @@
+# Retrofit
+# https://square.github.io/retrofit/
+
+[libraries]
+retrofit2-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.2.2" }
+retrofit2-converter = { module = "com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter", version = "0.8.0" }
+retrofit2-retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
+retrofit2-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "loggingInterceptor" }
+
+[bundles]
+retrofit2 = ["retrofit2-serialization", "retrofit2-converter", "retrofit2-retrofit", "retrofit2-logging"]
