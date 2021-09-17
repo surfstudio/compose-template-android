@@ -50,6 +50,7 @@ include(":modules:_template")
 // include modules
 include(":modules:core")
 include(":modules:users")
+include(":modules:other")
 
 // include libs
 //include(":android-response-result")
