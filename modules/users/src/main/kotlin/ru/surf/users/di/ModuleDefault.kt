@@ -8,24 +8,24 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import ru.surf.core.base.CorePreferences
-import ru.surf.users.base.AppDatabase
-import ru.surf.users.data.preferences.AppPreferences
-import ru.surf.users.services.api.ApiUsers
+import ru.surf.users.base.UsersDatabase
+import ru.surf.users.data.preferences.UsersPreferences
+import ru.surf.users.services.api.UsersApi
 
 @Module
 @InstallIn(SingletonComponent::class)
 object ModuleDefault {
 
     @Provides
-    fun provideAppDatabase(application: Application): AppDatabase {
-        return Room.databaseBuilder(application, AppDatabase::class.java, "${ModuleDefault::class.qualifiedName}.db")
+    fun provideUsersDatabase(application: Application): UsersDatabase {
+        return Room.databaseBuilder(application, UsersDatabase::class.java, "${ModuleDefault::class.qualifiedName}.db")
             .fallbackToDestructiveMigration()
             .build()
     }
 
     @Provides
-    fun provideAppPreferences(corePreferences: CorePreferences) = AppPreferences(corePreferences.p)
+    fun provideUsersPreferences(corePreferences: CorePreferences) = UsersPreferences(corePreferences.p)
 
     @Provides
-    fun provideApiUsers(retrofit: Retrofit): ApiUsers = retrofit.create(ApiUsers::class.java)
+    fun provideUsersApi(retrofit: Retrofit): UsersApi = retrofit.create(UsersApi::class.java)
 }

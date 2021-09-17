@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.Flow
 import ru.surf.users.data.models.UserModel
 
 @Dao
-interface DaoUserModel {
+interface UserModelDao {
     @Query("SELECT * FROM UserModel")
     fun pagingSource(): PagingSource<Int, UserModel>
 

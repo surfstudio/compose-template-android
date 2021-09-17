@@ -4,7 +4,7 @@ import android.content.SharedPreferences
 import ru.surf.core.base.CorePreferences
 import ru.surf.core.interfaces.IAppPreferences
 
-interface AppPreferencesBase : IAppPreferences {
+interface UsersPreferencesBase : IAppPreferences {
 
     override val p: SharedPreferences
 

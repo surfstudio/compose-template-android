@@ -44,6 +44,9 @@ dependencyResolutionManagement {
 rootProject.name = "Template"
 include(":app")
 
+// Just template for easy create new module
+include(":modules:_template")
+
 // include modules
 include(":modules:core")
 include(":modules:users")

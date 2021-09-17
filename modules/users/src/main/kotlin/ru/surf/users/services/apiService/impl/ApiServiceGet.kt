@@ -7,11 +7,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.surf.users.data.mappers.toModels
 import ru.surf.users.data.models.UserModel
-import ru.surf.users.services.api.ApiUsers
+import ru.surf.users.services.api.UsersApi
 
 interface ApiServiceGet {
 
-    val api: ApiUsers
+    val api: UsersApi
 
     suspend fun getListUsers(offset: Int, search: String? = null): ResponseResult<List<UserModel>> {
         return withContext(Dispatchers.IO) {

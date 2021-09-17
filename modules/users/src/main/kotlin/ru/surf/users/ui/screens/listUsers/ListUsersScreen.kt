@@ -6,13 +6,13 @@ import androidx.compose.runtime.getValue
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import ru.surf.users.data.models.UserModel
-import ru.surf.users.ui.actions.UsersActions
+import ru.surf.users.ui.actions.ListUsersActions
 import ru.surf.users.ui.viewModels.UsersViewModel
 
 @Composable
 fun ListUsersScreen(
     viewModel: UsersViewModel,
-    onEvent: (UsersActions) -> Unit = {},
+    onEvent: (ListUsersActions) -> Unit = {},
 ) {
     val search: String? by viewModel.search.collectAsState()
     val items: LazyPagingItems<UserModel> = viewModel.listUsers.collectAsLazyPagingItems()

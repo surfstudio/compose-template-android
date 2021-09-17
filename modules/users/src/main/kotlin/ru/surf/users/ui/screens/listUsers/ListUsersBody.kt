@@ -14,21 +14,21 @@ import ru.surf.users.R
 import ru.surf.core.compose.Loader
 import ru.surf.users.compose.PlugBlock
 import ru.surf.users.data.models.UserModel
-import ru.surf.users.ui.actions.UsersActions
+import ru.surf.users.ui.actions.ListUsersActions
 
 @Composable
 fun ListUsersBody(
     search: String?,
     items: LazyPagingItems<UserModel>,
     searchItems: LazyPagingItems<UserModel>,
-    onEvent: (UsersActions) -> Unit = {},
+    onEvent: (ListUsersActions) -> Unit = {},
 ) {
     MainScaffoldSearch(
         contentTitle = {
             TopBarContentTitle(stringResource(id = R.string.list_users_title))
         },
         searchListener = { value ->
-            onEvent(UsersActions.Search(value))
+            onEvent(ListUsersActions.Search(value))
             searchItems.refresh()
         }
     ) {

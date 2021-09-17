@@ -1,15 +1,15 @@
 package ru.surf.users.services.dataService.impl
 
 import androidx.paging.PagingSource
-import ru.surf.users.base.AppDatabase
-import ru.surf.users.data.dao.DaoUserModel
+import ru.surf.users.base.UsersDatabase
+import ru.surf.users.data.dao.UserModelDao
 import ru.surf.users.data.models.UserModel
 
 interface UserModelDataService {
 
-    val db: AppDatabase
+    val db: UsersDatabase
 
-    private val dao: DaoUserModel get() = db.daoUserModel()
+    private val dao: UserModelDao get() = db.daoUserModel()
 
     fun pagingListUserModel(): PagingSource<Int, UserModel> {
         return dao.pagingSource()

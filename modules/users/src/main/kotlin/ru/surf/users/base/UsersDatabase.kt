@@ -2,7 +2,7 @@ package ru.surf.users.base
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import ru.surf.users.data.dao.DaoUserModel
+import ru.surf.users.data.dao.UserModelDao
 import ru.surf.users.data.models.UserModel
 
 @Database(
@@ -12,6 +12,6 @@ import ru.surf.users.data.models.UserModel
     version = 1,
     exportSchema = false
 )
-abstract class AppDatabase : RoomDatabase() {
-    abstract fun daoUserModel(): DaoUserModel
+abstract class UsersDatabase : RoomDatabase() {
+    abstract fun daoUserModel(): UserModelDao
 }
