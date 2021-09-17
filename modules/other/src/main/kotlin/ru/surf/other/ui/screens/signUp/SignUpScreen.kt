@@ -1,15 +1,15 @@
-package ru.surf.other.ui.screens.login
+package ru.surf.other.ui.screens.signUp
 
 import androidx.compose.runtime.Composable
-import ru.surf.other.ui.actions.LoginActions
+import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.viewModels.OtherViewModel
 
 @Composable
-fun LoginScreen(
+fun SignUpScreen(
     viewModel: OtherViewModel,
-    onActions: (LoginActions) -> Unit = {},
+    onActions: (SignUpActions) -> Unit = {},
 ) {
-    LoginBody(
+    SignUpBody(
         onActions = onActions,
     )
 }

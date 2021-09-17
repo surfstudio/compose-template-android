@@ -5,19 +5,18 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import ru.surf.other.navigation.actions.OtherNavActions
 import ru.surf.other.navigation.nav.OtherNav
-import ru.surf.other.ui.actions.LoginActions
-import ru.surf.other.ui.screens.login.LoginScreen
+import ru.surf.other.ui.actions.SignInActions
+import ru.surf.other.ui.screens.signIn.SignInScreen
 import ru.surf.other.ui.viewModels.OtherViewModel
 
-fun NavGraphBuilder.loginScreenGraph(
+fun NavGraphBuilder.signInScreenGraph(
     navActions: OtherNavActions,
 ) {
-    composable(OtherNav.LoginNav.LoginScreen.route) {
+    composable(OtherNav.SignInNav.SignInNavScreen.route) {
         val viewModel: OtherViewModel = hiltViewModel()
-        LoginScreen(viewModel = viewModel) { event ->
+        SignInScreen(viewModel = viewModel) { event ->
             when (event) {
-                is LoginActions.Search -> {
-
+                is SignInActions.SignIn -> {
                 }
             }
         }

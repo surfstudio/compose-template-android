@@ -28,7 +28,7 @@ fun NavGraphGuest(navController: NavHostController) {
             Box(
                 modifier = Modifier.padding(it)
             ) {
-                NavHost(navController = navController, startDestination = OtherNav.LoginNav.LoginScreen.route) {
+                NavHost(navController = navController, startDestination = OtherNav.WelcomeNav.WelcomeScreen.route) {
                     otherNavGraph(
                         navActions = navActions,
                     )
