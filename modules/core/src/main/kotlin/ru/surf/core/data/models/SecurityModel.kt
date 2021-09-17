@@ -8,7 +8,6 @@ import ru.surf.core.interfaces.IModel
 @Entity
 @Immutable
 data class SecurityModel(
-    @PrimaryKey override val id: String,
+    @PrimaryKey override val id: String = "last",
     val token: String = "",
-    val isLogin: Boolean = false,
 ) : IModel

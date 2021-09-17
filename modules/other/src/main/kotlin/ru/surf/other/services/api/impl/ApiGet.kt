@@ -6,7 +6,7 @@ import retrofit2.http.Query
 import ru.surf.other.data.responses.LoginResponse
 
 interface ApiGet {
-    @GET("Templates")
+    @GET("login")
     suspend fun login(
         @Query("email") email: String,
         @Query("password") password: String,

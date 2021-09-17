@@ -65,6 +65,7 @@ android {
 // modules
 dependencies {
     implementation(project(":modules:core"))
+    implementation(project(":modules:other"))
     implementation(project(":modules:users"))
 }
 

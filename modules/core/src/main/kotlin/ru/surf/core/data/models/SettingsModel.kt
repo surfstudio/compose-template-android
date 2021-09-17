@@ -7,7 +7,7 @@ import ru.surf.core.interfaces.IModel
 
 @Entity
 @Immutable
-data class AppUserModel(
+data class SettingsModel(
     @PrimaryKey override val id: String,
-    val name: String = "",
+    val value: String = "",
 ) : IModel

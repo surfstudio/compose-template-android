@@ -11,12 +11,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.google.accompanist.insets.ProvideWindowInsets
 import ru.surf.other.navigation.graph.otherNavGraph
-import ru.surf.users.navigation.graph.usersNavGraph
-import ru.surf.users.navigation.nav.UsersNav
+import ru.surf.other.navigation.nav.OtherNav
 
 
 @Composable
-fun NavGraph(navController: NavHostController) {
+fun NavGraphGuest(navController: NavHostController) {
 
     val navActions = remember(navController) {
         NavActions(navController)
@@ -29,10 +28,7 @@ fun NavGraph(navController: NavHostController) {
             Box(
                 modifier = Modifier.padding(it)
             ) {
-                NavHost(navController = navController, startDestination = UsersNav.MainNav.ListUsersScreen.route) {
-                    usersNavGraph(
-                        navActions = navActions,
-                    )
+                NavHost(navController = navController, startDestination = OtherNav.LoginNav.LoginScreen.route) {
                     otherNavGraph(
                         navActions = navActions,
                     )

@@ -15,11 +15,15 @@ interface SecurityModelDataService {
         dao.insertModels(*models)
     }
 
-    suspend fun getSecurityModel(userId: String): Flow<SecurityModel?> {
-        return dao.getModel(userId)
+    fun getSecurityModel(): Flow<SecurityModel?> {
+        return dao.getModel()
     }
 
     suspend fun clearSecurityModel() {
         dao.clear()
+    }
+
+    fun isLogin(): Boolean {
+        return dao.count() != 0
     }
 }

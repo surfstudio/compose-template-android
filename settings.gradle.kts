@@ -49,8 +49,8 @@ include(":modules:_template")
 
 // include modules
 include(":modules:core")
-include(":modules:users")
 include(":modules:other")
+include(":modules:users")
 
 // include libs
 //include(":android-response-result")
