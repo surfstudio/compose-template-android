@@ -1,6 +1,9 @@
 package ru.surf.users.ui.screens.listUsers
 
-import androidx.compose.runtime.Composable
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.paging.LoadState
@@ -9,9 +12,10 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.accompanist.SwipeRefreshList
 import com.keygenqt.modifier.paddingLarge
+import ru.surf.core.base.LocalMainViewModel
+import ru.surf.core.compose.Loader
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.users.R
-import ru.surf.core.compose.Loader
 import ru.surf.users.compose.PlugBlock
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
@@ -23,6 +27,9 @@ fun ListUsersBody(
     searchItems: LazyPagingItems<UserModel>,
     onEvent: (ListUsersActions) -> Unit = {},
 ) {
+    val localMainViewModel = LocalMainViewModel.current
+    var expanded by remember { mutableStateOf(false) }
+
     MainScaffoldSearch(
         contentTitle = {
             TopBarContentTitle(stringResource(id = R.string.list_users_title))
@@ -30,6 +37,24 @@ fun ListUsersBody(
         searchListener = { value ->
             onEvent(ListUsersActions.Search(value))
             searchItems.refresh()
+        },
+        actions = {
+            IconButton(onClick = { expanded = true }) {
+                Icon(
+                    imageVector = Icons.Default.MoreVert,
+                    contentDescription = "Options menu"
+                )
+            }
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                DropdownMenuItem(onClick = {
+                    localMainViewModel.logout()
+                }) {
+                    Text("Logout")
+                }
+            }
         }
     ) {
 

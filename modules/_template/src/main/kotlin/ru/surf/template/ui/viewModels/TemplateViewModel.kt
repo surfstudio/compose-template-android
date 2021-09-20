@@ -7,6 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import ru.surf.core.base.AppViewModel
 import ru.surf.core.utils.ConstantsPaging
 import ru.surf.template.data.models.TemplateModel
 import ru.surf.template.paging.TemplatePageSource
@@ -20,7 +21,7 @@ import javax.inject.Inject
 class TemplateViewModel @Inject constructor(
     private val data: TemplateDataService,
     apiService: TemplateApiService,
-) : ViewModel() {
+) : AppViewModel() {
 
     private val _search: MutableStateFlow<String?> = MutableStateFlow(null)
     val search = _search.asStateFlow()

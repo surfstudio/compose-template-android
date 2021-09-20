@@ -1,4 +1,4 @@
-package ru.surf.template.ui.screens.listTemplate
+package ru.surf.template.ui.screens.status
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

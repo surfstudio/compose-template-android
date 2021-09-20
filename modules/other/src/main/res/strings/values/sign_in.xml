@@ -1,3 +1,7 @@
 <resources>
     <string name="sign_in_title">Sign In</string>
+
+    <string name="sign_in_form_email">Email</string>
+    <string name="sign_in_form_password">Password</string>
+    <string name="sign_in_form_button_submit">Submit</string>
 </resources>

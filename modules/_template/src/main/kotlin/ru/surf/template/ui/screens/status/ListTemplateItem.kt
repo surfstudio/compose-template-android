@@ -1,4 +1,4 @@
-package ru.surf.template.ui.screens.listTemplate
+package ru.surf.template.ui.screens.status
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column

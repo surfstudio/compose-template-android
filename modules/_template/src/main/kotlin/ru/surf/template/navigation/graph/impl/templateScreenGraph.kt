@@ -6,7 +6,7 @@ import androidx.navigation.compose.composable
 import ru.surf.template.navigation.actions.TemplateNavActions
 import ru.surf.template.navigation.nav.TemplateNav
 import ru.surf.template.ui.actions.ListTemplateActions
-import ru.surf.template.ui.screens.listTemplate.ListTemplateScreen
+import ru.surf.template.ui.screens.status.ListTemplateScreen
 import ru.surf.template.ui.viewModels.TemplateViewModel
 
 // @todo {ScreenName}ScreenGraph

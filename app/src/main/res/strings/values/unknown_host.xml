@@ -1,0 +1,6 @@
+<resources>
+    <string name="sign_in_title">Sign In</string>
+
+    <string name="unknown_host_text">No network connection found</string>
+    <string name="unknown_host_button">Repeat</string>
+</resources>

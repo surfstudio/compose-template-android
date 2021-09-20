@@ -3,6 +3,7 @@ package ru.surf.users.data.preferences
 import android.content.SharedPreferences
 import ru.surf.core.base.CorePreferences
 import ru.surf.core.interfaces.IAppPreferences
+import timber.log.Timber
 
 interface UsersPreferencesListCache : IAppPreferences {
 
@@ -13,6 +14,7 @@ interface UsersPreferencesListCache : IAppPreferences {
     }
 
     override fun clearAfterLogout() {
+        Timber.e("Clear cache: UsersPreferencesListCache")
         lastUpdateListUsers = 0L
     }
 

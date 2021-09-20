@@ -1,0 +1,5 @@
+<resources>
+    <string name="error_field_min_length">Minimum length %s characters</string>
+    <string name="error_field_max_length">Maximum length %s characters</string>
+    <string name="is_incorrect">Is incorrect</string>
+</resources>

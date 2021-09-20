@@ -20,9 +20,11 @@ import ru.surf.core.base.MainViewModel
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.template.navigation.NavGraph
 import ru.surf.template.navigation.NavGraphGuest
+import ru.surf.template.navigation.NavGraphMain
+import timber.log.Timber
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class AppActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
 
@@ -35,12 +37,18 @@ class MainActivity : ComponentActivity() {
             ) {
                 MainAppTheme {
                     // change status bar color
-                    this@MainActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
+                    this@AppActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
                     // select graph
                     val isLogin by viewModel.isLogin.collectAsState(null)
-                    when (isLogin) {
-                        true -> NavGraph(rememberNavController())
-                        false -> NavGraphGuest(rememberNavController())
+                    val hasNetwork by viewModel.hasNetwork.collectAsState()
+
+                    if (!hasNetwork) {
+                        NavGraphMain(rememberNavController())
+                    } else {
+                        when (isLogin) {
+                            true -> NavGraph(rememberNavController())
+                            false -> NavGraphGuest(rememberNavController())
+                        }
                     }
                 }
             }
@@ -53,7 +61,7 @@ class MainActivity : ComponentActivity() {
                     override fun onPreDraw(): Boolean {
                         return if (viewModel.isReady.value) {
                             // remove BG splash
-                            this@MainActivity.window.decorView.setBackgroundColor(Color.WHITE)
+                            this@AppActivity.window.decorView.setBackgroundColor(Color.WHITE)
                             // done splash remove listener
                             content.viewTreeObserver.removeOnPreDrawListener(this); true
                         } else false
