@@ -1,4 +1,4 @@
-package ru.surf.template.ui.theme
+package ru.surf.core.theme
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle
@@ -7,7 +7,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import ru.surf.core.base.TypographyCustom
-import ru.surf.template.R
+import ru.surf.core.R
 
 val montserratFamily = FontFamily(
     Font(R.font.montserrat_semi_bold, FontWeight.SemiBold),

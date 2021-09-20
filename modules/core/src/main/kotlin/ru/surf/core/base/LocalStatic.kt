@@ -1,8 +1,7 @@
-package ru.surf.template.base
+package ru.surf.core.base
 
 import androidx.activity.OnBackPressedDispatcher
 import androidx.compose.runtime.staticCompositionLocalOf
-import ru.surf.template.ui.viewModels.MainViewModel
 
 val LocalMainViewModel = staticCompositionLocalOf<MainViewModel> { error("No MainViewModel found!") }
 

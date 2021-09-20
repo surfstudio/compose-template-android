@@ -1,4 +1,4 @@
-package ru.surf.template.ui.theme
+package ru.surf.core.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.Colors
@@ -26,7 +26,7 @@ val LightColorPalette: @Composable () -> Colors by lazy {
 }
 
 @Composable
-fun TemplateTheme(content: @Composable() () -> Unit) {
+fun MainAppTheme(content: @Composable() () -> Unit) {
 
     val colorsCustom = if (isSystemInDarkTheme()) {
         DarkColorCustomPalette.invoke()

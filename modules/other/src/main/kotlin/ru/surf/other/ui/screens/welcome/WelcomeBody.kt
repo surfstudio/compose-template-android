@@ -1,29 +1,54 @@
 package ru.surf.other.ui.screens.welcome
 
-import androidx.compose.foundation.background
+import android.content.res.Configuration.UI_MODE_NIGHT_NO
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Devices.NEXUS_6
+import androidx.compose.ui.tooling.preview.Devices.PIXEL_4
+import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
 import com.keygenqt.accompanist.ClickableTextColorAnimation
 import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.paddingXLarge
 import com.keygenqt.modifier.sizeXLarge
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import ru.surf.core.base.MaterialThemeCustom
+import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.WelcomeActions
+
+@Composable
+fun WelcomeAnimation(
+    modifier: Modifier = Modifier,
+) {
+    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.team))
+    val progress by animateLottieCompositionAsState(
+        composition = composition,
+        iterations = LottieConstants.IterateForever
+    )
+    LottieAnimation(
+        composition = composition,
+        progress = progress,
+        modifier = modifier
+    )
+}
 
 @Composable
 fun WelcomeBody(
     onActions: (WelcomeActions) -> Unit = {},
 ) {
+    val delayClick = 150L
+    val scope = rememberCoroutineScope()
 
     Column(
         modifier = Modifier
@@ -47,7 +72,7 @@ fun WelcomeBody(
                 .paddingXLarge()
                 .fillMaxSize()
         ) {
-            Logo(
+            WelcomeAnimation(
                 modifier = Modifier
                     .fillMaxWidth()
                     .align(Alignment.Center)
@@ -62,7 +87,10 @@ fun WelcomeBody(
         ) {
             Button(
                 onClick = {
-
+                    scope.launch {
+                        delay(delayClick)
+                        onActions(WelcomeActions.ToSignIn)
+                    }
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {
@@ -72,39 +100,27 @@ fun WelcomeBody(
             Spacer(modifier = Modifier.sizeXLarge())
 
             ClickableTextColorAnimation(
-                onClick = {
-
-                },
-                text = stringResource(id = R.string.welcome_btn_sign_up),
+                delay = delayClick,
                 colorDefault = MaterialThemeCustom.colors.link,
                 colorAction = MaterialThemeCustom.colors.linkAction,
+                text = stringResource(id = R.string.welcome_btn_sign_up),
+                onClick = {
+                    onActions(WelcomeActions.ToSignUp)
+                }
             )
 
             Spacer(modifier = Modifier.sizeXLarge())
         }
     }
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-    ) {
+}
 
-
+@Preview(uiMode = UI_MODE_NIGHT_NO, device = PIXEL_4)
+@Preview(uiMode = UI_MODE_NIGHT_YES, device = NEXUS_6)
+@Composable
+private fun Preview() {
+    MainAppTheme {
+        Scaffold {
+            WelcomeBody()
+        }
     }
 }
-
-@Composable
-fun Logo(
-    modifier: Modifier = Modifier,
-) {
-    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.team))
-    val progress by animateLottieCompositionAsState(
-        composition = composition,
-        iterations = LottieConstants.IterateForever
-    )
-    LottieAnimation(
-        composition = composition,
-        progress = progress,
-        modifier = modifier
-    )
-}
-

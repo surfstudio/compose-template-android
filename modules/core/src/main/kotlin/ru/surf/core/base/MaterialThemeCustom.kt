@@ -12,7 +12,7 @@ object LocalColorsCustom {
 
 @Composable
 fun MaterialThemeCustom(
-    colors: ColorsCustom,
+    colors: ColorsCustom = LocalColorsCustom.colors!!,
     typography: TypographyCustom = TypographyCustom.default.invoke(),
     shapes: ShapesCustom = ShapesCustom.default,
 ) {

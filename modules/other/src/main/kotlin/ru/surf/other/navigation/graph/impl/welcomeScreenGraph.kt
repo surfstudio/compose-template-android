@@ -16,12 +16,8 @@ fun NavGraphBuilder.welcomeScreenGraph(
         val viewModel: OtherViewModel = hiltViewModel()
         WelcomeScreen(viewModel = viewModel) { event ->
             when (event) {
-                is WelcomeActions.ToSignIn -> {
-
-                }
-                is WelcomeActions.ToSignUp -> {
-
-                }
+                is WelcomeActions.ToSignIn -> navActions.toSignIn()
+                is WelcomeActions.ToSignUp -> navActions.toSignUp()
             }
         }
     }

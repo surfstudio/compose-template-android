@@ -1,4 +1,4 @@
-package ru.surf.template.ui.viewModels
+package ru.surf.core.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

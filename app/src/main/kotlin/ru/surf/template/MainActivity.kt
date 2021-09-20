@@ -14,12 +14,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.toArgb
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import ru.surf.template.base.LocalBackPressedDispatcher
-import ru.surf.template.base.LocalMainViewModel
+import ru.surf.core.base.LocalBackPressedDispatcher
+import ru.surf.core.base.LocalMainViewModel
+import ru.surf.core.base.MainViewModel
+import ru.surf.core.theme.MainAppTheme
 import ru.surf.template.navigation.NavGraph
 import ru.surf.template.navigation.NavGraphGuest
-import ru.surf.template.ui.theme.TemplateTheme
-import ru.surf.template.ui.viewModels.MainViewModel
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 LocalMainViewModel provides viewModel,
                 LocalBackPressedDispatcher provides this.onBackPressedDispatcher
             ) {
-                TemplateTheme {
+                MainAppTheme {
                     // change status bar color
                     this@MainActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
                     // select graph
