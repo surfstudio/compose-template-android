@@ -1,7 +1,6 @@
 package ru.surf.other.ui.screens.welcome
 
-import android.content.res.Configuration.UI_MODE_NIGHT_NO
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.Scaffold
@@ -12,8 +11,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Devices.NEXUS_6
-import androidx.compose.ui.tooling.preview.Devices.PIXEL_4
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
 import com.keygenqt.accompanist.ClickableTextColorAnimation
@@ -114,8 +112,8 @@ fun WelcomeBody(
     }
 }
 
-@Preview(uiMode = UI_MODE_NIGHT_NO, device = PIXEL_4)
-@Preview(uiMode = UI_MODE_NIGHT_YES, device = NEXUS_6)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, device = Devices.PIXEL_4)
+@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, device = Devices.NEXUS_6)
 @Composable
 private fun Preview() {
     MainAppTheme {
