@@ -1,10 +1,10 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="opaque">
-    <item android:drawable="@color/black" />
+    <item android:drawable="@color/background" />
 
     <item
-        android:width="100dp"
-        android:height="100dp"
+        android:width="180dp"
+        android:height="180dp"
         android:drawable="@drawable/preview"
         android:gravity="center" />
 

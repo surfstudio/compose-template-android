@@ -1,11 +1,11 @@
 @file:Suppress("unused")
 
-package ru.surf.template.initializer
+package ru.surf.core.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
 import com.google.firebase.crashlytics.FirebaseCrashlytics
-import ru.surf.template.BuildConfig
+import ru.surf.core.BuildConfig
 
 class CrashlyticsInitializer : Initializer<Unit> {
 

@@ -32,14 +32,18 @@
             tools:node="merge">
 
             <meta-data
-                android:name="ru.surf.template.initializer.TimberInitializer"
+                android:name="ru.surf.core.initializer.TimberInitializer"
                 android:value="androidx.startup" />
 
             <meta-data
-                android:name="ru.surf.template.initializer.CrashlyticsInitializer"
+                android:name="ru.surf.core.initializer.CrashlyticsInitializer"
+                android:value="androidx.startup" />
+
+            <meta-data
+                android:name="ru.surf.core.initializer.ModifierInitializer"
                 android:value="androidx.startup" />
         </provider>
-        
+
     </application>
 
 </manifest>

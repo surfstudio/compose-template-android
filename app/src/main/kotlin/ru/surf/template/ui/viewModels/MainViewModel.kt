@@ -7,11 +7,9 @@ import com.keygenqt.response.extensions.success
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
-import ru.surf.core.data.models.SecurityModel
 import ru.surf.core.services.apiService.CoreApiService
 import ru.surf.core.services.dataService.CoreDataService
 import timber.log.Timber
-import java.util.*
 import javax.inject.Inject
 
 @HiltViewModel
@@ -50,13 +48,6 @@ class MainViewModel @Inject constructor(
                 }.error {
                     Timber.e(it)
                 }
-
-            // @todo Set login. Remove after create login form
-            data.withTransaction {
-                insertSecurityModel(SecurityModel(token = UUID.randomUUID().toString()))
-                // Start app
-                _isReady.value = true
-            }
         }
     }
 }

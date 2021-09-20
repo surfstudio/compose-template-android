@@ -1,10 +1,10 @@
 @file:Suppress("unused")
 
-package ru.surf.template.initializer
+package ru.surf.core.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
-import ru.surf.template.BuildConfig
+import ru.surf.core.BuildConfig
 import timber.log.Timber
 
 class TimberInitializer : Initializer<Unit> {

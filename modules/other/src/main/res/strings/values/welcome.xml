@@ -1,0 +1,5 @@
+<resources>
+    <string name="welcome_title">Welcome!</string>
+    <string name="welcome_btn_sign_in">Sign in to your account</string>
+    <string name="welcome_btn_sign_up">Create Account</string>
+</resources>
