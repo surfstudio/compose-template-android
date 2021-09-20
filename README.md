@@ -15,3 +15,9 @@ Compose Template Android
 * [Dokka](https://github.com/Kotlin/dokka)
 * [Ktlint](https://ktlint.github.io/)
 * [Mocker](https://github.com/LastSprint/mocker)
+
+### Preview
+<p>
+<img src="data/gif/vokoscreen-2021-09-20_19-19-53.gif" width="35%"/>
+<img src="data/gif/vokoscreen-2021-09-20_19-22-02.gif" width="35%"/>
+</p>
