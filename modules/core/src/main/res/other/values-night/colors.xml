@@ -6,12 +6,12 @@
     <color name="secondaryVariant">#FF018786</color>
     <color name="background">#1C1C1C</color>
     <color name="surface">#424242</color>
-    <color name="error">#250000</color>
+    <color name="error">#E39696</color>
     <color name="onPrimary">#DDDDDD</color>
     <color name="onSecondary">#000000</color>
     <color name="onBackground">#FFFFFF</color>
     <color name="onSurface">#FFFFFF</color>
-    <color name="onError">#FF9090</color>
+    <color name="onError">#7E0B0B</color>
 
     <!-- custom-->
     <color name="link">#009CE3</color>

@@ -198,7 +198,7 @@ private fun SignUpForm(
         FormField(
             maxLines = 5,
             singleLine = false,
-            modifier = Modifier.focusRequester(requesterSignUpPhoneHome),
+            modifier = Modifier.focusRequester(requesterSignUpBio),
             label = stringResource(id = R.string.sign_up_bio),
             enabled = !loading,
             state = formFields.get(SignUpBio),
