@@ -1,3 +1,10 @@
 <resources>
     <string name="sign_up_title">Sign Up</string>
+    <string name="sign_up_subtitle_required">Required</string>
+    <string name="sign_up_subtitle_optional">Optional</string>
+    <string name="sign_up_fname">First Name</string>
+    <string name="sign_up_lname">Last Name</string>
+    <string name="sign_up_phone_work">Phone Work</string>
+    <string name="sign_up_phone_home">Phone Home</string>
+    <string name="sign_up_bio">Bio</string>
 </resources>

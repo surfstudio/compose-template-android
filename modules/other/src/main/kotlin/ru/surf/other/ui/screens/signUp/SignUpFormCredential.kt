@@ -1,10 +1,11 @@
-package ru.surf.other.ui.screens.signIn
+package ru.surf.other.ui.screens.signUp
 
 import android.content.res.Configuration
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -20,26 +21,65 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.google.accompanist.pager.ExperimentalPagerApi
 import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormFieldEmail
 import com.keygenqt.forms.fields.FormFieldPassword
 import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.paddingMedium
-import com.keygenqt.modifier.paddingSmall
+import com.keygenqt.modifier.sizeLarge
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.core.utils.ConstantsApp
 import ru.surf.other.R
-import ru.surf.other.ui.actions.SignInActions
-import ru.surf.other.ui.forms.SignInFieldsForm.*
+import ru.surf.other.ui.actions.SignUpActions
+import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.*
 
+@OptIn(ExperimentalPagerApi::class)
+@Composable
+fun SignUpFormCredential(
+    loading: Boolean = false,
+    commonError: String? = null,
+    onActions: (SignUpActions) -> Unit = {},
+    savedData: (email: String, pass: String) -> Unit = { _, _ -> }
+) {
+    val listState = rememberScrollState()
+
+    Column(
+        modifier = Modifier
+            .padding(start = 16.dp, end = 16.dp)
+            .background(MaterialTheme.colors.background)
+            .fillMaxSize()
+            .verticalScroll(listState)
+    ) {
+
+        Spacer(modifier = Modifier.sizeLarge())
+
+        // common error
+        commonError?.let {
+            BoxTextFieldError(textError = it)
+            Spacer(Modifier.sizeLarge())
+            LaunchedEffect(commonError) { listState.animateScrollTo(0) }
+        }
+
+        SignUpForm(
+            loading = loading,
+            onActions = onActions,
+            savedData = savedData,
+        )
+
+        Spacer(modifier = Modifier.sizeLarge())
+    }
+}
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
-fun SignInForm(
+private fun SignUpForm(
     loading: Boolean = false,
-    onActions: (SignInActions) -> Unit = {},
+    onActions: (SignUpActions) -> Unit = {},
+    savedData: (email: String, pass: String) -> Unit = { _, _ -> }
 ) {
     Column {
         val softwareKeyboardController = LocalSoftwareKeyboardController.current
@@ -48,8 +88,8 @@ fun SignInForm(
 
         // Create from state
         val formFields = FormFieldsState().apply {
-            add(SignInEmail, remember { SignInEmail.state.default(ConstantsApp.DEBUG_CREDENTIAL_LOGIN) })
-            add(SignInPassword, remember { SignInPassword.state.default(ConstantsApp.DEBUG_CREDENTIAL_PASSW) })
+            add(SignUpEmail, remember { SignUpEmail.state.default(ConstantsApp.DEBUG_CREDENTIAL_LOGIN) })
+            add(SignUpPassword, remember { SignUpPassword.state.default(ConstantsApp.DEBUG_CREDENTIAL_PASSW) })
         }
 
         val requesterFieldEmail = remember { FocusRequester() }
@@ -64,25 +104,24 @@ fun SignInForm(
             // check has errors
             if (!formFields.hasErrors()) {
                 // submit query
+                savedData.invoke(
+                    formFields.get(SignUpEmail).getValue(),
+                    formFields.get(SignUpPassword).getValue(),
+                )
                 onActions(
-                    SignInActions.SignIn(
-                        email = formFields.get(SignInEmail).getValue(),
-                        pass = formFields.get(SignInPassword).getValue(),
-                    )
+                    SignUpActions.SignUpValidate(formFields.get(SignUpEmail).getValue())
                 )
                 // hide keyboard
                 softwareKeyboardController?.hide()
             }
         }
 
-        Spacer(modifier = Modifier.paddingSmall())
-
         // Create field email
         FormFieldEmail(
             modifier = Modifier.focusRequester(requesterFieldEmail),
             label = stringResource(id = R.string.sign_in_form_email),
             enabled = !loading,
-            state = formFields.get(SignInEmail),
+            state = formFields.get(SignUpEmail),
             imeAction = ImeAction.Next,
             keyboardActions = KeyboardActions(onNext = { requesterFieldPassword.requestFocus() })
         )
@@ -93,7 +132,7 @@ fun SignInForm(
         FormFieldPassword(
             modifier = Modifier.focusRequester(requesterFieldPassword),
             enabled = !loading,
-            state = formFields.get(SignInPassword),
+            state = formFields.get(SignUpPassword),
             imeAction = ImeAction.Done,
             tintIcon = MaterialTheme.colors.onPrimary,
             keyboardActions = KeyboardActions(onDone = { submitClick.invoke() })
@@ -114,8 +153,6 @@ fun SignInForm(
             )
         }
 
-        Spacer(modifier = Modifier.paddingMedium())
-
         // Clear focus after end
         LaunchedEffect(Unit) {
             scope.launch {
@@ -132,7 +169,7 @@ fun SignInForm(
 private fun Preview() {
     MainAppTheme {
         Scaffold {
-            SignInForm()
+            SignUpFormCredential()
         }
     }
 }
