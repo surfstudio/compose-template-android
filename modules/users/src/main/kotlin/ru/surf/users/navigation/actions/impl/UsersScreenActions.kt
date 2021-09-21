@@ -10,4 +10,10 @@ interface UsersScreenActions {
     fun navigateToUsers() {
         controller.navigate(UsersNav.MainNav.ListUsersScreen.route)
     }
+
+    fun navigateToUser(userId: String) {
+        UsersNav.MainNav.ViewUserScreen.apply {
+            controller.navigate(getRoute(userId))
+        }
+    }
 }

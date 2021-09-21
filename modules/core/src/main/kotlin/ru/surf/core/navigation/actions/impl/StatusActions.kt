@@ -1,4 +1,4 @@
-package ru.surf.template.navigation.actions.impl
+package ru.surf.core.navigation.actions.impl
 
 import androidx.navigation.NavHostController
 

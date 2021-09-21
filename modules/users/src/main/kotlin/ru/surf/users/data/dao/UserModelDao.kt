@@ -10,11 +10,11 @@ import ru.surf.users.data.models.UserModel
 
 @Dao
 interface UserModelDao {
-    @Query("SELECT * FROM UserModel")
+    @Query("SELECT * FROM UserModel ORDER BY CAST(id AS INT)")
     fun pagingSource(): PagingSource<Int, UserModel>
 
     @Query("SELECT * FROM UserModel WHERE id = :id")
-    fun getModel(id: Int): Flow<UserModel>
+    fun getModel(id: String): Flow<UserModel>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertModels(vararg models: UserModel)

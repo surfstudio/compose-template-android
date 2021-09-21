@@ -49,6 +49,13 @@ android {
 // libraries
 dependencies {
 
+//    libs
+//    implementation(project(":android-response-result"))
+//    implementation(project(":compose-forms"))
+//    implementation(project(":compose-modifier-ext"))
+//    implementation(project(":compose-routing"))
+//    implementation(project(":surf-accompanist"))
+
     implementation(libs.bundles.surf)
     implementation(libs.bundles.room)
     implementation(libs.bundles.paging)

@@ -2,14 +2,11 @@ package ru.surf.other.ui.screens.signUp
 
 import android.content.res.Configuration
 import androidx.activity.OnBackPressedDispatcher
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
@@ -24,9 +21,8 @@ import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
-import timber.log.Timber
 
-@OptIn(ExperimentalPagerApi::class, androidx.compose.ui.ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 @Composable
 fun SignUpBody(
     loading: Boolean = false,

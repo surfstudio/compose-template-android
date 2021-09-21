@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.google.accompanist.insets.ProvideWindowInsets
-import ru.surf.template.navigation.graph.mainNavGraph
-import ru.surf.template.navigation.nav.AppNav
+import ru.surf.core.navigation.graph.mainNavGraph
+import ru.surf.core.navigation.nav.CoreNav
 
 
 @Composable
@@ -28,7 +28,7 @@ fun NavGraphMain(navController: NavHostController) {
             Box(
                 modifier = Modifier.padding(it)
             ) {
-                NavHost(navController = navController, startDestination = AppNav.StatusNav.StatusScreen.route) {
+                NavHost(navController = navController, startDestination = CoreNav.StatusNav.StatusScreen.route) {
                     mainNavGraph(
                         navActions = navActions,
                     )

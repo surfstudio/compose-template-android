@@ -1,4 +1,4 @@
-package ru.surf.template.ui.actions
+package ru.surf.core.ui.actions
 
 sealed class UnknownHostActions {
     object Repeat : UnknownHostActions()

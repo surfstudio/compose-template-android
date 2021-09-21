@@ -3,11 +3,13 @@ package ru.surf.users.services.api.impl
 import androidx.annotation.IntRange
 import retrofit2.Response
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
-import ru.surf.users.data.responses.UserResponse
 import ru.surf.core.utils.ConstantsPaging
+import ru.surf.users.data.responses.UserResponse
 
 interface ApiGet {
+
     @GET("users")
     suspend fun getListUsers(
         @Query("search")
@@ -18,4 +20,9 @@ interface ApiGet {
         @Query("limit")
         limit: Int = ConstantsPaging.PAGE_LIMIT,
     ): Response<List<UserResponse>>
+
+    @GET("users/{id}")
+    suspend fun updateUser(
+        @Path("id") id: String?,
+    ): Response<UserResponse>
 }

@@ -1,4 +1,4 @@
-package ru.surf.template.ui.screens.status
+package ru.surf.core.ui.screens.status
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.*
@@ -15,8 +15,8 @@ import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.paddingXLarge
 import com.keygenqt.modifier.sizeXLarge
 import ru.surf.core.theme.MainAppTheme
-import ru.surf.template.R
-import ru.surf.template.ui.actions.UnknownHostActions
+import ru.surf.core.R
+import ru.surf.core.ui.actions.UnknownHostActions
 
 @Composable
 fun UnknownHostAnimation(

@@ -12,7 +12,7 @@ import ru.surf.users.ui.viewModels.UsersViewModel
 @Composable
 fun ListUsersScreen(
     viewModel: UsersViewModel,
-    onEvent: (ListUsersActions) -> Unit = {},
+    onActions: (ListUsersActions) -> Unit = {},
 ) {
     val search: String? by viewModel.search.collectAsState()
     val items: LazyPagingItems<UserModel> = viewModel.listUsers.collectAsLazyPagingItems()
@@ -22,6 +22,6 @@ fun ListUsersScreen(
         search = search,
         items = items,
         searchItems = searchItems,
-        onEvent = onEvent,
+        onActions = onActions,
     )
 }

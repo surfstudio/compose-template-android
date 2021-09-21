@@ -1,14 +1,14 @@
 package ru.surf.users.services.dataService.impl
 
 import androidx.paging.PagingSource
+import kotlinx.coroutines.flow.Flow
 import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.users.base.UsersDatabase
 import ru.surf.users.data.dao.UserModelDao
 import ru.surf.users.data.models.UserModel
-import ru.surf.users.services.dataService.UsersDataService
 import timber.log.Timber
 
-interface UserModelDataService: IAppDatabase {
+interface UserModelDataService : IAppDatabase {
 
     override val db: UsersDatabase
 
@@ -16,6 +16,10 @@ interface UserModelDataService: IAppDatabase {
 
     override fun clearCacheAfterLogout() {
         Timber.e("Clear cache: UserModelDataService")
+    }
+
+    fun getUserModel(userId: String): Flow<UserModel> {
+        return dao.getModel(userId)
     }
 
     fun pagingListUserModel(): PagingSource<Int, UserModel> {

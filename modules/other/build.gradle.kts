@@ -52,7 +52,7 @@ dependencies {
     // Common module for all modules
     implementation(project(":modules:core"))
 
-    // modules
+//    libs
 //    implementation(project(":android-response-result"))
 //    implementation(project(":compose-forms"))
 //    implementation(project(":compose-modifier-ext"))

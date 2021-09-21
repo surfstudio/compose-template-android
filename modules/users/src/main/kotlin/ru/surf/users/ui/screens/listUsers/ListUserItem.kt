@@ -18,7 +18,7 @@ import ru.surf.users.ui.actions.ListUsersActions
 @Composable
 fun ListUserItem(
     model: UserModel,
-    onEvent: (ListUsersActions) -> Unit = {},
+    onActions: (ListUsersActions) -> Unit = {},
 ) {
     Card(
         shape = MaterialTheme.shapes.medium,
@@ -26,7 +26,7 @@ fun ListUserItem(
             .fillMaxWidth()
             .padding(bottom = 16.dp)
             .clickable {
-
+                onActions(ListUsersActions.ToViewUser(model.id))
             }
     ) {
         Column(

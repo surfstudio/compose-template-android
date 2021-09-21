@@ -1,10 +1,10 @@
-package ru.surf.template.ui.screens.status
+package ru.surf.core.ui.screens.status
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import ru.surf.core.base.MainViewModel
-import ru.surf.template.ui.actions.UnknownHostActions
+import ru.surf.core.ui.actions.UnknownHostActions
 
 @Composable
 fun StatusScreen(

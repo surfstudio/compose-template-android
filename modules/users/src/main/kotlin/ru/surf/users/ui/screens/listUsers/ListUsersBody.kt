@@ -13,10 +13,11 @@ import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.accompanist.SwipeRefreshList
 import com.keygenqt.modifier.paddingLarge
 import ru.surf.core.base.LocalMainViewModel
+import ru.surf.core.compose.EmptyPage
 import ru.surf.core.compose.Loader
+import ru.surf.core.compose.LoaderPage
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.users.R
-import ru.surf.users.compose.PlugBlock
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 
@@ -25,17 +26,22 @@ fun ListUsersBody(
     search: String?,
     items: LazyPagingItems<UserModel>,
     searchItems: LazyPagingItems<UserModel>,
-    onEvent: (ListUsersActions) -> Unit = {},
+    onActions: (ListUsersActions) -> Unit = {},
 ) {
     val localMainViewModel = LocalMainViewModel.current
     var expanded by remember { mutableStateOf(false) }
+    val contentLoading = @Composable { LoaderPage() }
+    val contentEmpty = @Composable { EmptyPage() }
+    val contentLoadState = @Composable { loadState: LoadState ->
+        if (loadState is LoadState.Loading) Loader(Modifier.paddingLarge())
+    }
 
     MainScaffoldSearch(
         contentTitle = {
             TopBarContentTitle(stringResource(id = R.string.list_users_title))
         },
         searchListener = { value ->
-            onEvent(ListUsersActions.Search(value))
+            onActions(ListUsersActions.Search(value))
             searchItems.refresh()
         },
         actions = {
@@ -57,29 +63,16 @@ fun ListUsersBody(
             }
         }
     ) {
-
-        val contentEmpty = @Composable {
-            PlugBlock(
-                title = stringResource(id = R.string.common_state_empty_title),
-                text = stringResource(id = R.string.common_state_empty_text),
-            )
-        }
-
-        val contentLoadState = @Composable { loadState: LoadState ->
-            if (loadState is LoadState.Loading) {
-                Loader(Modifier.paddingLarge())
-            }
-        }
-
         search?.let {
             SwipeRefreshList(
                 modifier = Modifier,
                 items = searchItems,
                 state = rememberSwipeRefreshState(searchItems.loadState.refresh is LoadState.Loading),
                 contentEmpty = contentEmpty,
-                contentLoadState = contentLoadState
+                contentLoadState = contentLoadState,
+                contentLoading = contentLoading,
             ) { _, model ->
-                ListUserItem(model = model)
+                ListUserItem(model = model, onActions = onActions)
             }
         } ?: run {
             SwipeRefreshList(
@@ -87,9 +80,10 @@ fun ListUsersBody(
                 items = items,
                 state = rememberSwipeRefreshState(items.loadState.refresh is LoadState.Loading),
                 contentEmpty = contentEmpty,
-                contentLoadState = contentLoadState
+                contentLoadState = contentLoadState,
+                contentLoading = contentLoading,
             ) { _, model ->
-                ListUserItem(model = model)
+                ListUserItem(model = model, onActions = onActions)
             }
         }
     }

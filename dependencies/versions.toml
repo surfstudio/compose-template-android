@@ -51,7 +51,7 @@ androidResponseResult = "0.0.4"
 # https://github.com/keygenqt/compose-routing
 composeRouting = "0.0.1"
 # https://github.com/keygenqt/surf-accompanist
-surfAccompanist = "0.0.5"
+surfAccompanist = "0.0.6"
 # https://github.com/keygenqt/compose-forms
 composeForms = "0.0.8"
 # Tests

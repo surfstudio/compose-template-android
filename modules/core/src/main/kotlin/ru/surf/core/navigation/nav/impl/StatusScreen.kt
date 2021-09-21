@@ -1,4 +1,4 @@
-package ru.surf.template.navigation.nav.impl
+package ru.surf.core.navigation.nav.impl
 
 import com.keygenqt.routing.NavScreen
 
