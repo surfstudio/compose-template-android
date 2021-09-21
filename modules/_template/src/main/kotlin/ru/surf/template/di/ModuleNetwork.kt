@@ -13,15 +13,7 @@ import ru.surf.template.services.dataService.TemplateDataService
 
 @Module
 @InstallIn(ViewModelComponent::class)
-object ModuleServices {
-
-    @Provides
-    // @todo provide{ModuleName}DataService
-    // @todo {ModuleName}Database
-    // @todo {ModuleName}Preferences
-    // @todo {ModuleName}DataService
-    fun provideTemplateDataService(db: TemplateDatabase, preferences: TemplatePreferences) =
-        TemplateDataService(db, preferences)
+object ModuleNetwork {
 
     @Provides
     // @todo provide{ModuleName}Api

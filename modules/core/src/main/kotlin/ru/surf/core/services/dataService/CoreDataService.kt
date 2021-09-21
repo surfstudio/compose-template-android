@@ -10,7 +10,11 @@ import ru.surf.core.services.dataService.impl.SecurityModelDataService
 class CoreDataService(
     override val db: CoreDatabase,
     override val dbSecurity: CoreSecurityDatabase,
-    override val preferences: CorePreferences
-) : IAppDatabase<CoreDataService>,
-    SecurityModelDataService,
-    SettingsModelDataService
+) : SecurityModelDataService,
+    SettingsModelDataService {
+
+    override fun clearCacheAfterLogout() {
+        super<SecurityModelDataService>.clearCacheAfterLogout()
+        super<SettingsModelDataService>.clearCacheAfterLogout()
+    }
+}

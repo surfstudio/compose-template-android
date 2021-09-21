@@ -4,5 +4,5 @@ import android.content.SharedPreferences
 
 interface IAppPreferences {
     val p: SharedPreferences
-    fun clearAfterLogout()
+    fun clearCacheAfterLogout()
 }

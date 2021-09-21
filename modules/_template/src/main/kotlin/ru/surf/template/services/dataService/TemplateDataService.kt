@@ -1,6 +1,5 @@
 package ru.surf.template.services.dataService
 
-import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.template.base.TemplateDatabase
 import ru.surf.template.data.preferences.TemplatePreferences
 import ru.surf.template.services.dataService.impl.TemplateModelDataService
@@ -10,7 +9,5 @@ import ru.surf.template.services.dataService.impl.TemplateModelDataService
 // @todo {ModuleName}Preferences
 // @todo {ModelName}DataService
 class TemplateDataService(
-    override val db: TemplateDatabase,
-    override val preferences: TemplatePreferences
-) : IAppDatabase<TemplateDataService>,
-    TemplateModelDataService
+    override val db: TemplateDatabase
+) : TemplateModelDataService

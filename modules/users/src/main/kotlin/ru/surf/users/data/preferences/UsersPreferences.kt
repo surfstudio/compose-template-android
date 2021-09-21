@@ -6,8 +6,8 @@ class UsersPreferences(override val p: SharedPreferences) :
     UsersPreferencesBase,
     UsersPreferencesListCache {
 
-    override fun clearAfterLogout() {
-        super<UsersPreferencesBase>.clearAfterLogout()
-        super<UsersPreferencesListCache>.clearAfterLogout()
+    override fun clearCacheAfterLogout() {
+        super<UsersPreferencesBase>.clearCacheAfterLogout()
+        super<UsersPreferencesListCache>.clearCacheAfterLogout()
     }
 }

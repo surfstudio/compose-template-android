@@ -13,7 +13,7 @@ interface UsersPreferencesBase : IAppPreferences {
         IS_START_PAGE,
     }
 
-    override fun clearAfterLogout() {
+    override fun clearCacheAfterLogout() {
         Timber.e("Clear cache: UsersPreferencesBase")
     }
 

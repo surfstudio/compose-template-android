@@ -1,5 +1,6 @@
 package ru.surf.core.base
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.keygenqt.response.extensions.done
 import com.keygenqt.response.extensions.error
@@ -8,24 +9,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import ru.surf.core.data.models.SecurityModel
+import ru.surf.core.extension.withTransaction
+import ru.surf.core.interfaces.IAppDatabase
+import ru.surf.core.interfaces.IAppPreferences
 import ru.surf.core.services.apiService.CoreApiService
 import ru.surf.core.services.dataService.CoreDataService
 import timber.log.Timber
-import java.net.UnknownHostException
 import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val api: CoreApiService,
-    private val data: CoreDataService,
-) : AppViewModel() {
-
-    override fun tryExecuteWithResponse(exception: Exception) {
-        if (exception is UnknownHostException) {
-            _hasNetwork.value = false
-            _isReady.value = true
-        }
-    }
+    private val apiService: CoreApiService,
+    private val dataService: CoreDataService,
+    private var dataServices: Set<@JvmSuppressWildcards IAppDatabase>,
+    private var preferences: Set<@JvmSuppressWildcards IAppPreferences>,
+) : ViewModel() {
 
     private val _loading: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val loading: StateFlow<Boolean> get() = _loading.asStateFlow()
@@ -37,14 +35,28 @@ class MainViewModel @Inject constructor(
     val isReady: StateFlow<Boolean> get() = _isReady.asStateFlow()
 
     val isLogin = flow {
-        data.getSecurityModel().distinctUntilChanged().collect {
-            LocalUserChangeStatus.changeStatus(it != null)
+        dataService.getSecurityModel().distinctUntilChanged().collect {
             emit(it != null)
+            // clear data if logout
+            if (it == null) {
+                dataServices.forEach { service ->
+                    service.clearCacheAfterLogout()
+                }
+                preferences.forEach { service ->
+                    service.clearCacheAfterLogout()
+                }
+            }
         }
     }
 
     init {
+        // update settings
         updateSettings()
+        // common errors response UnknownHostException
+        TryExecuteWithResponse.observeUnknownHostException(viewModelScope) {
+            _hasNetwork.value = false
+            _isReady.value = true
+        }
     }
 
     fun updateSettings() {
@@ -52,14 +64,14 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
 
             // listen settings
-            data.getSettingsModel().onEach {
+            dataService.getSettingsModel().onEach {
                 Timber.e(it.toString())
             }.launchIn(viewModelScope)
 
             // update settings
-            api.getListSettings()
+            apiService.getListSettings()
                 .success { models ->
-                    data.withTransaction {
+                    dataService.withTransaction<CoreDataService> {
                         clearSettingsModel()
                         insertSettingsModel(*models.toTypedArray())
                         // Start app
@@ -77,7 +89,7 @@ class MainViewModel @Inject constructor(
 
     fun login(userId: String, token: String) {
         viewModelScope.launch {
-            data.withTransaction {
+            dataService.withTransaction<CoreDataService> {
                 clearSecurityModel()
                 insertSecurityModel(
                     SecurityModel(
@@ -91,7 +103,7 @@ class MainViewModel @Inject constructor(
 
     fun logout() {
         viewModelScope.launch {
-            data.withTransaction {
+            dataService.withTransaction<CoreDataService> {
                 clearSecurityModel()
             }
         }

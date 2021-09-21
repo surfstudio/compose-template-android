@@ -1,18 +1,24 @@
 package ru.surf.template.services.dataService.impl
 
 import androidx.paging.PagingSource
+import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.template.base.TemplateDatabase
 import ru.surf.template.data.dao.TemplateModelDao
 import ru.surf.template.data.models.TemplateModel
+import timber.log.Timber
 
 // @todo {ModuleName}Database
 // @todo {ModelName}DataService
 // @todo {ModelName}DataService
-interface TemplateModelDataService {
+interface TemplateModelDataService : IAppDatabase {
 
-    val db: TemplateDatabase
+    override val db: TemplateDatabase
 
     private val dao: TemplateModelDao get() = db.templateModelDao()
+
+    override fun clearCacheAfterLogout() {
+        Timber.e("Clear cache: TemplateModelDataService")
+    }
 
     // @todo pagingList{ModelName}Model
     fun pagingListTemplateModel(): PagingSource<Int, TemplateModel> {

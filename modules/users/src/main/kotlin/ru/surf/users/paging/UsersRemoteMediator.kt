@@ -8,17 +8,20 @@ import com.keygenqt.response.extensions.error
 import com.keygenqt.response.extensions.isEmpty
 import com.keygenqt.response.extensions.isError
 import com.keygenqt.response.extensions.success
+import ru.surf.core.extension.withTransaction
 import ru.surf.core.utils.ConstantsPaging.CACHE_TIMEOUT
 import ru.surf.core.utils.ConstantsPaging.PAGE_LIMIT
 import ru.surf.users.data.models.UserModel
+import ru.surf.users.data.preferences.UsersPreferences
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
 import timber.log.Timber
 
 @OptIn(ExperimentalPagingApi::class)
 class UsersRemoteMediator(
-    private val data: UsersDataService,
     private val apiService: UsersApiService,
+    private val dataService: UsersDataService,
+    private val preferences: UsersPreferences,
 ) : RemoteMediator<Int, UserModel>() {
 
     companion object {
@@ -26,7 +29,7 @@ class UsersRemoteMediator(
     }
 
     override suspend fun initialize(): InitializeAction {
-        return if (System.currentTimeMillis() - data.preferences.lastUpdateListUsers >= CACHE_TIMEOUT) {
+        return if (System.currentTimeMillis() - preferences.lastUpdateListUsers >= CACHE_TIMEOUT) {
             InitializeAction.LAUNCH_INITIAL_REFRESH
         } else {
             InitializeAction.SKIP_INITIAL_REFRESH
@@ -56,7 +59,7 @@ class UsersRemoteMediator(
             )
 
             response.success { models ->
-                data.withTransaction {
+                dataService.withTransaction<UsersDataService> {
                     if (loadType == LoadType.REFRESH) {
                         preferences.lastUpdateListUsers = System.currentTimeMillis()
                         clearUserModel()

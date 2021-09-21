@@ -8,9 +8,11 @@ import com.keygenqt.response.extensions.error
 import com.keygenqt.response.extensions.isEmpty
 import com.keygenqt.response.extensions.isError
 import com.keygenqt.response.extensions.success
+import ru.surf.core.extension.withTransaction
 import ru.surf.core.utils.ConstantsPaging.CACHE_TIMEOUT
 import ru.surf.core.utils.ConstantsPaging.PAGE_LIMIT
 import ru.surf.template.data.models.TemplateModel
+import ru.surf.template.data.preferences.TemplatePreferences
 import ru.surf.template.services.apiService.TemplateApiService
 import ru.surf.template.services.dataService.TemplateDataService
 import timber.log.Timber
@@ -21,8 +23,9 @@ import timber.log.Timber
 // @todo {ModuleName}ApiService
 // @todo {ModelName}Model
 class TemplateRemoteMediator(
-    private val data: TemplateDataService,
     private val apiService: TemplateApiService,
+    private val dataService: TemplateDataService,
+    private val preferences: TemplatePreferences,
 ) : RemoteMediator<Int, TemplateModel>() {
 
     companion object {
@@ -30,7 +33,7 @@ class TemplateRemoteMediator(
     }
 
     override suspend fun initialize(): InitializeAction {
-        return if (System.currentTimeMillis() - data.preferences.lastUpdateListTemplate >= CACHE_TIMEOUT) {
+        return if (System.currentTimeMillis() - preferences.lastUpdateListTemplate >= CACHE_TIMEOUT) {
             InitializeAction.LAUNCH_INITIAL_REFRESH
         } else {
             InitializeAction.SKIP_INITIAL_REFRESH
@@ -60,7 +63,7 @@ class TemplateRemoteMediator(
             )
 
             response.success { models ->
-                data.withTransaction {
+                dataService.withTransaction<TemplateDataService> {
                     if (loadType == LoadType.REFRESH) {
                         preferences.lastUpdateListTemplate = System.currentTimeMillis()
                         clearTemplateModel()

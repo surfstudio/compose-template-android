@@ -8,10 +8,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import dagger.multibindings.IntoSet
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import ru.surf.core.base.*
 import ru.surf.core.data.migrations.Migrations_1_2
+import ru.surf.core.services.dataService.CoreDataService
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -53,6 +55,12 @@ object ModuleDefault {
             .fallbackToDestructiveMigration()
             .build()
     }
+
+    @Provides
+    fun provideUsersDataService(
+        @CoreDatabaseQualifier db: CoreDatabase,
+        @CoreDatabaseSecurityQualifier dbSecurity: CoreSecurityDatabase,
+    ) = CoreDataService(db, dbSecurity)
 
     @Provides
     fun provideSharedPreferences(@ApplicationContext context: Context): CorePreferences {

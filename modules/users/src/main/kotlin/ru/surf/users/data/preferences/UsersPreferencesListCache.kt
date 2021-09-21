@@ -13,7 +13,7 @@ interface UsersPreferencesListCache : IAppPreferences {
         LAST_UPDATE_LIST_USERS,
     }
 
-    override fun clearAfterLogout() {
+    override fun clearCacheAfterLogout() {
         Timber.e("Clear cache: UsersPreferencesListCache")
         lastUpdateListUsers = 0L
     }

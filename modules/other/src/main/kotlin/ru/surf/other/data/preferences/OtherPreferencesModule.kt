@@ -13,7 +13,7 @@ interface OtherPreferencesModule : IAppPreferences {
         IS_ONBOARDING,
     }
 
-    override fun clearAfterLogout() {
+    override fun clearCacheAfterLogout() {
         Timber.e("Clear cache: OtherPreferencesModule")
     }
 }

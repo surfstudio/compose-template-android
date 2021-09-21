@@ -17,11 +17,13 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.core.base.LocalMainViewModel
 import ru.surf.core.base.MainViewModel
+import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.template.navigation.NavGraph
 import ru.surf.template.navigation.NavGraphGuest
 import ru.surf.template.navigation.NavGraphMain
 import timber.log.Timber
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class AppActivity : ComponentActivity() {

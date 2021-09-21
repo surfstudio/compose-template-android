@@ -1,12 +1,12 @@
 package ru.surf.users.ui.viewModels
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import ru.surf.core.base.AppViewModel
 import ru.surf.core.utils.ConstantsPaging
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.data.preferences.UsersPreferences
@@ -19,14 +19,10 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UsersViewModel @Inject constructor(
-    private val data: UsersDataService,
     private val apiService: UsersApiService,
-    private val preferences: UsersPreferences,
-) : AppViewModel() {
-
-    override fun clearAfterLogout() {
-        preferences.clearAfterLogout()
-    }
+    private val dataService: UsersDataService,
+    preferences: UsersPreferences,
+) : ViewModel() {
 
     private val _search: MutableStateFlow<String?> = MutableStateFlow(null)
     val search = _search.asStateFlow()
@@ -34,9 +30,9 @@ class UsersViewModel @Inject constructor(
     @OptIn(ExperimentalPagingApi::class)
     val listUsers: Flow<PagingData<UserModel>> = Pager(
         config = PagingConfig(pageSize = ConstantsPaging.PAGE_LIMIT),
-        remoteMediator = UsersRemoteMediator(data, apiService)
+        remoteMediator = UsersRemoteMediator(apiService, dataService, preferences)
     ) {
-        data.pagingListUserModel()
+        dataService.pagingListUserModel()
     }.flow
 
     val searchListUsers: Flow<PagingData<UserModel>> = Pager(PagingConfig(pageSize = ConstantsPaging.PAGE_LIMIT)) {

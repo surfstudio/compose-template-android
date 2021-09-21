@@ -1,5 +1,6 @@
 package ru.surf.other.ui.viewModels
 
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.keygenqt.response.extensions.done
 import com.keygenqt.response.extensions.error
@@ -9,8 +10,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import ru.surf.core.base.AppViewModel
-import ru.surf.other.data.preferences.OtherPreferences
 import ru.surf.other.services.apiService.OtherApiService
 import timber.log.Timber
 import javax.inject.Inject
@@ -18,13 +17,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class OtherViewModel @Inject constructor(
-    private val apiService: OtherApiService,
-    private val preferences: OtherPreferences,
-) : AppViewModel() {
-
-    override fun clearAfterLogout() {
-        preferences.clearAfterLogout()
-    }
+    private val apiService: OtherApiService
+) : ViewModel() {
 
     private val _commonError: MutableStateFlow<String?> = MutableStateFlow(null)
     val commonError: StateFlow<String?> get() = _commonError.asStateFlow()

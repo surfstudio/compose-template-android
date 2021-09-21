@@ -4,12 +4,18 @@ import kotlinx.coroutines.flow.Flow
 import ru.surf.core.base.CoreDatabase
 import ru.surf.core.data.dao.SettingsModelDao
 import ru.surf.core.data.models.SettingsModel
+import ru.surf.core.interfaces.IAppDatabase
+import timber.log.Timber
 
-interface SettingsModelDataService {
+interface SettingsModelDataService: IAppDatabase {
 
-    val db: CoreDatabase
+    override val db: CoreDatabase
 
     private val dao: SettingsModelDao get() = db.settingsModelDao()
+
+    override fun clearCacheAfterLogout() {
+        Timber.e("Clear cache: SettingsModelDataService")
+    }
 
     suspend fun insertSettingsModel(vararg models: SettingsModel) {
         dao.insertModels(*models)

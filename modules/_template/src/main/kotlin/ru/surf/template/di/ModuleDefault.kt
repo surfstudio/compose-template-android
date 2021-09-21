@@ -11,6 +11,7 @@ import ru.surf.core.base.CorePreferences
 import ru.surf.template.base.TemplateDatabase
 import ru.surf.template.data.preferences.TemplatePreferences
 import ru.surf.template.services.api.TemplateApi
+import ru.surf.template.services.dataService.TemplateDataService
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -28,6 +29,12 @@ object ModuleDefault {
             .fallbackToDestructiveMigration()
             .build()
     }
+
+    @Provides
+    // @todo provide{ModuleName}DataService
+    // @todo {ModuleName}Database
+    // @todo {ModuleName}DataService
+    fun provideTemplateDataService(db: TemplateDatabase) = TemplateDataService(db)
 
     @Provides
     // @todo provide{ModuleName}Preferences

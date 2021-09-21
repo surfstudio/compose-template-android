@@ -1,15 +1,22 @@
 package ru.surf.users.services.dataService.impl
 
 import androidx.paging.PagingSource
+import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.users.base.UsersDatabase
 import ru.surf.users.data.dao.UserModelDao
 import ru.surf.users.data.models.UserModel
+import ru.surf.users.services.dataService.UsersDataService
+import timber.log.Timber
 
-interface UserModelDataService {
+interface UserModelDataService: IAppDatabase {
 
-    val db: UsersDatabase
+    override val db: UsersDatabase
 
     private val dao: UserModelDao get() = db.daoUserModel()
+
+    override fun clearCacheAfterLogout() {
+        Timber.e("Clear cache: UserModelDataService")
+    }
 
     fun pagingListUserModel(): PagingSource<Int, UserModel> {
         return dao.pagingSource()
