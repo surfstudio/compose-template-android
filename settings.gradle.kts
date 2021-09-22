@@ -9,7 +9,6 @@ pluginManagement {
         google()
         mavenCentral()
     }
-
     plugins {
         id("com.android.application") version gradleVersion
         id("com.android.library") version gradleVersion
@@ -41,29 +40,42 @@ dependencyResolutionManagement {
     }
 }
 
+val internalLibrariesEnable: String by settings
+
 rootProject.name = "Template"
 include(":app")
 
-// Just template for easy create new module
-include(":modules:_template")
-
-// include modules
+// Include modules app
 include(":modules:core")
 include(":modules:other")
 include(":modules:users")
 
-// include libs
-//include(":android-response-result")
-//project(":android-response-result").projectDir = File(settingsDir, "../libs/android-response-result")
-//
-//include(":compose-forms")
-//project(":compose-forms").projectDir = File(settingsDir, "../libs/compose-forms")
-//
-//include(":compose-modifier-ext")
-//project(":compose-modifier-ext").projectDir = File(settingsDir, "../libs/compose-modifier-ext")
-//
-//include(":compose-routing")
-//project(":compose-routing").projectDir = File(settingsDir, "../libs/compose-routing")
-//
-//include(":surf-accompanist")
-//project(":surf-accompanist").projectDir = File(settingsDir, "../libs/surf-accompanist")
+// Include template module
+if (internalLibrariesEnable.toBoolean()) {
+    include(":modules:_template")
+}
+
+// Include internal libraries
+// create a folder "libs" next to the application and pull libs projects there
+// access for ./gradlew :{module}:artifactoryPublish - keygenqt@gmail.com || zarubin@surfstudio.ru
+if (internalLibrariesEnable.toBoolean()) {
+    // git@github.com:keygenqt/android-response-result.git
+    include(":android-response-result")
+    project(":android-response-result").projectDir = File(settingsDir, "../libs/android-response-result")
+
+    // git@github.com:keygenqt/compose-forms.git
+    include(":compose-forms")
+    project(":compose-forms").projectDir = File(settingsDir, "../libs/compose-forms")
+
+    // git@github.com:keygenqt/compose-modifier-ext.git
+    include(":compose-modifier-ext")
+    project(":compose-modifier-ext").projectDir = File(settingsDir, "../libs/compose-modifier-ext")
+
+    // git@github.com:keygenqt/compose-routing.git
+    include(":compose-routing")
+    project(":compose-routing").projectDir = File(settingsDir, "../libs/compose-routing")
+
+    // git@github.com:keygenqt/surf-accompanist.git
+    include(":surf-accompanist")
+    project(":surf-accompanist").projectDir = File(settingsDir, "../libs/surf-accompanist")
+}

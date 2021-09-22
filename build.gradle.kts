@@ -32,23 +32,19 @@ allprojects {
             }
         }
     }
-    // Configurations Compose
-    extra["configurationCompose"] = { ex: Any ->
-        val composeVersion = findProperty("composeVersion").toString()
-        if (ex is com.android.build.gradle.internal.dsl.BaseAppModuleExtension) {
-            ex.composeOptions {
-                kotlinCompilerExtensionVersion = composeVersion
-            }
-            ex.buildFeatures {
-                compose = true
-            }
-        }
-        if (ex is com.android.build.gradle.LibraryExtension) {
-            ex.composeOptions {
-                kotlinCompilerExtensionVersion = composeVersion
-            }
-            ex.buildFeatures {
-                compose = true
+    // Connecting internal libraries
+    extra["dependenciesInternal"] = { ex: Any ->
+        "implementation".let { implementation ->
+            (ex as? DependencyHandlerScope)?.apply {
+                if (findProperty("internalLibrariesEnable").toString().toBoolean()) {
+                    implementation(project(":android-response-result"))
+                    implementation(project(":compose-forms"))
+                    implementation(project(":compose-modifier-ext"))
+                    implementation(project(":compose-routing"))
+                    implementation(project(":surf-accompanist"))
+                } else {
+                    implementation(libs.bundles.surf)
+                }
             }
         }
     }

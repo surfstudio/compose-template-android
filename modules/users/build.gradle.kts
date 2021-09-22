@@ -1,4 +1,5 @@
 val configurationSource: Any.() -> Unit by project.extra
+val dependenciesInternal: Any.() -> Unit by project.extra
 
 plugins {
     id("com.android.library")
@@ -52,14 +53,9 @@ dependencies {
     // Common module for all modules
     implementation(project(":modules:core"))
 
-//    libs
-//    implementation(project(":android-response-result"))
-//    implementation(project(":compose-forms"))
-//    implementation(project(":compose-modifier-ext"))
-//    implementation(project(":compose-routing"))
-//    implementation(project(":surf-accompanist"))
+    // Connecting internal libraries
+    dependenciesInternal()
 
-    implementation(libs.bundles.surf)
     implementation(libs.bundles.room)
     implementation(libs.bundles.paging)
     implementation(libs.bundles.other)
