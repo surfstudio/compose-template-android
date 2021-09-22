@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -45,6 +46,7 @@ fun ViewUserBody(
     backDispatcher: OnBackPressedDispatcher? = null
 ) {
     MainScaffoldSearch(
+        modifier = Modifier.systemBarsPadding(),
         contentTitle = {
             TopBarContentTitle(model?.name ?: "")
         },
@@ -67,7 +69,6 @@ fun ViewUserBody(
             },
             modifier = Modifier
                 .fillMaxSize()
-                .statusBarsPadding()
         ) {
             Column(
                 modifier = Modifier

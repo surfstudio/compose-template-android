@@ -23,6 +23,8 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.PagerState
+import com.google.accompanist.pager.rememberPagerState
 import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormFieldEmail
 import com.keygenqt.forms.fields.FormFieldPassword
@@ -36,10 +38,12 @@ import ru.surf.core.utils.ConstantsApp
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.*
+import ru.surf.other.ui.forms.SignUpProfileFieldsForm
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SignUpFormCredential(
+    state: PagerState = rememberPagerState(pageCount = 0),
     loading: Boolean = false,
     commonError: String? = null,
     onActions: (SignUpActions) -> Unit = {},
@@ -64,7 +68,13 @@ fun SignUpFormCredential(
             LaunchedEffect(commonError) { listState.animateScrollTo(0) }
         }
 
+        // to top list
+        LaunchedEffect(state.currentPage) {
+            listState.animateScrollTo(0)
+        }
+
         SignUpForm(
+            state = state,
             loading = loading,
             onActions = onActions,
             savedData = savedData,
@@ -74,9 +84,10 @@ fun SignUpFormCredential(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalPagerApi::class)
 @Composable
 private fun SignUpForm(
+    state: PagerState,
     loading: Boolean = false,
     onActions: (SignUpActions) -> Unit = {},
     savedData: (email: String, pass: String) -> Unit = { _, _ -> }
@@ -86,14 +97,16 @@ private fun SignUpForm(
         val localFocusManager = LocalFocusManager.current
         val scope = rememberCoroutineScope()
 
-        // Create from state
+        // create from state
         val formFields = FormFieldsState().apply {
             add(SignUpEmail, remember { SignUpEmail.state.default(ConstantsApp.DEBUG_CREDENTIAL_LOGIN) })
             add(SignUpPassword, remember { SignUpPassword.state.default(ConstantsApp.DEBUG_CREDENTIAL_PASSW) })
         }
 
-        val requesterFieldEmail = remember { FocusRequester() }
-        val requesterFieldPassword = remember { FocusRequester() }
+        // clear error
+        LaunchedEffect(state.currentPage) {
+            formFields.clearError()
+        }
 
         // click submit
         val submitClick = {
@@ -118,19 +131,17 @@ private fun SignUpForm(
 
         // Create field email
         FormFieldEmail(
-            modifier = Modifier.focusRequester(requesterFieldEmail),
             label = stringResource(id = R.string.sign_in_form_email),
             enabled = !loading,
             state = formFields.get(SignUpEmail),
             imeAction = ImeAction.Next,
-            keyboardActions = KeyboardActions(onNext = { requesterFieldPassword.requestFocus() })
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpPassword).requestFocus() })
         )
 
         Spacer(modifier = Modifier.paddingLarge())
 
         // Create field password
         FormFieldPassword(
-            modifier = Modifier.focusRequester(requesterFieldPassword),
             enabled = !loading,
             state = formFields.get(SignUpPassword),
             imeAction = ImeAction.Done,
@@ -157,12 +168,13 @@ private fun SignUpForm(
         LaunchedEffect(Unit) {
             scope.launch {
                 delay(10)
-                requesterFieldEmail.requestFocus()
+                formFields.get(SignUpEmail).requestFocus()
             }
         }
     }
 }
 
+@OptIn(ExperimentalPagerApi::class)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, device = Devices.PIXEL_4)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, device = Devices.NEXUS_6)
 @Composable

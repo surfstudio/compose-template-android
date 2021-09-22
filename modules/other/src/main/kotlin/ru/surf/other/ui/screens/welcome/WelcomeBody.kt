@@ -13,9 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.*
+import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.ClickableTextColorAnimation
-import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.paddingXLarge
 import com.keygenqt.modifier.sizeXLarge
 import kotlinx.coroutines.delay
@@ -50,7 +51,8 @@ fun WelcomeBody(
 
     Column(
         modifier = Modifier
-            .paddingLarge()
+            .systemBarsPadding()
+            .padding(start = 16.dp, end = 16.dp)
     ) {
         Box(
             modifier = Modifier

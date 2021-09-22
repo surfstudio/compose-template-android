@@ -7,11 +7,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import com.google.accompanist.insets.statusBarsPadding
+import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
@@ -37,6 +40,7 @@ fun SignUpBody(
     val softwareKeyboardController = LocalSoftwareKeyboardController.current
 
     MainScaffoldSearch(
+        modifier = Modifier.statusBarsPadding(),
         contentLoadState = loading,
         navigationIcon = Icons.Default.ArrowBack,
         navigationIconOnClick = {
@@ -68,6 +72,7 @@ fun SignUpBody(
         ) { page ->
             when (page) {
                 0 -> SignUpFormCredential(
+                    state = pagerState,
                     loading = loading,
                     commonError = commonError,
                     onActions = onActions,
@@ -76,6 +81,7 @@ fun SignUpBody(
                     dataPass = pass
                 }
                 1 -> SignUpFormProfile(
+                    state = pagerState,
                     loading = loading,
                     commonError = commonError,
                     onActions = onActions,

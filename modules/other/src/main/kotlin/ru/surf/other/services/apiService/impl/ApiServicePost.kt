@@ -60,6 +60,8 @@ interface ApiServicePost {
         lname: String,
         phoneWork: String,
         phoneHome: String,
+        card: String,
+        cvc: String,
         bio: String,
     ): ResponseResult<SignUpResponse> {
         return withContext(Dispatchers.IO) {
@@ -73,6 +75,8 @@ interface ApiServicePost {
                         lname = lname,
                         phoneWork = phoneWork,
                         phoneHome = phoneHome,
+                        card = card,
+                        cvc = cvc,
                         bio = bio,
                     )
                 ).responseCheck()

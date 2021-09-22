@@ -26,6 +26,8 @@ fun NavGraphBuilder.signUpScreenGraph(
                     lname = event.lname,
                     phoneWork = event.phoneWork,
                     phoneHome = event.phoneHome,
+                    card = event.card,
+                    cvc = event.cvc,
                     bio = event.bio,
                 ) { userId, token ->
                     localMainViewModel.login(userId, token)

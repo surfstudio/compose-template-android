@@ -7,12 +7,12 @@ import android.view.ViewTreeObserver
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.ui.graphics.toArgb
+import androidx.core.view.WindowCompat
 import androidx.navigation.compose.rememberNavController
+import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
 import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.core.base.LocalMainViewModel
@@ -29,24 +29,28 @@ class AppActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        // Disable window decor fitting
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             CompositionLocalProvider(
                 LocalMainViewModel provides viewModel,
                 LocalBackPressedDispatcher provides this.onBackPressedDispatcher
             ) {
                 MainAppTheme {
-                    // change status bar color
-                    this@AppActivity.window.statusBarColor = MaterialTheme.colors.primaryVariant.toArgb()
-                    // select graph
-                    val isLogin by viewModel.isLogin.collectAsState(null)
-                    val hasNetwork by viewModel.hasNetwork.collectAsState()
+                    ProvideWindowInsets {
+                        // select graph
+                        val isLogin by viewModel.isLogin.collectAsState(null)
+                        val hasNetwork by viewModel.hasNetwork.collectAsState()
 
-                    if (!hasNetwork) {
-                        NavGraphMain(rememberNavController())
-                    } else {
-                        when (isLogin) {
-                            true -> NavGraph(rememberNavController())
-                            false -> NavGraphGuest(rememberNavController())
+                        if (!hasNetwork) {
+                            NavGraphMain(rememberNavController())
+                        } else {
+                            when (isLogin) {
+                                true -> NavGraph(rememberNavController())
+                                false -> NavGraphGuest(rememberNavController())
+                            }
                         }
                     }
                 }

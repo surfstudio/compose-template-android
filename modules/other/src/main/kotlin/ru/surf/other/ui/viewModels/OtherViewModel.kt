@@ -79,6 +79,8 @@ class OtherViewModel @Inject constructor(
         lname: String,
         phoneWork: String,
         phoneHome: String,
+        card: String,
+        cvc: String,
         bio: String,
         success: (userId: String, token: String) -> Unit,
     ) {
@@ -91,6 +93,8 @@ class OtherViewModel @Inject constructor(
                 lname = lname,
                 phoneWork = phoneWork,
                 phoneHome = phoneHome,
+                card = card,
+                cvc = cvc,
                 bio = bio,
             )
                 .success {

@@ -7,7 +7,9 @@ import ru.surf.core.forms.validate.StateValidateRequired
 enum class SignUpProfileFieldsForm(val state: FormFieldState) : FormStates {
     SignUpFname(StateValidateRequired()),
     SignUpLname(StateValidateRequired()),
-    SignUpPhoneWork(FormFieldState()),
+    SignUpPhoneWork(StateValidateRequired()),
     SignUpPhoneHome(FormFieldState()),
+    SignUpCard(FormFieldState()),
+    SignUpCvc(FormFieldState()),
     SignUpBio(FormFieldState()),
 }

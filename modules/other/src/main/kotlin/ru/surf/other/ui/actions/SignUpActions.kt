@@ -9,6 +9,8 @@ sealed class SignUpActions {
         val lname: String,
         val phoneWork: String,
         val phoneHome: String,
+        val card: String,
+        val cvc: String,
         val bio: String,
     ) : SignUpActions()
 }

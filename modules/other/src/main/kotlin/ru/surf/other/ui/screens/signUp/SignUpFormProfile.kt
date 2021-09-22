@@ -1,6 +1,7 @@
 package ru.surf.other.ui.screens.signUp
 
 import android.content.res.Configuration
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -10,11 +11,8 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
@@ -22,16 +20,21 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.insets.LocalWindowInsets
+import com.google.accompanist.insets.imePadding
+import com.google.accompanist.insets.navigationBarsPadding
+import com.google.accompanist.insets.navigationBarsWithImePadding
 import com.google.accompanist.pager.ExperimentalPagerApi
+import com.google.accompanist.pager.PagerState
+import com.google.accompanist.pager.rememberPagerState
 import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormField
+import com.keygenqt.forms.fields.FormFieldNumber
 import com.keygenqt.forms.fields.FormFieldPhone
 import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.paddingMedium
 import com.keygenqt.modifier.paddingSmall
 import com.keygenqt.modifier.sizeLarge
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
@@ -41,6 +44,7 @@ import ru.surf.other.ui.forms.SignUpProfileFieldsForm.*
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SignUpFormProfile(
+    state: PagerState = rememberPagerState(pageCount = 0),
     loading: Boolean = false,
     commonError: String? = null,
     onActions: (SignUpActions) -> Unit = {},
@@ -53,6 +57,7 @@ fun SignUpFormProfile(
         modifier = Modifier
             .padding(start = 16.dp, end = 16.dp)
             .background(MaterialTheme.colors.background)
+            .navigationBarsWithImePadding()
             .fillMaxSize()
             .verticalScroll(listState)
     ) {
@@ -66,7 +71,13 @@ fun SignUpFormProfile(
             LaunchedEffect(commonError) { listState.animateScrollTo(0) }
         }
 
+        // to top list
+        LaunchedEffect(state.currentPage) {
+            listState.animateScrollTo(0)
+        }
+
         SignUpForm(
+            state = state,
             dataEmail = dataEmail,
             dataPass = dataPass,
             loading = loading,
@@ -77,39 +88,44 @@ fun SignUpFormProfile(
     }
 }
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalPagerApi::class)
 @Composable
 private fun SignUpForm(
+    state: PagerState,
     dataEmail: String = "",
     dataPass: String = "",
     loading: Boolean = false,
     onActions: (SignUpActions) -> Unit = {},
 ) {
-    Column {
+    Column(
+        modifier = Modifier
+    ) {
+
         val softwareKeyboardController = LocalSoftwareKeyboardController.current
         val localFocusManager = LocalFocusManager.current
 
-        // Create from state
+        // create from state
         val formFields = FormFieldsState().apply {
             add(SignUpFname, remember { SignUpFname.state.default("") })
             add(SignUpLname, remember { SignUpLname.state.default("") })
             add(SignUpPhoneWork, remember { SignUpPhoneWork.state.default("") })
             add(SignUpPhoneHome, remember { SignUpPhoneHome.state.default("") })
+            add(SignUpCard, remember { SignUpCard.state.default("") })
+            add(SignUpCvc, remember { SignUpCvc.state.default("") })
             add(SignUpBio, remember { SignUpBio.state.default("") })
         }
 
-        val requesterSignUpFname = remember { FocusRequester() }
-        val requesterSignUpLname = remember { FocusRequester() }
-        val requesterSignUpPhoneWork = remember { FocusRequester() }
-        val requesterSignUpPhoneHome = remember { FocusRequester() }
-        val requesterSignUpBio = remember { FocusRequester() }
+        // clear error
+        LaunchedEffect(state.currentPage) {
+            formFields.clearError()
+        }
 
         // click submit
         val submitClick = {
-            // validate before send
-            formFields.validate()
             // clear focuses
             localFocusManager.clearFocus()
+            // validate before send
+            formFields.validate()
             // check has errors
             if (!formFields.hasErrors()) {
                 // submit query
@@ -121,6 +137,8 @@ private fun SignUpForm(
                         lname = formFields.get(SignUpLname).getValue(),
                         phoneWork = formFields.get(SignUpPhoneWork).getValue(),
                         phoneHome = formFields.get(SignUpPhoneHome).getValue(),
+                        card = formFields.get(SignUpCard).getValue(),
+                        cvc = formFields.get(SignUpCvc).getValue(),
                         bio = formFields.get(SignUpBio).getValue(),
                     )
                 )
@@ -132,50 +150,47 @@ private fun SignUpForm(
         Spacer(modifier = Modifier.paddingSmall())
 
         Text(
-            text = stringResource(id = R.string.sign_up_subtitle_required),
+            text = stringResource(id = R.string.sign_up_subtitle_info),
             style = MaterialTheme.typography.subtitle2,
         )
 
         Spacer(modifier = Modifier.paddingSmall())
 
         FormField(
-            modifier = Modifier.focusRequester(requesterSignUpFname),
-            label = stringResource(id = R.string.sign_up_fname),
+            label = stringResource(id = R.string.sign_up_required_fname),
             enabled = !loading,
             state = formFields.get(SignUpFname),
             imeAction = ImeAction.Next,
-            keyboardActions = KeyboardActions(onNext = { requesterSignUpLname.requestFocus() }),
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpLname).requestFocus() }),
             filterEmoji = true
         )
 
         Spacer(modifier = Modifier.paddingLarge())
 
         FormField(
-            modifier = Modifier.focusRequester(requesterSignUpLname),
-            label = stringResource(id = R.string.sign_up_lname),
+            label = stringResource(id = R.string.sign_up_required_lname),
             enabled = !loading,
             state = formFields.get(SignUpLname),
             imeAction = ImeAction.Next,
-            keyboardActions = KeyboardActions(onNext = { requesterSignUpPhoneWork.requestFocus() }),
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpPhoneWork).requestFocus() }),
             filterEmoji = true
         )
 
         Spacer(modifier = Modifier.paddingLarge())
 
         Text(
-            text = stringResource(id = R.string.sign_up_subtitle_optional),
+            text = stringResource(id = R.string.sign_up_subtitle_connection),
             style = MaterialTheme.typography.subtitle2,
         )
 
         Spacer(modifier = Modifier.paddingSmall())
 
         FormFieldPhone(
-            modifier = Modifier.focusRequester(requesterSignUpPhoneWork),
-            label = stringResource(id = R.string.sign_up_phone_work),
+            label = stringResource(id = R.string.sign_up_required_phone_work),
             enabled = !loading,
             state = formFields.get(SignUpPhoneWork),
             imeAction = ImeAction.Next,
-            keyboardActions = KeyboardActions(onNext = { requesterSignUpPhoneHome.requestFocus() }),
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpPhoneHome).requestFocus() }),
             mask = "+7 (###) ###-##-##",
             placeholder = "+7 (000) 000-000-000",
         )
@@ -183,27 +198,62 @@ private fun SignUpForm(
         Spacer(modifier = Modifier.paddingLarge())
 
         FormFieldPhone(
-            modifier = Modifier.focusRequester(requesterSignUpPhoneHome),
             label = stringResource(id = R.string.sign_up_phone_home),
             enabled = !loading,
             state = formFields.get(SignUpPhoneHome),
             imeAction = ImeAction.Next,
-            keyboardActions = KeyboardActions(onNext = { requesterSignUpBio.requestFocus() }),
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpCard).requestFocus() }),
             mask = "+380 (###) ###-##-##",
             placeholder = "+380 (000) 000-000-000",
         )
 
         Spacer(modifier = Modifier.paddingLarge())
 
+        Text(
+            text = stringResource(id = R.string.sign_up_subtitle_payment),
+            style = MaterialTheme.typography.subtitle2,
+        )
+
+        Spacer(modifier = Modifier.paddingSmall())
+
+        FormFieldNumber(
+            label = stringResource(id = R.string.sign_up_number_card),
+            enabled = !loading,
+            state = formFields.get(SignUpCard),
+            imeAction = ImeAction.Next,
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpCvc).requestFocus() }),
+            mask = "####-####-####-####",
+            placeholder = "0000-0000-0000-0000",
+        )
+
+        Spacer(modifier = Modifier.paddingLarge())
+
+        FormFieldNumber(
+            label = stringResource(id = R.string.sign_up_cvc),
+            enabled = !loading,
+            state = formFields.get(SignUpCvc),
+            imeAction = ImeAction.Next,
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpBio).requestFocus() }),
+            mask = "###",
+            placeholder = "000",
+        )
+
+        Spacer(modifier = Modifier.paddingLarge())
+
+        Text(
+            text = stringResource(id = R.string.sign_up_bio),
+            style = MaterialTheme.typography.subtitle2,
+        )
+
+        Spacer(modifier = Modifier.paddingSmall())
+
         FormField(
+            lines = 3,
             maxLines = 5,
             singleLine = false,
-            modifier = Modifier.focusRequester(requesterSignUpBio),
-            label = stringResource(id = R.string.sign_up_bio),
             enabled = !loading,
             state = formFields.get(SignUpBio),
-            imeAction = ImeAction.Done,
-            keyboardActions = KeyboardActions(onNext = { submitClick.invoke() }),
+            imeAction = ImeAction.Default,
         )
 
         Spacer(modifier = Modifier.paddingLarge())
@@ -225,6 +275,7 @@ private fun SignUpForm(
     }
 }
 
+@OptIn(ExperimentalPagerApi::class)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, device = Devices.PIXEL_4)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, device = Devices.NEXUS_6)
 @Composable

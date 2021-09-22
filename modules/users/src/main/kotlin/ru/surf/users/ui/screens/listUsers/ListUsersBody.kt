@@ -1,5 +1,6 @@
 package ru.surf.users.ui.screens.listUsers
 
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.MoreVert
@@ -8,10 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
+import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.accompanist.SwipeRefreshList
-import com.keygenqt.modifier.paddingLarge
+import com.keygenqt.modifier.paddingSmall
 import ru.surf.core.base.LocalMainViewModel
 import ru.surf.core.compose.EmptyPage
 import ru.surf.core.compose.Loader
@@ -33,10 +35,14 @@ fun ListUsersBody(
     val contentLoading = @Composable { LoaderPage() }
     val contentEmpty = @Composable { EmptyPage() }
     val contentLoadState = @Composable { loadState: LoadState ->
-        if (loadState is LoadState.Loading) Loader(Modifier.paddingLarge())
+        if (loadState is LoadState.Loading) {
+            Loader(Modifier.paddingSmall())
+            Spacer(modifier = Modifier.paddingSmall())
+        }
     }
 
     MainScaffoldSearch(
+        modifier = Modifier.systemBarsPadding(),
         contentTitle = {
             TopBarContentTitle(stringResource(id = R.string.list_users_title))
         },

@@ -12,8 +12,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
@@ -32,7 +30,8 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.core.utils.ConstantsApp
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignInActions
-import ru.surf.other.ui.forms.SignInFieldsForm.*
+import ru.surf.other.ui.forms.SignInFieldsForm.SignInEmail
+import ru.surf.other.ui.forms.SignInFieldsForm.SignInPassword
 
 
 @OptIn(ExperimentalComposeUiApi::class)
@@ -51,9 +50,6 @@ fun SignInForm(
             add(SignInEmail, remember { SignInEmail.state.default(ConstantsApp.DEBUG_CREDENTIAL_LOGIN) })
             add(SignInPassword, remember { SignInPassword.state.default(ConstantsApp.DEBUG_CREDENTIAL_PASSW) })
         }
-
-        val requesterFieldEmail = remember { FocusRequester() }
-        val requesterFieldPassword = remember { FocusRequester() }
 
         // click submit
         val submitClick = {
@@ -79,19 +75,17 @@ fun SignInForm(
 
         // Create field email
         FormFieldEmail(
-            modifier = Modifier.focusRequester(requesterFieldEmail),
             label = stringResource(id = R.string.sign_in_form_email),
             enabled = !loading,
             state = formFields.get(SignInEmail),
             imeAction = ImeAction.Next,
-            keyboardActions = KeyboardActions(onNext = { requesterFieldPassword.requestFocus() })
+            keyboardActions = KeyboardActions(onNext = { formFields.get(SignInPassword).requestFocus() })
         )
 
         Spacer(modifier = Modifier.paddingLarge())
 
         // Create field password
         FormFieldPassword(
-            modifier = Modifier.focusRequester(requesterFieldPassword),
             enabled = !loading,
             state = formFields.get(SignInPassword),
             imeAction = ImeAction.Done,
@@ -120,7 +114,7 @@ fun SignInForm(
         LaunchedEffect(Unit) {
             scope.launch {
                 delay(10)
-                requesterFieldEmail.requestFocus()
+                formFields.get(SignInEmail).requestFocus()
             }
         }
     }

@@ -18,6 +18,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.sizeLarge
@@ -37,6 +38,7 @@ fun SignInBody(
     backDispatcher: OnBackPressedDispatcher? = null
 ) {
     MainScaffoldSearch(
+        modifier = Modifier.systemBarsPadding(),
         contentLoadState = loading,
         navigationIcon = Icons.Default.ArrowBack,
         navigationIconOnClick = { backDispatcher?.onBackPressed() },
