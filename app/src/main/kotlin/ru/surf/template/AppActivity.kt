@@ -11,6 +11,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.insets.ProvideWindowInsets
 import dagger.hilt.android.AndroidEntryPoint
@@ -21,11 +22,14 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.template.navigation.NavGraph
 import ru.surf.template.navigation.NavGraphGuest
 import ru.surf.template.navigation.NavGraphMain
+import ru.surf.users.navigation.nav.UsersNav
 
 @AndroidEntryPoint
 class AppActivity : ComponentActivity() {
 
     private val viewModel: MainViewModel by viewModels()
+
+    private var navController: NavHostController? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,22 +38,27 @@ class AppActivity : ComponentActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {
+
+            navController = rememberNavController()
+
             CompositionLocalProvider(
                 LocalMainViewModel provides viewModel,
                 LocalBackPressedDispatcher provides this.onBackPressedDispatcher
             ) {
                 MainAppTheme {
                     ProvideWindowInsets {
-                        // select graph
+                        // observe changes
                         val isLogin by viewModel.isLogin.collectAsState(null)
                         val hasNetwork by viewModel.hasNetwork.collectAsState()
-
-                        if (!hasNetwork) {
-                            NavGraphMain(rememberNavController())
-                        } else {
-                            when (isLogin) {
-                                true -> NavGraph(rememberNavController())
-                                false -> NavGraphGuest(rememberNavController())
+                        // select graph
+                        navController?.let {
+                            if (!hasNetwork) {
+                                NavGraphMain(it)
+                            } else {
+                                when (isLogin) {
+                                    true -> NavGraph(it)
+                                    false -> NavGraphGuest(it)
+                                }
                             }
                         }
                     }
@@ -71,6 +80,16 @@ class AppActivity : ComponentActivity() {
                     }
                 }
             )
+        }
+    }
+
+    override fun onBackPressed() {
+        when (navController?.currentDestination?.route) {
+            // show snackBar before exit
+            UsersNav.MainNav.ListUsersScreen.route -> {
+                if (viewModel.showSnackBar.value) finishAffinity() else viewModel.toggleSnackBar()
+            }
+            else -> super.onBackPressed()
         }
     }
 }
