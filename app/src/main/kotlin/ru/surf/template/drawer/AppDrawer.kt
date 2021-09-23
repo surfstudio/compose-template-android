@@ -51,6 +51,7 @@ fun AppDrawer(
 
     Column(
         modifier = Modifier
+            .background(MaterialTheme.colors.background)
             .systemBarsPadding()
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
