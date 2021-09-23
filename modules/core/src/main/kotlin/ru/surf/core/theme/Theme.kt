@@ -57,8 +57,14 @@ fun MainAppTheme(content: @Composable() () -> Unit) {
     )
 
     // Set NavigationBarColor and StatusBarColor
-    rememberSystemUiController().setSystemBarsColor(
-        color = MaterialTheme.colors.primaryVariant,
-        darkIcons = isSystemInDarkTheme()
-    )
+    rememberSystemUiController().let {
+        it.setStatusBarColor(
+            color = colors.primaryVariant,
+            darkIcons = isSystemInDarkTheme()
+        )
+        it.setNavigationBarColor(
+            color = colors.primaryVariant,
+            darkIcons = false
+        )
+    }
 }
