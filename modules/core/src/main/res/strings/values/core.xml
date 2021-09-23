@@ -1,0 +1,7 @@
+<resources>
+    <string name="common_navigate_up">Navigate up</string>
+    <string name="common_search">Search…</string>
+    <string name="common_state_empty_title">Nothing found</string>
+    <string name="common_state_empty_text">Try later</string>
+    <string name="common_exit_info">Please click back again to exit</string>
+</resources>
