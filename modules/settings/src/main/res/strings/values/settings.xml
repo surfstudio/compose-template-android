@@ -1,6 +1,4 @@
 <resources>
-    <string name="settings_title">Settings</string>
-
     <string name="settings_details_subtitle">Details</string>
     <string name="settings_details_about">About me</string>
     <string name="settings_details_edit">Edit Profile</string>

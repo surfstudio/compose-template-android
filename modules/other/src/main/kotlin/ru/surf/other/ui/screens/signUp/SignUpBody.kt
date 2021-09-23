@@ -24,7 +24,6 @@ import ru.surf.core.extension.EmitByStatus
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
-import timber.log.Timber
 
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)

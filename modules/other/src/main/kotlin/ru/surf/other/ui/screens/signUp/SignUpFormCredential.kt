@@ -13,8 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
@@ -37,8 +35,8 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.core.utils.ConstantsApp
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
-import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.*
-import ru.surf.other.ui.forms.SignUpProfileFieldsForm
+import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.SignUpEmail
+import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.SignUpPassword
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable

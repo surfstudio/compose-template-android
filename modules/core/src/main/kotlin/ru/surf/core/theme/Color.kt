@@ -3,8 +3,8 @@ package ru.surf.core.theme
 import androidx.compose.material.Colors
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.colorResource
-import ru.surf.core.base.ColorsCustom
 import ru.surf.core.R
+import ru.surf.core.base.ColorsCustom
 
 @Composable
 fun parseConfigCustomPalette(isLight: Boolean): ColorsCustom {

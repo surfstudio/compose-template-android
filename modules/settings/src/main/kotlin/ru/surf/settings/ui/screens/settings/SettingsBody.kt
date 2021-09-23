@@ -28,6 +28,7 @@ import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.settings.R
 import ru.surf.settings.ui.actions.SettingsActions
+import ru.surf.core.R as RCore
 
 @Composable
 fun SettingsBody(
@@ -39,7 +40,7 @@ fun SettingsBody(
         navigationIcon = Icons.Default.Menu,
         navigationIconOnClick = { onActions(SettingsActions.OpenMenu) },
         contentTitle = {
-            TopBarContentTitle(stringResource(id = R.string.settings_title))
+            TopBarContentTitle(stringResource(id = RCore.string.menu_settings))
         },
     ) {
         SwipeRefresh(

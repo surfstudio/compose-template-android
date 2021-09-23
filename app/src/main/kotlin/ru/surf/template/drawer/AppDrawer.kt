@@ -1,6 +1,5 @@
 package ru.surf.template.drawer
 
-import android.content.res.Configuration
 import androidx.activity.OnBackPressedDispatcher
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -17,15 +16,14 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Devices
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.res.stringResource
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.modifier.sizeMedium
 import kotlinx.coroutines.launch
 import ru.surf.core.extension.EmitByStatus
-import ru.surf.core.theme.MainAppTheme
 import ru.surf.settings.navigation.nav.SettingsNav
 import ru.surf.users.navigation.nav.UsersNav
+import ru.surf.core.R as RCore
 
 @Composable
 fun AppDrawer(
@@ -60,32 +58,16 @@ fun AppDrawer(
 
         AppDrawerItem(
             isSelected = currentRoute == UsersNav.MainNav.ListUsersScreen.route,
-            label = "Members",
+            label = stringResource(id = RCore.string.menu_members),
             icon = Icons.Filled.People,
             onClick = onClick(AppDrawerActions.ToUsers)
         )
 
         AppDrawerItem(
             isSelected = currentRoute == SettingsNav.MainNav.SettingsScreen.route,
-            label = "Settings",
+            label = stringResource(id = RCore.string.menu_settings),
             icon = Icons.Filled.Settings,
             onClick = onClick(AppDrawerActions.ToSettings)
         )
-    }
-}
-
-
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, device = Devices.PIXEL_4)
-@Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, device = Devices.NEXUS_6)
-@Composable
-private fun Preview() {
-    MainAppTheme {
-        Column(
-            Modifier
-                .background(MaterialTheme.colors.surface)
-                .fillMaxSize()
-        ) {
-            AppDrawer()
-        }
     }
 }

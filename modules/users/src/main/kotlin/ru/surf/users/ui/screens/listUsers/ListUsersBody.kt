@@ -17,9 +17,9 @@ import com.keygenqt.accompanist.SwipeRefreshList
 import com.keygenqt.modifier.paddingSmall
 import ru.surf.core.base.LocalMainViewModel
 import ru.surf.core.compose.*
-import ru.surf.users.R
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
+import ru.surf.core.R as RCore
 
 @Composable
 fun ListUsersBody(
@@ -44,7 +44,7 @@ fun ListUsersBody(
         navigationIcon = Icons.Default.Menu,
         navigationIconOnClick = { onActions(ListUsersActions.OpenMenu) },
         contentTitle = {
-            TopBarContentTitle(stringResource(id = R.string.list_users_title))
+            TopBarContentTitle(stringResource(id = RCore.string.menu_members))
         },
         searchListener = { value ->
             onActions(ListUsersActions.Search(value))

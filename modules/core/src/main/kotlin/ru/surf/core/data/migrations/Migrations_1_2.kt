@@ -1,7 +1,7 @@
 package ru.surf.core.data.migrations
 
-import androidx.room.migration.*
-import androidx.sqlite.db.*
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 val Migrations_1_2 = object : Migration(1, 2) {
 

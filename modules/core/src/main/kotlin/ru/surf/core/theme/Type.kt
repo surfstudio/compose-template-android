@@ -6,8 +6,8 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
-import ru.surf.core.base.TypographyCustom
 import ru.surf.core.R
+import ru.surf.core.base.TypographyCustom
 
 val montserratFamily = FontFamily(
     Font(R.font.montserrat_semi_bold, FontWeight.SemiBold),

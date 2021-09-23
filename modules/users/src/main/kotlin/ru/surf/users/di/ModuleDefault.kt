@@ -6,12 +6,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dagger.multibindings.IntoSet
-import retrofit2.Retrofit
 import ru.surf.core.base.CorePreferences
 import ru.surf.users.base.UsersDatabase
 import ru.surf.users.data.preferences.UsersPreferences
-import ru.surf.users.services.api.UsersApi
 import ru.surf.users.services.dataService.UsersDataService
 
 @Module

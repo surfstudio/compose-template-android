@@ -3,12 +3,14 @@ package ru.surf.other.ui.screens.signIn
 import android.content.res.Configuration
 import androidx.activity.OnBackPressedDispatcher
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -20,15 +22,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.sizeLarge
-import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignInActions
-import ru.surf.other.ui.screens.welcome.WelcomeBody
 
 @Composable
 fun SignInBody(

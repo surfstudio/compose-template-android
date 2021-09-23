@@ -2,8 +2,6 @@ package ru.surf.users.ui.screens.viewUser
 
 import android.content.res.Configuration
 import androidx.activity.OnBackPressedDispatcher
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,15 +17,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
-import com.google.accompanist.swiperefresh.SwipeRefreshIndicator
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.sizeLarge
-import ru.surf.core.compose.*
+import ru.surf.core.compose.AppSwipeRefreshIndicator
+import ru.surf.core.compose.LoaderPage
+import ru.surf.core.compose.PageNotFound
+import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.users.data.mock.userModelMock
 import ru.surf.users.data.models.UserModel
