@@ -35,9 +35,6 @@ class MainViewModel @Inject constructor(
     private val _isReady: MutableStateFlow<Boolean> = MutableStateFlow(false)
     val isReady: StateFlow<Boolean> get() = _isReady.asStateFlow()
 
-    private val _showSnackBar: MutableStateFlow<Boolean> = MutableStateFlow(false)
-    val showSnackBar: StateFlow<Boolean> get() = _showSnackBar.asStateFlow()
-
     val isLogin = flow {
         dataService.getSecurityModel().distinctUntilChanged().collect {
             emit(it != null)
@@ -88,14 +85,6 @@ class MainViewModel @Inject constructor(
                 .done {
                     _loading.value = false
                 }
-        }
-    }
-
-    fun toggleSnackBar() {
-        _showSnackBar.tryEmit(true)
-        viewModelScope.launch {
-            delay(1500) // For simulate long work
-            _showSnackBar.tryEmit(false)
         }
     }
 

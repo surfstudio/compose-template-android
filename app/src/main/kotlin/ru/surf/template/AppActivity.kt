@@ -22,7 +22,6 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.template.navigation.NavGraph
 import ru.surf.template.navigation.NavGraphGuest
 import ru.surf.template.navigation.NavGraphMain
-import ru.surf.users.navigation.nav.UsersNav
 
 @AndroidEntryPoint
 class AppActivity : ComponentActivity() {
@@ -80,16 +79,6 @@ class AppActivity : ComponentActivity() {
                     }
                 }
             )
-        }
-    }
-
-    override fun onBackPressed() {
-        when (navController?.currentDestination?.route) {
-            // show snackBar before exit
-            UsersNav.MainNav.ListUsersScreen.route -> {
-                if (viewModel.showSnackBar.value) finishAffinity() else viewModel.toggleSnackBar()
-            }
-            else -> super.onBackPressed()
         }
     }
 }

@@ -7,11 +7,11 @@ interface UsersScreenActions {
 
     val controller: NavHostController
 
-    fun navigateToUsers() {
+    fun toUsers() {
         controller.navigate(UsersNav.MainNav.ListUsersScreen.route)
     }
 
-    fun navigateToUser(userId: String) {
+    fun toUser(userId: String) {
         UsersNav.MainNav.ViewUserScreen.apply {
             controller.navigate(getRoute(userId))
         }

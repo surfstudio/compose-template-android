@@ -14,16 +14,18 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.insets.statusBarsPadding
-import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.keygenqt.accompanist.MainScaffoldSearch
 import kotlinx.coroutines.launch
 import ru.surf.core.compose.TopBarContentTitle
+import ru.surf.core.extension.EmitByStatus
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
+import timber.log.Timber
+
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 @Composable
@@ -39,20 +41,20 @@ fun SignUpBody(
     val localFocusManager = LocalFocusManager.current
     val softwareKeyboardController = LocalSoftwareKeyboardController.current
 
+    backDispatcher?.EmitByStatus(status = pagerState.currentPage == 1) {
+        scope.launch {
+            pagerState.animateScrollToPage(0)
+            localFocusManager.clearFocus()
+            softwareKeyboardController?.hide()
+        }
+    }
+
     MainScaffoldSearch(
         modifier = Modifier.statusBarsPadding(),
         contentLoadState = loading,
         navigationIcon = Icons.Default.ArrowBack,
         navigationIconOnClick = {
-            if (pagerState.currentPage == 1) {
-                scope.launch {
-                    pagerState.animateScrollToPage(0)
-                    localFocusManager.clearFocus()
-                    softwareKeyboardController?.hide()
-                }
-            } else {
-                backDispatcher?.onBackPressed()
-            }
+            backDispatcher?.onBackPressed()
         },
         contentTitle = { TopBarContentTitle(stringResource(id = R.string.sign_up_title)) }
     ) {

@@ -3,6 +3,7 @@ package ru.surf.users.ui.screens.listUsers
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -43,6 +44,8 @@ fun ListUsersBody(
 
     MainScaffoldSearch(
         modifier = Modifier.systemBarsPadding(),
+        navigationIcon = Icons.Default.Menu,
+        navigationIconOnClick = { onActions(ListUsersActions.OpenMenu) },
         contentTitle = {
             TopBarContentTitle(stringResource(id = R.string.list_users_title))
         },
