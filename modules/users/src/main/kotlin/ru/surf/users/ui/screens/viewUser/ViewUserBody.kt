@@ -27,10 +27,7 @@ import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.sizeLarge
-import ru.surf.core.compose.Loader
-import ru.surf.core.compose.LoaderPage
-import ru.surf.core.compose.PageNotFound
-import ru.surf.core.compose.TopBarContentTitle
+import ru.surf.core.compose.*
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.users.data.mock.userModelMock
 import ru.surf.users.data.models.UserModel
@@ -61,11 +58,7 @@ fun ViewUserBody(
                 onActions(ViewUserActions.RefreshView(id))
             },
             indicator = { st, tr ->
-                SwipeRefreshIndicator(
-                    state = st,
-                    refreshTriggerDistance = tr,
-                    contentColor = MaterialTheme.colors.onPrimary,
-                )
+                AppSwipeRefreshIndicator(st, tr)
             },
             modifier = Modifier
                 .fillMaxSize()

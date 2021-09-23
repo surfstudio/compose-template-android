@@ -1,3 +1,18 @@
 <resources>
     <string name="settings_title">Settings</string>
+
+    <string name="settings_details_subtitle">Details</string>
+    <string name="settings_details_about">About me</string>
+    <string name="settings_details_edit">Edit Profile</string>
+    <string name="settings_details_enable_push">Is enable notification</string>
+
+    <string name="settings_info_subtitle">Info</string>
+    <string name="settings_info_terms">Terms of use</string>
+    <string name="settings_info_policy">Privacy policy</string>
+
+    <string name="settings_system_subtitle">System</string>
+    <string name="settings_system_appearance">Appearance</string>
+    <string name="settings_system_licences">Licences</string>
+
+    <string name="settings_logout">Logout</string>
 </resources>

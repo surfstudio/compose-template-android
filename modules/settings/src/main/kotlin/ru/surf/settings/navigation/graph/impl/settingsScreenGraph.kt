@@ -21,6 +21,7 @@ fun NavGraphBuilder.settingsScreenGraph(
         val viewModel: SettingsViewModel = hiltViewModel()
         SettingsScreen(viewModel = viewModel) { event ->
             when (event) {
+                is SettingsActions.UpdateSettings -> viewModel.updateSettings()
                 is SettingsActions.OpenMenu -> coroutineScope.launch { scaffoldState.drawerState.open() }
             }
         }

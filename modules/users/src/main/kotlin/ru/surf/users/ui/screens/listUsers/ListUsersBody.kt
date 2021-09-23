@@ -16,10 +16,7 @@ import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.accompanist.SwipeRefreshList
 import com.keygenqt.modifier.paddingSmall
 import ru.surf.core.base.LocalMainViewModel
-import ru.surf.core.compose.EmptyPage
-import ru.surf.core.compose.Loader
-import ru.surf.core.compose.LoaderPage
-import ru.surf.core.compose.TopBarContentTitle
+import ru.surf.core.compose.*
 import ru.surf.users.R
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
@@ -77,6 +74,9 @@ fun ListUsersBody(
                 modifier = Modifier,
                 items = searchItems,
                 state = rememberSwipeRefreshState(searchItems.loadState.refresh is LoadState.Loading),
+                indicator = { st, tr ->
+                    AppSwipeRefreshIndicator(st, tr)
+                },
                 contentEmpty = contentEmpty,
                 contentLoadState = contentLoadState,
                 contentLoading = contentLoading,
@@ -88,6 +88,9 @@ fun ListUsersBody(
                 modifier = Modifier,
                 items = items,
                 state = rememberSwipeRefreshState(items.loadState.refresh is LoadState.Loading),
+                indicator = { st, tr ->
+                    AppSwipeRefreshIndicator(st, tr)
+                },
                 contentEmpty = contentEmpty,
                 contentLoadState = contentLoadState,
                 contentLoading = contentLoading,
