@@ -2,22 +2,10 @@ val configurationSource: Any.() -> Unit by project.extra
 val dependenciesInternal: Any.() -> Unit by project.extra
 
 plugins {
-
-    id("com.android.application")
+    id("com.android.library")
     id("org.jetbrains.kotlin.android")
-
     kotlin("kapt")
-
-    // https://dagger.dev/hilt/
-    id("dagger.hilt.android.plugin")
-    // https://github.com/Kotlin/kotlinx.serialization
     kotlin("plugin.serialization")
-    // https://developers.google.com/android/guides/google-services-plugin
-    id("com.google.gms.google-services")
-    // https://firebase.google.com/products/crashlytics
-    id("com.google.firebase.crashlytics")
-    // https://github.com/ben-manes/gradle-versions-plugin
-    id("com.github.ben-manes.versions")
 }
 
 android {
@@ -28,10 +16,6 @@ android {
 
         minSdk = findProperty("minSdk").toString().toInt()
         targetSdk = findProperty("targetSdk").toString().toInt()
-
-        applicationId = "ru.surf.template"
-        versionCode = 1
-        versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -63,16 +47,11 @@ android {
     }
 }
 
-// modules
-dependencies {
-    implementation(project(":modules:core"))
-    implementation(project(":modules:other"))
-    implementation(project(":modules:users"))
-    implementation(project(":modules:settings"))
-}
-
 // libraries
 dependencies {
+
+    // Common module for all modules
+    implementation(project(":modules:core"))
 
     // Connecting internal libraries
     dependenciesInternal()

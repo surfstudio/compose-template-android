@@ -24,6 +24,7 @@ import com.keygenqt.modifier.sizeMedium
 import kotlinx.coroutines.launch
 import ru.surf.core.extension.EmitByStatus
 import ru.surf.core.theme.MainAppTheme
+import ru.surf.settings.navigation.nav.SettingsNav
 import ru.surf.users.navigation.nav.UsersNav
 
 @Composable
@@ -64,10 +65,10 @@ fun AppDrawer(
         )
 
         AppDrawerItem(
-            isSelected = currentRoute == UsersNav.MainNav.ListUsersScreen.route,
+            isSelected = currentRoute == SettingsNav.MainNav.SettingsScreen.route,
             label = "Settings",
             icon = Icons.Filled.Settings,
-            onClick = onClick(AppDrawerActions.ToUsers)
+            onClick = onClick(AppDrawerActions.ToSettings)
         )
     }
 }

@@ -49,6 +49,7 @@ include(":app")
 include(":modules:core")
 include(":modules:other")
 include(":modules:users")
+include(":modules:settings")
 
 // Include template module
 if (internalLibrariesEnable.toBoolean()) {

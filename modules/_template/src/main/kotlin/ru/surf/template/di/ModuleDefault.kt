@@ -40,9 +40,4 @@ object ModuleDefault {
     // @todo provide{ModuleName}Preferences
     // @todo {ModuleName}Preferences
     fun provideTemplatePreferences(corePreferences: CorePreferences) = TemplatePreferences(corePreferences.p)
-
-    @Provides
-    // @todo provide{ModuleName}Api
-    // @todo {ModuleName}Api
-    fun provideTemplateApi(retrofit: Retrofit): TemplateApi = retrofit.create(TemplateApi::class.java)
 }

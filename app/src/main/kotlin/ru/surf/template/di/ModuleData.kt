@@ -10,6 +10,7 @@ import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.core.interfaces.IAppPreferences
 import ru.surf.core.services.dataService.CoreDataService
 import ru.surf.other.data.preferences.OtherPreferences
+import ru.surf.settings.data.preferences.SettingsPreferences
 import ru.surf.users.data.preferences.UsersPreferences
 import ru.surf.users.services.dataService.UsersDataService
 
@@ -38,7 +39,8 @@ object ModuleData {
         core: CorePreferences,
         other: OtherPreferences,
         users: UsersPreferences,
+        settings: SettingsPreferences,
     ): Set<IAppPreferences> {
-        return listOf(core, other, users).toSet()
+        return listOf(core, other, users, settings).toSet()
     }
 }

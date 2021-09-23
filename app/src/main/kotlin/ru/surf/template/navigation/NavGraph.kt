@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 import ru.surf.core.R
 import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.core.extension.EmitByStatus
+import ru.surf.settings.navigation.graph.impl.settingsScreenGraph
 import ru.surf.template.drawer.AppDrawer
 import ru.surf.template.drawer.AppDrawerActions
 import ru.surf.users.navigation.graph.usersNavGraph
@@ -50,7 +51,7 @@ fun NavGraph(navController: NavHostController) {
             ) { event ->
                 when (event) {
                     is AppDrawerActions.ToUsers -> navActions.toUsers()
-                    is AppDrawerActions.ToSettings -> navActions.toUsers()
+                    is AppDrawerActions.ToSettings -> navActions.toSettings()
                 }
             }
         }
@@ -59,6 +60,10 @@ fun NavGraph(navController: NavHostController) {
 
             NavHost(navController = navController, startDestination = UsersNav.MainNav.ListUsersScreen.route) {
                 usersNavGraph(
+                    scaffoldState = scaffoldState,
+                    navActions = navActions,
+                )
+                settingsScreenGraph(
                     scaffoldState = scaffoldState,
                     navActions = navActions,
                 )
