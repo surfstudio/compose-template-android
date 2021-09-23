@@ -20,6 +20,7 @@ Compose Template Android
 
 ### Preview
 <p>
-<img src="data/gif/vokoscreen-2021-09-21_17-33-32.gif" width="35%"/>
-<img src="data/gif/vokoscreen-2021-09-21_17-34-43.gif" width="35%"/>
+<img src="data/gif/vokoscreen-2021-09-23_18-58-28.gif" width="32%"/>
+<img src="data/gif/vokoscreen-2021-09-23_19-09-04.gif" width="32%"/>
+<img src="data/gif/vokoscreen-2021-09-23_19-03-40.gif" width="32%"/>
 </p>

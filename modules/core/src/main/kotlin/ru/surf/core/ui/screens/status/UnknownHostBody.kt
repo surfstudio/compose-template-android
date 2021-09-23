@@ -11,6 +11,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
+import com.google.accompanist.insets.navigationBarsWithImePadding
 import com.keygenqt.modifier.paddingLarge
 import com.keygenqt.modifier.paddingXLarge
 import com.keygenqt.modifier.sizeXLarge
@@ -42,6 +43,7 @@ fun UnknownHostBody(
     Column(
         modifier = Modifier
             .paddingLarge()
+            .navigationBarsWithImePadding()
     ) {
         Box(
             modifier = Modifier
