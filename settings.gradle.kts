@@ -1,8 +1,10 @@
 pluginManagement {
 
+    val gradleVersionsPlugin: String by settings
+    val artifactoryVersions: String by settings
+    val spotlessVersions: String by settings
     val gradleVersion: String by settings
     val kotlinVersion: String by settings
-    val gradleVersionsPlugin: String by settings
 
     repositories {
         gradlePluginPortal()
@@ -16,8 +18,8 @@ pluginManagement {
         kotlin("kapt") version kotlinVersion
         kotlin("plugin.serialization") version kotlinVersion
         id("com.github.ben-manes.versions") version gradleVersionsPlugin
-        id("com.jfrog.artifactory") version "4.24.16"
-        id("com.diffplug.spotless") version "5.12.5"
+        id("com.jfrog.artifactory") version artifactoryVersions
+        id("com.diffplug.spotless") version spotlessVersions
     }
 }
 

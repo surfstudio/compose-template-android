@@ -9,3 +9,4 @@ modules/*/build/
 .externalNativeBuild
 .cxx
 /app/google-services.json
+/dokka/

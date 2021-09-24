@@ -8,6 +8,14 @@ plugins {
     kotlin("plugin.serialization")
 }
 
+tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {
+    dokkaSourceSets {
+        configureEach {
+            includes.from("dokka.md")
+        }
+    }
+}
+
 android {
 
     compileSdk = findProperty("compileSdk").toString().toInt()

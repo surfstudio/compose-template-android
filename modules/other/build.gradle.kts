@@ -6,6 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     kotlin("plugin.serialization")
+    id("org.jetbrains.dokka")
 }
 
 android {

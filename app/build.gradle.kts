@@ -54,10 +54,10 @@ android {
         compose = true
     }
 
-    // common configuration source
+// common configuration source
     this.sourceSets.configurationSource()
 
-    // disable waring OptIn
+// disable waring OptIn
     kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
