@@ -13,6 +13,11 @@ import androidx.navigation.compose.NavHost
 import ru.surf.core.navigation.graph.mainNavGraph
 import ru.surf.core.navigation.nav.CoreNav
 
+/**
+ * Navigation graph for basic pages errors etc...
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun NavGraphMain(navController: NavHostController) {
 

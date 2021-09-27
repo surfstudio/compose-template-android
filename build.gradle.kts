@@ -43,9 +43,11 @@ subprojects {
             target("**/*.kt")
             targetExclude("**/build/**")
             ktlint(libs.versions.ktlint.get())
-                .userData(mapOf(
-                    "disabled_rules" to "no-wildcard-imports",
-                ))
+                .userData(
+                    mapOf(
+                        "disabled_rules" to "no-wildcard-imports",
+                    )
+                )
             licenseHeaderFile("$rootDir/copyright.txt")
         }
         format("misc") {
@@ -57,21 +59,17 @@ subprojects {
     }
 
     tasks.withType<org.jetbrains.dokka.gradle.DokkaTaskPartial>().configureEach {
+
+        // Suppress all inherited members that were not overriden in a given class.
+        suppressInheritedMembers.set(true)
+
         dokkaSourceSets {
             configureEach {
                 // List of files with module and package documentation
                 // https://kotlinlang.org/docs/reference/kotlin-doc.html#module-and-package-documentation
                 includes.from("dokka.md")
-                // Disable linking to online Android documentation (only applicable for Android projects)
-                noAndroidSdkLink.set(false)
-                // Emit warnings about not documented members. Applies globally, also can be overridden by packageOptions
-                reportUndocumented.set(false)
-                // Do not output deprecated members. Applies globally, can be overridden by packageOptions
-                skipDeprecated.set(true)
-                // Linking to online kotlin-stdlib documentation
-                noStdlibLink.set(true)
-                // Linking to online JDK documentation
-                noJdkLink.set(true)
+                // Use to include or exclude non public members
+                includeNonPublic.set(true)
             }
         }
     }

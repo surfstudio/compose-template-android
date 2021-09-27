@@ -31,6 +31,11 @@ import ru.surf.template.drawer.AppDrawerActions
 import ru.surf.users.navigation.graph.usersNavGraph
 import ru.surf.users.navigation.nav.UsersNav
 
+/**
+ * Navigation graph for member
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun NavGraph(navController: NavHostController) {
 

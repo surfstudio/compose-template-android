@@ -27,6 +27,16 @@ import androidx.compose.ui.unit.dp
 import com.keygenqt.modifier.sizeLarge
 import ru.surf.core.theme.MainAppTheme
 
+/**
+ * Application menu item
+ *
+ * @param label text on item
+ * @param icon [ImageVector] on item
+ * @param isSelected set enable or not
+ * @param onClick callback click
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun AppDrawerItem(
     label: String,

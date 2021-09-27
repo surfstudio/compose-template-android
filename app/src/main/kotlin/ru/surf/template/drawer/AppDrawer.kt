@@ -24,11 +24,22 @@ import androidx.compose.ui.res.stringResource
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.modifier.sizeMedium
 import kotlinx.coroutines.launch
+import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.core.extension.EmitByStatus
 import ru.surf.settings.navigation.nav.SettingsNav
 import ru.surf.users.navigation.nav.UsersNav
 import ru.surf.core.R as RCore
 
+/**
+ * Application menu
+ *
+ * @param scaffoldState just [rememberScaffoldState]
+ * @param currentRoute string route navigation
+ * @param backDispatcher just [LocalBackPressedDispatcher]
+ * @param onActions callback with [AppDrawerActions]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun AppDrawer(
     scaffoldState: ScaffoldState = rememberScaffoldState(),

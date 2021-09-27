@@ -13,6 +13,11 @@ import androidx.navigation.compose.NavHost
 import ru.surf.other.navigation.graph.otherNavGraph
 import ru.surf.other.navigation.nav.OtherNav
 
+/**
+ * Navigation graph for guest
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun NavGraphGuest(navController: NavHostController) {
 

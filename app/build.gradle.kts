@@ -74,6 +74,10 @@ dependencies {
 // libraries
 dependencies {
 
+    dependencies{
+        dokkaGfmPlugin("org.jetbrains.dokka:android-documentation-plugin:${properties["dokkaVersions"]}")
+    }
+
     // Connecting internal libraries
     dependenciesInternal()
 

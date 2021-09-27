@@ -27,23 +27,30 @@ import ru.surf.template.navigation.NavGraph
 import ru.surf.template.navigation.NavGraphGuest
 import ru.surf.template.navigation.NavGraphMain
 
+/**
+ * This is the main and only Activity
+ *
+ * @author Vitaliy Zarubin
+ */
 @AndroidEntryPoint
 class AppActivity : ComponentActivity() {
 
+    /**
+     * Main ViewModel which is available throughout the application as staticCompositionLocalOf
+     */
     private val viewModel: MainViewModel by viewModels()
 
-    private var navController: NavHostController? = null
-
+    /**
+     * Main initialization point of view
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Disable window decor fitting
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
+        // compose initialization
         setContent {
-
-            navController = rememberNavController()
-
             CompositionLocalProvider(
                 LocalMainViewModel provides viewModel,
                 LocalBackPressedDispatcher provides this.onBackPressedDispatcher
@@ -54,7 +61,7 @@ class AppActivity : ComponentActivity() {
                         val isLogin by viewModel.isLogin.collectAsState(null)
                         val hasNetwork by viewModel.hasNetwork.collectAsState()
                         // select graph
-                        navController?.let {
+                        rememberNavController()?.let {
                             if (!hasNetwork) {
                                 NavGraphMain(it)
                             } else {
