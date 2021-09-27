@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.other.ui.screens.signUp
 
 import android.content.res.Configuration
@@ -24,7 +28,6 @@ import ru.surf.core.extension.EmitByStatus
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
-
 
 @OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 @Composable

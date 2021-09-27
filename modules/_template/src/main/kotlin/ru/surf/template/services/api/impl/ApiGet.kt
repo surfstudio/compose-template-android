@@ -1,11 +1,15 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.services.api.impl
 
 import androidx.annotation.IntRange
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
-import ru.surf.template.data.responses.TemplateResponse
 import ru.surf.core.utils.ConstantsPaging
+import ru.surf.template.data.responses.TemplateResponse
 
 // @todo getList{CustomName}
 // @todo getView{CustomName}

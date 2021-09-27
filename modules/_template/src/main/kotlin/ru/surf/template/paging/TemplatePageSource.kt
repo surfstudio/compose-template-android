@@ -1,11 +1,15 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.keygenqt.response.extensions.pagingSucceeded
+import ru.surf.core.utils.ConstantsPaging
 import ru.surf.template.data.models.TemplateModel
 import ru.surf.template.services.apiService.TemplateApiService
-import ru.surf.core.utils.ConstantsPaging
 
 // @todo {ModelName}PageSource
 // @todo {ModuleName}ApiService

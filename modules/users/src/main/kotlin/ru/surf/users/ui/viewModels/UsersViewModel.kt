@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.ui.viewModels
 
 import androidx.lifecycle.ViewModel
@@ -19,7 +23,6 @@ import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
 import timber.log.Timber
 import javax.inject.Inject
-
 
 @HiltViewModel
 class UsersViewModel @Inject constructor(

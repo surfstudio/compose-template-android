@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.ui.screens.viewUser
 
 import android.content.res.Configuration

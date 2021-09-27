@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.navigation.graph.impl
 
 import androidx.hilt.navigation.compose.hiltViewModel

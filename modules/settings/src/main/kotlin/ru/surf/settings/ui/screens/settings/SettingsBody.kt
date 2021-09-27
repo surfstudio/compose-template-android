@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.settings.ui.screens.settings
 
 import android.content.res.Configuration
@@ -74,13 +78,11 @@ fun SettingsBody(
                 }
 
                 SettingsItem(text = stringResource(id = R.string.settings_details_about)) {
-
                 }
 
                 Spacer(modifier = Modifier.sizeMedium())
 
                 SettingsItem(text = stringResource(id = R.string.settings_details_edit)) {
-
                 }
 
                 Spacer(modifier = Modifier.sizeMedium())
@@ -89,7 +91,6 @@ fun SettingsBody(
                     checked = false,
                     text = stringResource(id = R.string.settings_details_enable_push)
                 ) {
-
                 }
 
                 Spacer(modifier = Modifier.sizeMedium())
@@ -107,13 +108,11 @@ fun SettingsBody(
                 }
 
                 SettingsItem(text = stringResource(id = R.string.settings_info_terms)) {
-
                 }
 
                 Spacer(modifier = Modifier.sizeMedium())
 
                 SettingsItem(text = stringResource(id = R.string.settings_info_policy)) {
-
                 }
 
                 Spacer(modifier = Modifier.sizeMedium())
@@ -131,13 +130,11 @@ fun SettingsBody(
                 }
 
                 SettingsItem(text = stringResource(id = R.string.settings_system_appearance)) {
-
                 }
 
                 Spacer(modifier = Modifier.sizeMedium())
 
                 SettingsItem(text = stringResource(id = R.string.settings_system_licences)) {
-
                 }
 
                 Spacer(modifier = Modifier.sizeLarge())
@@ -156,14 +153,11 @@ fun SettingsBody(
                 Spacer(modifier = Modifier.sizeLarge())
 
                 SettingsItem(text = stringResource(id = R.string.settings_logout)) {
-
                 }
-
             }
         }
     }
 }
-
 
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_NO, device = Devices.PIXEL_4)
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, device = Devices.NEXUS_6)

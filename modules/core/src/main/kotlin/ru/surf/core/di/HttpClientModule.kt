@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.core.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -27,9 +31,11 @@ object HttpClientModule {
     @Provides
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            .addInterceptor(HttpLoggingInterceptor { message -> Timber.i(message) }.apply {
-                level = HttpLoggingInterceptor.Level.BODY
-            })
+            .addInterceptor(
+                HttpLoggingInterceptor { message -> Timber.i(message) }.apply {
+                    level = HttpLoggingInterceptor.Level.BODY
+                }
+            )
             .addInterceptor {
                 val original = it.request()
                 val request = original.newBuilder().apply {

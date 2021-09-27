@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.navigation
 
 import androidx.compose.foundation.layout.Box
@@ -26,7 +30,6 @@ import ru.surf.template.drawer.AppDrawer
 import ru.surf.template.drawer.AppDrawerActions
 import ru.surf.users.navigation.graph.usersNavGraph
 import ru.surf.users.navigation.nav.UsersNav
-
 
 @Composable
 fun NavGraph(navController: NavHostController) {
@@ -74,9 +77,9 @@ fun NavGraph(navController: NavHostController) {
 
             backDispatcher.EmitByStatus(
                 !showSnackbar &&
-                        listOf(
-                            UsersNav.MainNav.ListUsersScreen.route
-                        ).contains(currentRoute)
+                    listOf(
+                        UsersNav.MainNav.ListUsersScreen.route
+                    ).contains(currentRoute)
             ) {
                 showSnackbar = true
                 scope.launch {
@@ -97,7 +100,3 @@ fun NavGraph(navController: NavHostController) {
         }
     }
 }
-
-
-
-

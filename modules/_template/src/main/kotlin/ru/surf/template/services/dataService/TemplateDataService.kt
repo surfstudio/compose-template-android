@@ -1,7 +1,10 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.services.dataService
 
 import ru.surf.template.base.TemplateDatabase
-import ru.surf.template.data.preferences.TemplatePreferences
 import ru.surf.template.services.dataService.impl.TemplateModelDataService
 
 // @todo {ModuleName}DataService

@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.other.ui.viewModels
 
 import androidx.lifecycle.ViewModel
@@ -14,7 +18,6 @@ import kotlinx.coroutines.launch
 import ru.surf.other.services.apiService.OtherApiService
 import timber.log.Timber
 import javax.inject.Inject
-
 
 @HiltViewModel
 class OtherViewModel @Inject constructor(
@@ -48,7 +51,7 @@ class OtherViewModel @Inject constructor(
                     success(it.user_id, it.token)
                 }
                 .error {
-                    _commonError.value = it.message ?: "Authentication failed";
+                    _commonError.value = it.message ?: "Authentication failed"
                     Timber.e(it)
                 }
                 .done { _loading.value = false }
@@ -65,7 +68,7 @@ class OtherViewModel @Inject constructor(
                     _commonSuccess.value = false
                 }
                 .error {
-                    _commonError.value = it.message ?: "Authentication failed";
+                    _commonError.value = it.message ?: "Authentication failed"
                     Timber.e(it)
                 }
                 .done { _loading.value = false }
@@ -101,7 +104,7 @@ class OtherViewModel @Inject constructor(
                     success(it.user_id, it.token)
                 }
                 .error {
-                    _commonError.value = it.message ?: "Authentication failed";
+                    _commonError.value = it.message ?: "Authentication failed"
                     Timber.e(it)
                 }
                 .done { _loading.value = false }

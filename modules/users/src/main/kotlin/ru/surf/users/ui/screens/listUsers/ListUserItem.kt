@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.ui.screens.listUsers
 
 import androidx.compose.foundation.clickable
@@ -13,7 +17,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
-
 
 @Composable
 fun ListUserItem(

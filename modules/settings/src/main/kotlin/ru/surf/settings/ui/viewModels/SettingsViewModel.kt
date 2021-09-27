@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.settings.ui.viewModels
 
 import androidx.lifecycle.ViewModel

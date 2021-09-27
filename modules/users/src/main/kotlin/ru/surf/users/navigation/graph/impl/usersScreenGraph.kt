@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.navigation.graph.impl
 
 import androidx.compose.material.ScaffoldState
@@ -33,9 +37,11 @@ fun NavGraphBuilder.usersScreenGraph(
     }
     composable(
         route = UsersNav.MainNav.ViewUserScreen.routeWithArgument,
-        arguments = listOf(navArgument(UsersNav.MainNav.ViewUserScreen.argument0) {
-            type = NavType.StringType
-        })
+        arguments = listOf(
+            navArgument(UsersNav.MainNav.ViewUserScreen.argument0) {
+                type = NavType.StringType
+            }
+        )
     ) { backStackEntry ->
         backStackEntry.arguments?.let {
             val viewModel: UsersViewModel = hiltViewModel()

@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 @file:Suppress("unused")
 
 package ru.surf.core.initializer

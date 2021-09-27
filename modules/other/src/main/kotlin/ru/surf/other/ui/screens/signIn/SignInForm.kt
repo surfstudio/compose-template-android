@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.other.ui.screens.signIn
 
 import android.content.res.Configuration
@@ -32,7 +36,6 @@ import ru.surf.other.R
 import ru.surf.other.ui.actions.SignInActions
 import ru.surf.other.ui.forms.SignInFieldsForm.SignInEmail
 import ru.surf.other.ui.forms.SignInFieldsForm.SignInPassword
-
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

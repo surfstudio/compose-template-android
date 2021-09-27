@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.core.services.dataService.impl
 
 import kotlinx.coroutines.flow.Flow
@@ -7,7 +11,7 @@ import ru.surf.core.data.models.SettingsModel
 import ru.surf.core.interfaces.IAppDatabase
 import timber.log.Timber
 
-interface SettingsModelDataService: IAppDatabase {
+interface SettingsModelDataService : IAppDatabase {
 
     override val db: CoreDatabase
 

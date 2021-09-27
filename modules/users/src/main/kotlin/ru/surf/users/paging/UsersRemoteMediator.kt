@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.paging
 
 import androidx.paging.ExperimentalPagingApi
@@ -73,7 +77,6 @@ class UsersRemoteMediator(
             MediatorResult.Success(
                 endOfPaginationReached = response.isError || response.isEmpty
             )
-
         } catch (e: Exception) {
             MediatorResult.Error(e)
         }

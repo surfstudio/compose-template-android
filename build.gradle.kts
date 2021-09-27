@@ -42,6 +42,9 @@ subprojects {
         kotlin {
             target("**/*.kt")
             ktlint(libs.versions.ktlint.get())
+                .userData(mapOf(
+                    "disabled_rules" to "no-wildcard-imports",
+                ))
             licenseHeaderFile("$rootDir/copyright.txt")
         }
         format("misc") {

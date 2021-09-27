@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.navigation
 
 import androidx.compose.material.Scaffold
@@ -8,7 +12,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import ru.surf.other.navigation.graph.otherNavGraph
 import ru.surf.other.navigation.nav.OtherNav
-
 
 @Composable
 fun NavGraphGuest(navController: NavHostController) {
@@ -27,5 +30,3 @@ fun NavGraphGuest(navController: NavHostController) {
         }
     }
 }
-
-

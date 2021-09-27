@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.core.data.mappers
 
 import ru.surf.core.data.models.SettingsModel

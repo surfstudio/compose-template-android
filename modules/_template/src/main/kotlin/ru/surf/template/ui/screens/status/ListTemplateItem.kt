@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.ui.screens.status
 
 import androidx.compose.foundation.clickable
@@ -14,7 +18,6 @@ import androidx.compose.ui.unit.dp
 import ru.surf.template.data.models.TemplateModel
 import ru.surf.template.ui.actions.ListTemplateActions
 
-
 @Composable
 // This screen is an example of fragmentation.
 // @todo {ScreenName}{CustomName}
@@ -28,7 +31,6 @@ fun ListTemplateItem(
             .fillMaxWidth()
             .padding(bottom = 16.dp)
             .clickable {
-
             }
     ) {
         Column(

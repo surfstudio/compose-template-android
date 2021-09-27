@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.data.mappers
 
 import ru.surf.users.data.models.UserModel

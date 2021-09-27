@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.data.preferences
 
 import android.content.SharedPreferences
@@ -20,5 +24,4 @@ interface UsersPreferencesListCache : IAppPreferences {
     var lastUpdateListUsers: Long
         get() = p.getLong(KEYS.LAST_UPDATE_LIST_USERS.name, 0L)
         set(value) = p.edit().putLong(KEYS.LAST_UPDATE_LIST_USERS.name, value).apply()
-
 }

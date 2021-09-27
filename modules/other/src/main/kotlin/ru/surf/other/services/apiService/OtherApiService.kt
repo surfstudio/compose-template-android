@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.other.services.apiService
 
 import ru.surf.other.services.api.OtherApi

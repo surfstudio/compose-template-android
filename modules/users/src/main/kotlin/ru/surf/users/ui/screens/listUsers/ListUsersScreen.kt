@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.users.ui.screens.listUsers
 
 import androidx.compose.runtime.Composable
@@ -25,4 +29,3 @@ fun ListUsersScreen(
         onActions = onActions,
     )
 }
-

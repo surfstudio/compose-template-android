@@ -1,3 +1,7 @@
+/*
+ * Copyright Surf - All Rights Reserved
+ * September 2021
+ */
 package ru.surf.template.di
 
 import android.app.Application
@@ -6,11 +10,9 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import retrofit2.Retrofit
 import ru.surf.core.base.CorePreferences
 import ru.surf.template.base.TemplateDatabase
 import ru.surf.template.data.preferences.TemplatePreferences
-import ru.surf.template.services.api.TemplateApi
 import ru.surf.template.services.dataService.TemplateDataService
 
 @Module
