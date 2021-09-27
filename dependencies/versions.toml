@@ -58,3 +58,5 @@ composeForms = "0.0.9"
 # Tests
 mockWebServer = "4.9.1"
 mockitoCore = "3.10.0"
+# https://github.com/pinterest/ktlint
+ktlint = "0.42.1"

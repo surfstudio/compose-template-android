@@ -6,7 +6,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     kotlin("plugin.serialization")
-    id("org.jetbrains.dokka")
 }
 
 android {
@@ -32,7 +31,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = findProperty("composeVersion").toString()
+        kotlinCompilerExtensionVersion = libs.versions.compose.get()
     }
 
     buildFeatures {

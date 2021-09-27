@@ -18,8 +18,6 @@ plugins {
     id("com.google.firebase.crashlytics")
     // https://github.com/ben-manes/gradle-versions-plugin
     id("com.github.ben-manes.versions")
-    // https://github.com/Kotlin/dokka
-    id("org.jetbrains.dokka")
 }
 
 android {
@@ -49,17 +47,17 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = findProperty("composeVersion").toString()
+        kotlinCompilerExtensionVersion = libs.versions.compose.get()
     }
 
     buildFeatures {
         compose = true
     }
 
-// common configuration source
+    // common configuration source
     this.sourceSets.configurationSource()
 
-// disable waring OptIn
+    // disable waring OptIn
     kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }

@@ -39,7 +39,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = findProperty("composeVersion").toString()
+        kotlinCompilerExtensionVersion = libs.versions.compose.get()
     }
 
     buildFeatures {

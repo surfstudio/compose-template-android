@@ -3,6 +3,7 @@ pluginManagement {
     val gradleVersionsPlugin: String by settings
     val artifactoryVersions: String by settings
     val spotlessVersions: String by settings
+    val dokkaVersions: String by settings
     val gradleVersion: String by settings
     val kotlinVersion: String by settings
 
@@ -12,14 +13,22 @@ pluginManagement {
         mavenCentral()
     }
     plugins {
+        id("org.jetbrains.kotlin.android") version kotlinVersion
         id("com.android.application") version gradleVersion
         id("com.android.library") version gradleVersion
-        id("org.jetbrains.kotlin.android") version kotlinVersion
+
         kotlin("kapt") version kotlinVersion
+
+        // https://github.com/Kotlin/kotlinx.serialization
         kotlin("plugin.serialization") version kotlinVersion
+        // https://github.com/ben-manes/gradle-versions-plugin
         id("com.github.ben-manes.versions") version gradleVersionsPlugin
+        // https://www.jfrog.com/confluence/display/JFROG/Gradle+Artifactory+Plugin
         id("com.jfrog.artifactory") version artifactoryVersions
+        // https://github.com/diffplug/spotless
         id("com.diffplug.spotless") version spotlessVersions
+        // https://github.com/Kotlin/dokka
+        id("org.jetbrains.dokka") version dokkaVersions
     }
 }
 
