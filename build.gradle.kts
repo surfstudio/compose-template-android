@@ -41,6 +41,7 @@ subprojects {
     spotless {
         kotlin {
             target("**/*.kt")
+            targetExclude("**/build/**")
             ktlint(libs.versions.ktlint.get())
                 .userData(mapOf(
                     "disabled_rules" to "no-wildcard-imports",
