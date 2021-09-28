@@ -9,6 +9,11 @@ import androidx.room.RoomDatabase
 import ru.surf.users.data.dao.UserModelDao
 import ru.surf.users.data.models.UserModel
 
+/**
+ * Database configuration [RoomDatabase]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Database(
     entities = [
         UserModel::class,

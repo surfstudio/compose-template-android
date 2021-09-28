@@ -9,7 +9,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.ElementsIntoSet
-import ru.surf.core.base.CorePreferences
+import ru.surf.core.data.preferences.CorePreferences
 import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.core.interfaces.IAppPreferences
 import ru.surf.core.services.dataService.CoreDataService
@@ -33,6 +33,8 @@ object ModuleData {
      * @param core service [CoreDataService] room db from module core
      * @param users service [UsersDataService] room db from module users
      *
+     * @return list services room db
+     *
      * @author Vitaliy Zarubin
      */
     @Provides
@@ -51,6 +53,8 @@ object ModuleData {
      * @param other service [OtherPreferences] shared preferences from module other
      * @param users service [UsersPreferences] shared preferences from module users
      * @param settings service [SettingsPreferences] shared preferences from module settings
+     *
+     * @return list services preferences
      *
      * @author Vitaliy Zarubin
      */

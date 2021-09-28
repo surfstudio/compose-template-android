@@ -9,6 +9,11 @@ import androidx.room.RoomDatabase
 import ru.surf.core.data.dao.SettingsModelDao
 import ru.surf.core.data.models.SettingsModel
 
+/**
+ * Database configuration [RoomDatabase]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Database(
     entities = [
         SettingsModel::class

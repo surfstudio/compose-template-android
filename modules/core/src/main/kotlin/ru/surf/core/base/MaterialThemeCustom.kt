@@ -8,7 +8,7 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 
-object LocalColorsCustom {
+object LocalMaterialThemeCustom {
     var colors: ColorsCustom? = null
     var typography: TypographyCustom? = null
     var shapes: ShapesCustom? = null
@@ -16,13 +16,13 @@ object LocalColorsCustom {
 
 @Composable
 fun MaterialThemeCustom(
-    colors: ColorsCustom = LocalColorsCustom.colors!!,
+    colors: ColorsCustom = LocalMaterialThemeCustom.colors!!,
     typography: TypographyCustom = TypographyCustom.default.invoke(),
     shapes: ShapesCustom = ShapesCustom.default,
 ) {
-    LocalColorsCustom.colors = colors
-    LocalColorsCustom.typography = typography
-    LocalColorsCustom.shapes = shapes
+    LocalMaterialThemeCustom.colors = colors
+    LocalMaterialThemeCustom.typography = typography
+    LocalMaterialThemeCustom.shapes = shapes
 }
 
 /**
@@ -40,10 +40,10 @@ object MaterialThemeCustom {
         @Composable
         @ReadOnlyComposable
         get() {
-            return if (LocalColorsCustom.colors == null) {
+            return if (LocalMaterialThemeCustom.colors == null) {
                 throw RuntimeException("You must initialize MaterialThemeCustom colors")
             } else {
-                LocalColorsCustom.colors!!
+                LocalMaterialThemeCustom.colors!!
             }
         }
 
@@ -56,10 +56,10 @@ object MaterialThemeCustom {
         @Composable
         @ReadOnlyComposable
         get() {
-            return if (LocalColorsCustom.typography == null) {
+            return if (LocalMaterialThemeCustom.typography == null) {
                 throw RuntimeException("You must initialize MaterialThemeCustom typography")
             } else {
-                LocalColorsCustom.typography!!
+                LocalMaterialThemeCustom.typography!!
             }
         }
 
@@ -69,5 +69,5 @@ object MaterialThemeCustom {
     val shapes: ShapesCustom
         @Composable
         @ReadOnlyComposable
-        get() = LocalColorsCustom.shapes ?: ShapesCustom.default
+        get() = LocalMaterialThemeCustom.shapes ?: ShapesCustom.default
 }

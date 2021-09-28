@@ -8,14 +8,21 @@ import android.content.SharedPreferences
 import ru.surf.core.interfaces.IAppPreferences
 import timber.log.Timber
 
+/**
+ * Common service shared preference for module
+ *
+ * @author Vitaliy Zarubin
+ */
 interface OtherPreferencesModule : IAppPreferences {
 
+    /**
+     * Store private, primitive data in key-value pairs [SharedPreferences]
+     */
     override val p: SharedPreferences
 
-    enum class KEYS {
-        IS_ONBOARDING,
-    }
-
+    /**
+     * Performed when the user logs out
+     */
     override fun clearCacheAfterLogout() {
         Timber.e("Clear cache: OtherPreferencesModule")
     }
