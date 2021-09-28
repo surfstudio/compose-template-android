@@ -43,7 +43,7 @@ emojiVersion = "5.1.1"
 pagingCompose = "1.0.0-alpha12"
 # Database Room
 # https://developer.android.com/training/data-storage/room
-roomVersion = "2.3.0"
+roomVersion = "2.4.0-alpha04"
 # Custom libs
 # https://github.com/keygenqt/compose-modifier-ext
 composeModifierExt = "0.0.5"

@@ -5,7 +5,6 @@
 package ru.surf.core.navigation.nav.impl
 
 import com.keygenqt.routing.NavScreen
-import ru.surf.core.navigation.nav.impl.StatusScreen.StatusScreen
 
 /**
  * Routing for [StatusScreen]
