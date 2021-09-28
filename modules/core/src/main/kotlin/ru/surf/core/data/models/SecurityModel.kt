@@ -9,6 +9,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import ru.surf.core.interfaces.IModel
 
+/**
+ * Model saved with encryption for access
+ *
+ * @property token singIn/Up string for authorization
+ *
+ * @author Vitaliy Zarubin
+ */
 @Entity
 @Immutable
 data class SecurityModel(

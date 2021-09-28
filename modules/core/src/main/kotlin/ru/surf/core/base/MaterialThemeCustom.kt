@@ -7,13 +7,35 @@ package ru.surf.core.base
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.lifecycle.ViewModel
+import ru.surf.core.base.LocalMaterialThemeCustom.colors
+import ru.surf.core.base.LocalMaterialThemeCustom.shapes
+import ru.surf.core.base.LocalMaterialThemeCustom.typography
 
+/**
+ * Static object for [MaterialThemeCustom]
+ *
+ * @property colors custom colors [ColorsCustom]
+ * @property typography custom typography [TypographyCustom]
+ * @property shapes custom shapes [ShapesCustom]
+ *
+ * @author Vitaliy Zarubin
+ */
 object LocalMaterialThemeCustom {
     var colors: ColorsCustom? = null
     var typography: TypographyCustom? = null
     var shapes: ShapesCustom? = null
 }
 
+/**
+ * fun for generate [MaterialThemeCustom]
+ *
+ * @property colors custom colors [ColorsCustom], required
+ * @property typography custom typography [TypographyCustom], optional
+ * @property shapes custom shapes [ShapesCustom], optional
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun MaterialThemeCustom(
     colors: ColorsCustom = LocalMaterialThemeCustom.colors!!,

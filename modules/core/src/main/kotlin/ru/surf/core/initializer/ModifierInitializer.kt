@@ -11,6 +11,11 @@ import androidx.compose.ui.unit.dp
 import androidx.startup.Initializer
 import com.keygenqt.modifier.ModifierConfiguration
 
+/**
+ * Initialization [ModifierConfiguration]
+ *
+ * @author Vitaliy Zarubin
+ */
 class ModifierInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {

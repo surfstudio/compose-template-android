@@ -10,6 +10,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 
+/**
+ * Listen status for enable [OnBackPressedCallback]
+ *
+ * @param status state enable handleOnBackPressed
+ * @param emit lambda for emit is enable
+ *
+ * @sample ru.surf.template.drawer.AppDrawer
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun OnBackPressedDispatcher.EmitByStatus(status: Boolean, emit: () -> Unit) {
     val closeNavigatorButton = remember {

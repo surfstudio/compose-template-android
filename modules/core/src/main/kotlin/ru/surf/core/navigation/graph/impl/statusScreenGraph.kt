@@ -12,6 +12,11 @@ import ru.surf.core.navigation.nav.CoreNav
 import ru.surf.core.ui.actions.UnknownHostActions
 import ru.surf.core.ui.screens.status.StatusScreen
 
+/**
+ * NavGraph for [StatusScreen]
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.statusScreenGraph(
     navActions: CoreNavActions,
 ) {

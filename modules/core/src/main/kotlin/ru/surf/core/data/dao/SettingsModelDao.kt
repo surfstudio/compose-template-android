@@ -11,6 +11,11 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 import ru.surf.core.data.models.SettingsModel
 
+/**
+ * Dao for model [SettingsModel]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Dao
 interface SettingsModelDao {
     @Query("SELECT * FROM SettingsModel")

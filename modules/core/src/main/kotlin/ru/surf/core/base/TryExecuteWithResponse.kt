@@ -10,6 +10,11 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import java.net.UnknownHostException
 
+/**
+ * Observe for specific exceptions
+ *
+ * @author Vitaliy Zarubin
+ */
 class TryExecuteWithResponse {
     companion object {
         fun observeUnknownHostException(scope: CoroutineScope, body: () -> Unit) {

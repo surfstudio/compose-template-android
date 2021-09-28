@@ -11,6 +11,11 @@ import ru.surf.core.data.models.SecurityModel
 import ru.surf.core.interfaces.IAppDatabase
 import timber.log.Timber
 
+/**
+ * Service part for work with model [SecurityModel]
+ *
+ * @author Vitaliy Zarubin
+ */
 interface SecurityModelDataService : IAppDatabase {
 
     val dbSecurity: CoreSecurityDatabase

@@ -22,6 +22,13 @@ import com.keygenqt.modifier.paddingXLarge
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
 
+/**
+ * Animation for page
+ *
+ * @param modifier Modifier to be applied to the layout
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun EmptyPageAnimation(
     modifier: Modifier = Modifier,
@@ -38,6 +45,13 @@ fun EmptyPageAnimation(
     )
 }
 
+/**
+ * Block for show info about page is empty
+ *
+ * @param modifier Modifier to be applied to the layout
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun EmptyPage(
     modifier: Modifier = Modifier

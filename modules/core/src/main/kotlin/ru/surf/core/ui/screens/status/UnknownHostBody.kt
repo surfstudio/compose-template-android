@@ -23,6 +23,11 @@ import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.core.ui.actions.UnknownHostActions
 
+/**
+ * Body page [StatusScreen]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun UnknownHostAnimation(
     modifier: Modifier = Modifier,

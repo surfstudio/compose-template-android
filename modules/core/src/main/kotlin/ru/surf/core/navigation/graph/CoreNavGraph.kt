@@ -8,6 +8,11 @@ import androidx.navigation.NavGraphBuilder
 import ru.surf.core.navigation.actions.CoreNavActions
 import ru.surf.core.navigation.graph.impl.statusScreenGraph
 
+/**
+ * Base block with graphs for module
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.mainNavGraph(
     navActions: CoreNavActions,
 ) {

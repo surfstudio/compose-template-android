@@ -8,6 +8,13 @@ import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.unit.dp
 
+/**
+ * Shapes custom for [MaterialThemeCustom]
+ *
+ * @property listItem for lists [RoundedCornerShape]
+ *
+ * @author Vitaliy Zarubin
+ */
 class ShapesCustom(
     val listItem: CornerBasedShape = RoundedCornerShape(8.dp),
 ) {

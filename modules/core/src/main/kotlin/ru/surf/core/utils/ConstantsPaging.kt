@@ -6,12 +6,25 @@ package ru.surf.core.utils
 
 import java.util.concurrent.TimeUnit
 
+/**
+ * Constants for paging lists
+ *
+ * @author Vitaliy Zarubin
+ */
 object ConstantsPaging {
 
-    // lists refresh once per hour
+    /**
+     * Lists refresh once per hour
+     */
     val CACHE_TIMEOUT = TimeUnit.HOURS.toMillis(1)
 
-    // const for api query
+    /**
+     * Max count list items
+     */
     const val MAX_PAGE_SIZE = 100
+
+    /**
+     * Query page size
+     */
     const val PAGE_LIMIT = 5
 }

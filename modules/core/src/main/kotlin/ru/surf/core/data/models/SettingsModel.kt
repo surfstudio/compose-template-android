@@ -9,6 +9,14 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import ru.surf.core.interfaces.IModel
 
+/**
+ * Common settings for app
+ *
+ * @property id key from api
+ * @property value string data
+ *
+ * @author Vitaliy Zarubin
+ */
 @Entity
 @Immutable
 data class SettingsModel(

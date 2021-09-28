@@ -7,10 +7,16 @@ package ru.surf.core.services.dataService.impl
 import kotlinx.coroutines.flow.Flow
 import ru.surf.core.base.CoreDatabase
 import ru.surf.core.data.dao.SettingsModelDao
+import ru.surf.core.data.models.SecurityModel
 import ru.surf.core.data.models.SettingsModel
 import ru.surf.core.interfaces.IAppDatabase
 import timber.log.Timber
 
+/**
+ * Service part for work with model [SettingsModel]
+ *
+ * @author Vitaliy Zarubin
+ */
 interface SettingsModelDataService : IAppDatabase {
 
     override val db: CoreDatabase

@@ -6,7 +6,13 @@ package ru.surf.core.data.migrations
 
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
+import ru.surf.core.data.responses.SettingsResponse
 
+/**
+ * Example migration for security db
+ *
+ * @author Vitaliy Zarubin
+ */
 val Migrations_1_2 = object : Migration(1, 2) {
 
     val TABLE_NAME = "SecurityModel"

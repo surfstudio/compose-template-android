@@ -15,6 +15,13 @@ import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.*
 import ru.surf.core.R
 
+/**
+ * Box with animated loader
+ *
+ * @param modifier Modifier to be applied to the layout
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun Loader(
     modifier: Modifier = Modifier

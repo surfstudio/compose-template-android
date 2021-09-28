@@ -18,8 +18,18 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.google.accompanist.swiperefresh.SwipeRefresh
+import com.google.accompanist.swiperefresh.SwipeRefreshState
 import ru.surf.core.theme.MainAppTheme
 
+/**
+ * Box with error for forms
+ *
+ * @param modifier Modifier to be applied to the layout
+ * @param textError text show in error block
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun BoxTextFieldError(
     modifier: Modifier = Modifier,

@@ -21,6 +21,16 @@ import ru.surf.core.services.dataService.CoreDataService
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * Main [ViewModel] for app
+ *
+ * @property apiService core service http query
+ * @property dataService core service db room
+ * @property dataServices group services db room
+ * @property preferences group services shared preference
+ *
+ * @author Vitaliy Zarubin
+ */
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val apiService: CoreApiService,
@@ -29,15 +39,39 @@ class MainViewModel @Inject constructor(
     private var preferences: Set<@JvmSuppressWildcards IAppPreferences>,
 ) : ViewModel() {
 
+    /**
+     * [MutableStateFlow] for loading callbacks
+     */
     private val _loading: MutableStateFlow<Boolean> = MutableStateFlow(false)
+
+    /**
+     * [StateFlow] for [_loading]
+     */
     val loading: StateFlow<Boolean> get() = _loading.asStateFlow()
 
+    /**
+     * [MutableStateFlow] for listen has network
+     */
     private val _hasNetwork: MutableStateFlow<Boolean> = MutableStateFlow(true)
+
+    /**
+     * [StateFlow] for [_hasNetwork]
+     */
     val hasNetwork: StateFlow<Boolean> get() = _hasNetwork.asStateFlow()
 
+    /**
+     * [MutableStateFlow] for start app and end splash
+     */
     private val _isReady: MutableStateFlow<Boolean> = MutableStateFlow(false)
+
+    /**
+     * [StateFlow] for [_isReady]
+     */
     val isReady: StateFlow<Boolean> get() = _isReady.asStateFlow()
 
+    /**
+     * Flow for listen change status user
+     */
     val isLogin = flow {
         dataService.getSecurityModel().distinctUntilChanged().collect {
             emit(it != null)
@@ -63,6 +97,9 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Update common for application settings
+     */
     fun updateSettings() {
         _loading.value = true
         viewModelScope.launch {
@@ -91,6 +128,9 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Update status user guest to member
+     */
     fun login(userId: String, token: String) {
         viewModelScope.launch {
             dataService.withTransaction<CoreDataService> {
@@ -105,6 +145,9 @@ class MainViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Logout user
+     */
     fun logout() {
         viewModelScope.launch {
             dataService.withTransaction<CoreDataService> {

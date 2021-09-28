@@ -13,6 +13,11 @@ import androidx.compose.ui.unit.sp
 import ru.surf.core.R
 import ru.surf.core.base.TypographyCustom
 
+/**
+ * Custom [FontFamily] from resources
+ *
+ * @author Vitaliy Zarubin
+ */
 val montserratFamily = FontFamily(
     Font(R.font.montserrat_semi_bold, FontWeight.SemiBold),
     Font(R.font.montserrat_regular, FontWeight.Normal),
@@ -21,6 +26,11 @@ val montserratFamily = FontFamily(
     Font(R.font.montserrat_extra_bold, FontWeight.ExtraBold)
 )
 
+/**
+ * System Typography
+ *
+ * @author Vitaliy Zarubin
+ */
 val Typography = Typography(
     body1 = TextStyle(
         fontFamily = FontFamily.Default,
@@ -29,6 +39,11 @@ val Typography = Typography(
     )
 )
 
+/**
+ * Custom Typography
+ *
+ * @author Vitaliy Zarubin
+ */
 val TypographyCustom = TypographyCustom(
     title = TextStyle(
         fontFamily = montserratFamily,

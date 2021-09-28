@@ -9,7 +9,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.colorResource
 import ru.surf.core.R
 import ru.surf.core.base.ColorsCustom
+import ru.surf.core.data.models.SettingsModel
 
+/**
+ * Parse colors from xml [ColorsCustom]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun parseConfigCustomPalette(isLight: Boolean): ColorsCustom {
     return ColorsCustom(
@@ -19,6 +25,11 @@ fun parseConfigCustomPalette(isLight: Boolean): ColorsCustom {
     )
 }
 
+/**
+ * Parse colors from xml [Colors]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun parseConfigPalette(isLight: Boolean): Colors {
     return Colors(

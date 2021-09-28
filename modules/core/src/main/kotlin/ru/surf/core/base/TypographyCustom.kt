@@ -8,6 +8,13 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.text.TextStyle
 
+/**
+ * Typography custom for [MaterialThemeCustom]
+ *
+ * @property title typography for title, example
+ *
+ * @author Vitaliy Zarubin
+ */
 class TypographyCustom(
     val title: TextStyle,
 ) {

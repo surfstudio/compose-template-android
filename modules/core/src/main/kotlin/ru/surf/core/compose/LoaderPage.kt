@@ -22,6 +22,13 @@ import com.keygenqt.modifier.paddingXLarge
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
 
+/**
+ * Animation for page
+ *
+ * @param modifier Modifier to be applied to the layout
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun LoaderPageAnimation(
     modifier: Modifier = Modifier,
@@ -38,6 +45,13 @@ fun LoaderPageAnimation(
     )
 }
 
+/**
+ * Box with animated loader for page
+ *
+ * @param modifier Modifier to be applied to the layout
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun LoaderPage(
     modifier: Modifier = Modifier

@@ -11,9 +11,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
+import com.keygenqt.accompanist.MainScaffoldSearch
 
+/**
+ * Text for contentTitle [MainScaffoldSearch]
+ *
+ * @param text string with text
+ * @param textAlign align text, default [TextAlign.Left]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
-fun TopBarContentTitle(text: String, textAlign: TextAlign = TextAlign.Left) {
+fun TopBarContentTitle(
+    text: String,
+    textAlign: TextAlign = TextAlign.Left
+) {
     Text(
         modifier = Modifier.fillMaxWidth(),
         fontSize = TextUnit.Unspecified,

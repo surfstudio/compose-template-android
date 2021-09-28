@@ -6,5 +6,10 @@ package ru.surf.core.navigation.actions
 
 import ru.surf.core.navigation.actions.impl.StatusActions
 
+/**
+ * Base actions for core module
+ *
+ * @author Vitaliy Zarubin
+ */
 interface CoreNavActions :
     StatusActions

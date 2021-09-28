@@ -11,6 +11,11 @@ import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
 import ru.surf.core.data.models.SecurityModel
 
+/**
+ * Dao for model [SecurityModel]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Dao
 interface SecurityModelDao {
     @Query("SELECT * FROM SecurityModel LIMIT 1")

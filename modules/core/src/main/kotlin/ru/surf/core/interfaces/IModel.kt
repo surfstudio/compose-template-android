@@ -4,6 +4,11 @@
  */
 package ru.surf.core.interfaces
 
+/**
+ * Interface for models
+ *
+ * @author Vitaliy Zarubin
+ */
 interface IModel {
     val id: String
 }

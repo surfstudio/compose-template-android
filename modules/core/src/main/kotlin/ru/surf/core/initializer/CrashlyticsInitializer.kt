@@ -11,6 +11,11 @@ import androidx.startup.Initializer
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import ru.surf.core.BuildConfig
 
+/**
+ * Initialization сrashlytics
+ *
+ * @author Vitaliy Zarubin
+ */
 class CrashlyticsInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {

@@ -10,6 +10,11 @@ import androidx.compose.runtime.getValue
 import ru.surf.core.base.MainViewModel
 import ru.surf.core.ui.actions.UnknownHostActions
 
+/**
+ * Base page fun for initialization
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun StatusScreen(
     viewModel: MainViewModel,

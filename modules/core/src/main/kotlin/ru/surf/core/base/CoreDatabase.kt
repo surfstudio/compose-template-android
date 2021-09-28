@@ -22,5 +22,8 @@ import ru.surf.core.data.models.SettingsModel
     exportSchema = false
 )
 abstract class CoreDatabase : RoomDatabase() {
+    /**
+     * Dao for model [SettingsModel]
+     */
     abstract fun settingsModelDao(): SettingsModelDao
 }
