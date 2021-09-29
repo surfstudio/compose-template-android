@@ -64,7 +64,6 @@ fun NavGraph(navController: NavHostController) {
         scaffoldState = scaffoldState,
         drawerContent = {
             AppDrawer(
-                backDispatcher = backDispatcher,
                 scaffoldState = scaffoldState,
                 currentRoute = currentRoute,
             ) { event ->

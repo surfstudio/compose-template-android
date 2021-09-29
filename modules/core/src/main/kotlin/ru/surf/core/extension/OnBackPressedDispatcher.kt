@@ -27,7 +27,7 @@ import androidx.compose.runtime.remember
  * @param status state enable handleOnBackPressed
  * @param emit lambda for emit is enable
  *
- * @sample ru.surf.template.drawer.AppDrawer
+ * @sample ru.surf.template.drawer.SetBackDispatcherAppDrawer
  *
  * @author Vitaliy Zarubin
  */

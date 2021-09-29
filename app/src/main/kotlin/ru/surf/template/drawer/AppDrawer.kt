@@ -34,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.modifier.sizeMedium
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.core.extension.EmitByStatus
@@ -55,14 +56,11 @@ import ru.surf.core.R as RCore
 fun AppDrawer(
     scaffoldState: ScaffoldState = rememberScaffoldState(),
     currentRoute: String = UsersNav.MainNav.ListUsersNavScreen.route,
-    backDispatcher: OnBackPressedDispatcher? = null,
     onActions: (AppDrawerActions) -> Unit = {},
 ) {
     val scope = rememberCoroutineScope()
 
-    backDispatcher?.EmitByStatus(scaffoldState.drawerState.isOpen) {
-        scope.launch { scaffoldState.drawerState.close() }
-    }
+    SetBackDispatcherAppDrawer(scaffoldState)
 
     val onClick: (AppDrawerActions) -> () -> Unit = { event ->
         {
@@ -95,5 +93,24 @@ fun AppDrawer(
             icon = Icons.Filled.Settings,
             onClick = onClick(AppDrawerActions.ToSettings)
         )
+    }
+}
+
+/**
+ * Init listen dispatcher
+ *
+ * @param scaffoldState just [rememberScaffoldState]
+ *
+ * @author Vitaliy Zarubin
+ */
+@Composable
+fun SetBackDispatcherAppDrawer(
+    scaffoldState: ScaffoldState
+) {
+    val scope: CoroutineScope = rememberCoroutineScope()
+    val backDispatcher = LocalBackPressedDispatcher.current
+
+    backDispatcher.EmitByStatus(scaffoldState.drawerState.isOpen) {
+        scope.launch { scaffoldState.drawerState.close() }
     }
 }
