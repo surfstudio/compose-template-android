@@ -14,6 +14,11 @@ import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.screens.signUp.SignUpScreen
 import ru.surf.other.ui.viewModels.OtherViewModel
 
+/**
+ * NavGraph for [SignUpScreen]
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.signUpScreenGraph(
     navActions: OtherNavActions,
 ) {

@@ -16,11 +16,16 @@ import ru.surf.settings.ui.actions.SettingsActions
 import ru.surf.settings.ui.screens.settings.SettingsScreen
 import ru.surf.settings.ui.viewModels.SettingsViewModel
 
+/**
+ * NavGraph for [SettingsScreen]
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.settingsScreenGraph(
     scaffoldState: ScaffoldState,
     navActions: SettingsNavActions,
 ) {
-    composable(SettingsNav.MainNav.SettingsScreen.route) {
+    composable(SettingsNav.MainNav.SettingsNavScreen.route) {
         val coroutineScope = rememberCoroutineScope()
         val viewModel: SettingsViewModel = hiltViewModel()
         SettingsScreen(viewModel = viewModel) { event ->

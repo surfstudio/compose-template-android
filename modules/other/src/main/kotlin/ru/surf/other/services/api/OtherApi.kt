@@ -10,4 +10,9 @@ import ru.surf.other.services.api.impl.ApiPatch
 import ru.surf.other.services.api.impl.ApiPost
 import ru.surf.other.services.api.impl.ApiPut
 
+/**
+ * Base interfaces for retrofit separate by HTTP methods
+ *
+ * @author Vitaliy Zarubin
+ */
 interface OtherApi : ApiDelete, ApiGet, ApiPatch, ApiPost, ApiPut

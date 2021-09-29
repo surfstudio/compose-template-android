@@ -8,6 +8,11 @@ import ru.surf.other.navigation.nav.impl.SignInNavScreen
 import ru.surf.other.navigation.nav.impl.SignUpNavScreen
 import ru.surf.other.navigation.nav.impl.WelcomeNavScreen
 
+/**
+ * Base routing for module
+ *
+ * @author Vitaliy Zarubin
+ */
 object OtherNav {
     val WelcomeNav = WelcomeNavScreen
     val SignInNav = SignInNavScreen

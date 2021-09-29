@@ -21,6 +21,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.paging.compose.LazyPagingItems
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -35,7 +36,20 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.users.data.mock.userModelMock
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ViewUserActions
+import ru.surf.users.ui.screens.listUsers.ListUsersScreen
 
+/**
+ * Body page [ViewUserScreen]
+ *
+ * @param id user identifier
+ * @param model data db room [UserModel]
+ * @param loading state call query to api
+ * @param error404 state if model not found
+ * @param onActions actions page
+ * @param backDispatcher dispatcher press back
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun ViewUserBody(
     id: String,

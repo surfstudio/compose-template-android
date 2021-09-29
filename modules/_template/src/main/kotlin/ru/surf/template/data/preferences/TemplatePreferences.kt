@@ -11,6 +11,9 @@ import android.content.SharedPreferences
 class TemplatePreferences(override val p: SharedPreferences) :
     TemplatePreferencesListCache {
 
+    /**
+     * Performed when the user logs out
+     */
     override fun clearCacheAfterLogout() {
         super<TemplatePreferencesListCache>.clearCacheAfterLogout()
     }

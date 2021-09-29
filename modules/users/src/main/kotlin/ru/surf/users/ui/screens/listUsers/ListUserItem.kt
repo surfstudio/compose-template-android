@@ -15,9 +15,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.paging.compose.LazyPagingItems
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 
+/**
+ * Item list for page [ListUsersBody]
+ *
+ * @param model room data model
+ * @param onActions actions page
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun ListUserItem(
     model: UserModel,

@@ -13,6 +13,7 @@ import ru.surf.core.interfaces.IAppPreferences
  * @author Vitaliy Zarubin
  */
 class SettingsPreferences(override val p: SharedPreferences) : IAppPreferences {
+
     /**
      * Performed when the user logs out
      */

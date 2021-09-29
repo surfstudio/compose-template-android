@@ -9,6 +9,11 @@ import com.keygenqt.forms.base.FormStates
 import com.keygenqt.forms.states.EmailStateValidateRequired
 import ru.surf.core.forms.validate.PasswordStateValidateRequired
 
+/**
+ * Form states for validation email & password
+ *
+ * @author Vitaliy Zarubin
+ */
 enum class SignUpCredentialFieldsForm(val state: FormFieldState) : FormStates {
     SignUpEmail(EmailStateValidateRequired()),
     SignUpPassword(PasswordStateValidateRequired()),

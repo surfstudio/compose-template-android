@@ -9,6 +9,11 @@ import androidx.navigation.NavGraphBuilder
 import ru.surf.settings.navigation.actions.SettingsNavActions
 import ru.surf.settings.navigation.graph.impl.settingsScreenGraph
 
+/**
+ * Base block with graphs for module
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.settingsNavGraph(
     scaffoldState: ScaffoldState,
     navActions: SettingsNavActions,

@@ -41,7 +41,19 @@ import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.SignUpEmail
 import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.SignUpPassword
+import ru.surf.other.ui.screens.signIn.SignInBody
 
+/**
+ * Form page [SignUpBody]
+ *
+ * @param state page view state
+ * @param loading state call query to api
+ * @param commonError state error response
+ * @param onActions actions page
+ * @param savedData callback success result
+ *
+ * @author Vitaliy Zarubin
+ */
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SignUpFormCredential(

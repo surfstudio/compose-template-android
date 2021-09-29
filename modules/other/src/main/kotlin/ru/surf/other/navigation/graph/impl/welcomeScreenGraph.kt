@@ -13,10 +13,15 @@ import ru.surf.other.ui.actions.WelcomeActions
 import ru.surf.other.ui.screens.welcome.WelcomeScreen
 import ru.surf.other.ui.viewModels.OtherViewModel
 
+/**
+ * NavGraph for [WelcomeScreen]
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.welcomeScreenGraph(
     navActions: OtherNavActions,
 ) {
-    composable(OtherNav.WelcomeNav.WelcomeScreen.route) {
+    composable(OtherNav.WelcomeNav.WelcomeNavScreen.route) {
         val viewModel: OtherViewModel = hiltViewModel()
         WelcomeScreen(viewModel = viewModel) { event ->
             when (event) {

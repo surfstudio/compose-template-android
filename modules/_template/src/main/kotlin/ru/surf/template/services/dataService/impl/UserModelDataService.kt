@@ -20,6 +20,9 @@ interface TemplateModelDataService : IAppDatabase {
 
     private val dao: TemplateModelDao get() = db.templateModelDao()
 
+    /**
+     * Performed when the user logs out
+     */
     override fun clearCacheAfterLogout() {
         Timber.e("Clear cache: TemplateModelDataService")
     }

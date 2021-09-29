@@ -7,6 +7,15 @@ package ru.surf.other.data.requests
 import androidx.compose.runtime.Immutable
 import kotlinx.serialization.Serializable
 
+/**
+ * @Body request sign in user
+ *
+ * @property username login email user
+ * @property password just password
+ * @property rememberMe do not dump token
+ *
+ * @author Vitaliy Zarubin
+ */
 @Immutable
 @Serializable
 data class SignInRequest(

@@ -19,26 +19,61 @@ import ru.surf.other.services.apiService.OtherApiService
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * [ViewModel] for module
+ *
+ * @property apiService service http query
+ *
+ * @author Vitaliy Zarubin
+ */
 @HiltViewModel
 class OtherViewModel @Inject constructor(
     private val apiService: OtherApiService
 ) : ViewModel() {
 
+    /**
+     * [MutableStateFlow] for errors state
+     */
     private val _commonError: MutableStateFlow<String?> = MutableStateFlow(null)
+
+    /**
+     * [StateFlow] for [_commonError]
+     */
     val commonError: StateFlow<String?> get() = _commonError.asStateFlow()
 
     private val _commonSuccess: MutableStateFlow<Boolean?> = MutableStateFlow(null)
+
+    /**
+     * [StateFlow] for [_commonSuccess]
+     */
     val commonSuccess: StateFlow<Boolean?> get() = _commonSuccess.asStateFlow()
 
+    /**
+     * [MutableStateFlow] for loading state
+     */
     private val _loading: MutableStateFlow<Boolean> = MutableStateFlow(false)
+
+    /**
+     * [StateFlow] for [_loading]
+     */
     val loading: StateFlow<Boolean> get() = _loading.asStateFlow()
 
+    /**
+     * Clear state before query
+     */
     private fun startQuery() {
         _commonSuccess.value = null
         _commonError.value = null
         _loading.value = true
     }
 
+    /**
+     * Query login user with callback if success
+     *
+     * @param email login user
+     * @param pass it password
+     * @param success callback if success with data user identifier and token
+     */
     fun signIn(
         email: String,
         pass: String,
@@ -58,6 +93,11 @@ class OtherViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Query validate user email for registration
+     *
+     * @param email login user
+     */
     fun signUpValidate(email: String) {
         startQuery()
         viewModelScope.launch {
@@ -75,6 +115,20 @@ class OtherViewModel @Inject constructor(
         }
     }
 
+    /**
+     * Query registration
+     *
+     * @param email login email user
+     * @param pass just password
+     * @param fname string name user
+     * @param lname string surname user
+     * @param phoneWork string phone from work
+     * @param phoneHome string phone form home
+     * @param card string format ####-####-####-####
+     * @param cvc string format ###
+     * @param bio text about user
+     * @param success callback if success with data user identifier and token
+     */
     fun signUp(
         email: String,
         pass: String,

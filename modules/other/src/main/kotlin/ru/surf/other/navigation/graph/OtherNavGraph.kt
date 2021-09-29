@@ -10,6 +10,11 @@ import ru.surf.other.navigation.graph.impl.signInScreenGraph
 import ru.surf.other.navigation.graph.impl.signUpScreenGraph
 import ru.surf.other.navigation.graph.impl.welcomeScreenGraph
 
+/**
+ * Base block with graphs for module
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.otherNavGraph(
     navActions: OtherNavActions,
 ) {

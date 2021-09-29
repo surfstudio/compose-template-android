@@ -13,6 +13,9 @@ import ru.surf.core.ui.actions.UnknownHostActions
 /**
  * Base page fun for initialization
  *
+ * @param viewModel page model
+ * @param onActions actions
+ *
  * @author Vitaliy Zarubin
  */
 @Composable

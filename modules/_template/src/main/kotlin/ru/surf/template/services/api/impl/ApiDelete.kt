@@ -4,4 +4,9 @@
  */
 package ru.surf.template.services.api.impl
 
+/**
+ * The HTTP DELETE request method deletes the specified resource.
+ *
+ * @author Vitaliy Zarubin
+ */
 interface ApiDelete

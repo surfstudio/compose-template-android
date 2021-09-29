@@ -20,6 +20,14 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.keygenqt.modifier.paddingLarge
 
+/**
+ * Item list for page [SettingsBody]
+ *
+ * @param text string name item
+ * @param onClick callback click item
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun SettingsItem(
     text: String,

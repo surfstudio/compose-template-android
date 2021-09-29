@@ -9,6 +9,11 @@ import androidx.navigation.NavGraphBuilder
 import ru.surf.users.navigation.actions.UsersNavActions
 import ru.surf.users.navigation.graph.impl.usersScreenGraph
 
+/**
+ * Base block with graphs for module
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.usersNavGraph(
     scaffoldState: ScaffoldState,
     navActions: UsersNavActions,

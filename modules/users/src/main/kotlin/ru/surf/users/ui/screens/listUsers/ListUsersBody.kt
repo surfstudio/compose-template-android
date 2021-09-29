@@ -25,6 +25,16 @@ import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 import ru.surf.core.R as RCore
 
+/**
+ * Body page [ListUsersScreen]
+ *
+ * @param search state call query to api
+ * @param items list paging list [LazyPagingItems]
+ * @param searchItems searching list paging list [LazyPagingItems]
+ * @param onActions actions page
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun ListUsersBody(
     search: String?,

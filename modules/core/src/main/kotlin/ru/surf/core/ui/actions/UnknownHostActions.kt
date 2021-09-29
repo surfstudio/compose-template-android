@@ -12,5 +12,9 @@ import ru.surf.core.ui.screens.status.StatusScreen
  * @author Vitaliy Zarubin
  */
 sealed class UnknownHostActions {
+
+    /**
+     * Check network status
+     */
     object Repeat : UnknownHostActions()
 }

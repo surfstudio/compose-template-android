@@ -28,7 +28,7 @@ fun NavGraphGuest(navController: NavHostController) {
     Scaffold(
         scaffoldState = rememberScaffoldState(),
     ) {
-        NavHost(navController = navController, startDestination = OtherNav.WelcomeNav.WelcomeScreen.route) {
+        NavHost(navController = navController, startDestination = OtherNav.WelcomeNav.WelcomeNavScreen.route) {
             otherNavGraph(
                 navActions = navActions,
             )

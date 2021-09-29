@@ -10,6 +10,14 @@ import androidx.compose.runtime.getValue
 import ru.surf.settings.ui.actions.SettingsActions
 import ru.surf.settings.ui.viewModels.SettingsViewModel
 
+/**
+ * Base page fun for initialization
+ *
+ * @param viewModel page model
+ * @param onActions actions
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun SettingsScreen(
     viewModel: SettingsViewModel,

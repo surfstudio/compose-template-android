@@ -14,6 +14,11 @@ import ru.surf.other.data.responses.SignInResponse
 import ru.surf.other.data.responses.SignUpResponse
 import ru.surf.other.data.responses.SignUpValidateResponse
 
+/**
+ * The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
+ *
+ * @author Vitaliy Zarubin
+ */
 interface ApiPost {
 
     @POST("login_error") // @todo just for example error

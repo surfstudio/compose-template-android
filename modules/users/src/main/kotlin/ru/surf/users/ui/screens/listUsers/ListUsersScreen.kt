@@ -13,6 +13,14 @@ import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 import ru.surf.users.ui.viewModels.UsersViewModel
 
+/**
+ * Base page fun for initialization
+ *
+ * @param viewModel page model
+ * @param onActions actions
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun ListUsersScreen(
     viewModel: UsersViewModel,

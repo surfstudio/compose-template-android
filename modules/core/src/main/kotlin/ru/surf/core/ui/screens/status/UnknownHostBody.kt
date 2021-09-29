@@ -24,7 +24,7 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.core.ui.actions.UnknownHostActions
 
 /**
- * Body page [StatusScreen]
+ * Page animation for [UnknownHostBody]
  *
  * @author Vitaliy Zarubin
  */

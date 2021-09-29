@@ -7,6 +7,11 @@ package ru.surf.other.services.apiService
 import ru.surf.other.services.api.OtherApi
 import ru.surf.other.services.apiService.impl.*
 
+/**
+ * Base services for query separate by HTTP methods
+ *
+ * @author Vitaliy Zarubin
+ */
 class OtherApiService(
     override val api: OtherApi,
 ) :

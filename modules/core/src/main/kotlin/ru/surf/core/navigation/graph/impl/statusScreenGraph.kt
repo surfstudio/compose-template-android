@@ -20,7 +20,7 @@ import ru.surf.core.ui.screens.status.StatusScreen
 fun NavGraphBuilder.statusScreenGraph(
     navActions: CoreNavActions,
 ) {
-    composable(CoreNav.StatusNav.StatusScreen.route) {
+    composable(CoreNav.StatusNav.StatusNavScreen.route) {
         val viewModel = LocalMainViewModel.current
         StatusScreen(viewModel = viewModel) { event ->
             when (event) {

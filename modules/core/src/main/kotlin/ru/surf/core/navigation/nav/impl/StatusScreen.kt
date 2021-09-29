@@ -5,6 +5,7 @@
 package ru.surf.core.navigation.nav.impl
 
 import com.keygenqt.routing.NavScreen
+import ru.surf.core.ui.screens.status.StatusScreen
 
 /**
  * Routing for [StatusScreen]
@@ -12,7 +13,7 @@ import com.keygenqt.routing.NavScreen
  * @author Vitaliy Zarubin
  */
 object StatusScreen {
-    val StatusScreen = object : NavScreen {
+    val StatusNavScreen = object : NavScreen {
         override val route: String = "StatusScreen"
     }
 }

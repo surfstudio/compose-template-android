@@ -8,6 +8,14 @@ import androidx.compose.runtime.Composable
 import ru.surf.other.ui.actions.WelcomeActions
 import ru.surf.other.ui.viewModels.OtherViewModel
 
+/**
+ * Base page fun for initialization
+ *
+ * @param viewModel page model
+ * @param onActions actions
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun WelcomeScreen(
     viewModel: OtherViewModel,

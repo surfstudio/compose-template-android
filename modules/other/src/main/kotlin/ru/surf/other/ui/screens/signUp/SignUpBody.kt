@@ -28,7 +28,19 @@ import ru.surf.core.extension.EmitByStatus
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
+import ru.surf.other.ui.screens.signIn.SignInScreen
 
+/**
+ * Body page [SignUpScreen]
+ *
+ * @param loading state call query to api
+ * @param commonError state error response
+ * @param commonSuccess state success validate email
+ * @param onActions actions page
+ * @param backDispatcher dispatcher press back
+ *
+ * @author Vitaliy Zarubin
+ */
 @OptIn(ExperimentalPagerApi::class, ExperimentalComposeUiApi::class)
 @Composable
 fun SignUpBody(

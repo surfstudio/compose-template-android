@@ -10,4 +10,9 @@ import ru.surf.settings.services.api.impl.ApiPatch
 import ru.surf.settings.services.api.impl.ApiPost
 import ru.surf.settings.services.api.impl.ApiPut
 
+/**
+ * Base interfaces for retrofit separate by HTTP methods
+ *
+ * @author Vitaliy Zarubin
+ */
 interface SettingsApi : ApiDelete, ApiGet, ApiPatch, ApiPost, ApiPut

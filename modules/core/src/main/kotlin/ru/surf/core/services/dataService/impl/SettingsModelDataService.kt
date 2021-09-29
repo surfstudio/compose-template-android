@@ -19,22 +19,40 @@ import timber.log.Timber
  */
 interface SettingsModelDataService : IAppDatabase {
 
+    /**
+     * Base room db
+     */
     override val db: CoreDatabase
 
+    /**
+     * Doa model [SettingsModel]
+     */
     private val dao: SettingsModelDao get() = db.settingsModelDao()
 
+    /**
+     * Performed when the user logs out
+     */
     override fun clearCacheAfterLogout() {
         Timber.e("Clear cache: SettingsModelDataService")
     }
 
+    /**
+     * Fun for insert models
+     */
     suspend fun insertSettingsModel(vararg models: SettingsModel) {
         dao.insertModels(*models)
     }
 
+    /**
+     * Get [Flow] model
+     */
     suspend fun getSettingsModel(): Flow<List<SettingsModel>> {
         return dao.getModels()
     }
 
+    /**
+     * Remove all models
+     */
     suspend fun clearSettingsModel() {
         dao.clear()
     }

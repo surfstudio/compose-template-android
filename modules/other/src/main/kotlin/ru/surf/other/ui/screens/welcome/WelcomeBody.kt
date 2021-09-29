@@ -29,7 +29,11 @@ import ru.surf.core.base.MaterialThemeCustom
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.WelcomeActions
+import ru.surf.other.ui.screens.signUp.SignUpScreen
 
+/**
+ * Page animation
+ */
 @Composable
 fun WelcomeAnimation(
     modifier: Modifier = Modifier,
@@ -46,6 +50,13 @@ fun WelcomeAnimation(
     )
 }
 
+/**
+ * Body page [WelcomeScreen]
+ *
+ * @param onActions actions page
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun WelcomeBody(
     onActions: (WelcomeActions) -> Unit = {},

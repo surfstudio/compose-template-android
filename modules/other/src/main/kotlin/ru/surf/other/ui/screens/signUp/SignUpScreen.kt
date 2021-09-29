@@ -11,6 +11,14 @@ import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.viewModels.OtherViewModel
 
+/**
+ * Base page fun for initialization
+ *
+ * @param viewModel page model
+ * @param onActions actions
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun SignUpScreen(
     viewModel: OtherViewModel,

@@ -10,8 +10,14 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
+import ru.surf.core.data.models.SecurityModel
 import ru.surf.users.data.models.UserModel
 
+/**
+ * Dao for model [UserModel]
+ *
+ * @author Vitaliy Zarubin
+ */
 @Dao
 interface UserModelDao {
     @Query("SELECT * FROM UserModel ORDER BY CAST(id AS INT)")

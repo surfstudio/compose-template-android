@@ -30,9 +30,20 @@ import com.keygenqt.modifier.sizeLarge
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
+import ru.surf.core.ui.screens.status.StatusScreen
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignInActions
 
+/**
+ * Body page [SignInScreen]
+ *
+ * @param loading state call query to api
+ * @param commonError state error response
+ * @param onActions actions page
+ * @param backDispatcher dispatcher press back
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun SignInBody(
     loading: Boolean = false,

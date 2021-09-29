@@ -10,4 +10,9 @@ import ru.surf.users.services.api.impl.ApiPatch
 import ru.surf.users.services.api.impl.ApiPost
 import ru.surf.users.services.api.impl.ApiPut
 
+/**
+ * Base interfaces for retrofit separate by HTTP methods
+ *
+ * @author Vitaliy Zarubin
+ */
 interface UsersApi : ApiDelete, ApiGet, ApiPatch, ApiPost, ApiPut

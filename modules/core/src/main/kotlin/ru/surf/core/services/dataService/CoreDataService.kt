@@ -20,6 +20,9 @@ class CoreDataService(
 ) : SecurityModelDataService,
     SettingsModelDataService {
 
+    /**
+     * Performed when the user logs out
+     */
     override fun clearCacheAfterLogout() {
         super<SecurityModelDataService>.clearCacheAfterLogout()
         super<SettingsModelDataService>.clearCacheAfterLogout()

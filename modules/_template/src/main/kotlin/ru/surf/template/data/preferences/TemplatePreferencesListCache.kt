@@ -16,6 +16,9 @@ interface TemplatePreferencesListCache : IAppPreferences {
         LAST_UPDATE_LIST_TEMPLATE,
     }
 
+    /**
+     * Performed when the user logs out
+     */
     override fun clearCacheAfterLogout() {
         lastUpdateListTemplate = 0L
     }

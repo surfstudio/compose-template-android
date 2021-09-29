@@ -4,4 +4,9 @@
  */
 package ru.surf.settings.services.api.impl
 
+/**
+ * The PATCH method is used to apply partial modifications to a resource.
+ *
+ * @author Vitaliy Zarubin
+ */
 interface ApiPatch

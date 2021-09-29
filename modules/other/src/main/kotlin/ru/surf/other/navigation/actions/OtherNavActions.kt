@@ -8,6 +8,11 @@ import ru.surf.other.navigation.actions.impl.SignInScreenActions
 import ru.surf.other.navigation.actions.impl.SignUpScreenActions
 import ru.surf.other.navigation.actions.impl.WelcomeScreenActions
 
+/**
+ * Base actions for module
+ *
+ * @author Vitaliy Zarubin
+ */
 interface OtherNavActions :
     SignInScreenActions,
     SignUpScreenActions,

@@ -34,6 +34,14 @@ import ru.surf.settings.R
 import ru.surf.settings.ui.actions.SettingsActions
 import ru.surf.core.R as RCore
 
+/**
+ * Body page [SettingsScreen]
+ *
+ * @param loading state call query to api
+ * @param onActions actions page
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun SettingsBody(
     loading: Boolean = false,

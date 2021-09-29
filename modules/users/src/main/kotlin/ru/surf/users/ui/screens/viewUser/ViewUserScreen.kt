@@ -11,6 +11,14 @@ import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.users.ui.actions.ViewUserActions
 import ru.surf.users.ui.viewModels.UsersViewModel
 
+/**
+ * Base page fun for initialization
+ *
+ * @param viewModel page model
+ * @param onActions actions
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun ViewUserScreen(
     userId: String,

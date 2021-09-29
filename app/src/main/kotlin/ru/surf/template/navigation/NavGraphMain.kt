@@ -28,7 +28,10 @@ fun NavGraphMain(navController: NavHostController) {
     Scaffold(
         scaffoldState = rememberScaffoldState(),
     ) {
-        NavHost(navController = navController, startDestination = CoreNav.StatusNav.StatusScreen.route) {
+        NavHost(
+            navController = navController,
+            startDestination = CoreNav.StatusNav.StatusNavScreen.route
+        ) {
             mainNavGraph(
                 navActions = navActions,
             )

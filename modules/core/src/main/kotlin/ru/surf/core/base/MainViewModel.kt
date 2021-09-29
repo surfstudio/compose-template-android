@@ -24,8 +24,8 @@ import javax.inject.Inject
 /**
  * Main [ViewModel] for app
  *
- * @property apiService core service http query
- * @property dataService core service db room
+ * @property apiService service http query
+ * @property dataService service db room
  * @property dataServices group services db room
  * @property preferences group services shared preference
  *
@@ -40,7 +40,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     /**
-     * [MutableStateFlow] for loading callbacks
+     * [MutableStateFlow] for loading state
      */
     private val _loading: MutableStateFlow<Boolean> = MutableStateFlow(false)
 

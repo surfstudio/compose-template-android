@@ -47,7 +47,7 @@ fun NavGraph(navController: NavHostController) {
     val scaffoldState = rememberScaffoldState()
     val backDispatcher = LocalBackPressedDispatcher.current
     val navBackStackEntry by navController.currentBackStackEntryAsState()
-    val currentRoute = navBackStackEntry?.destination?.route ?: UsersNav.MainNav.ListUsersScreen.route
+    val currentRoute = navBackStackEntry?.destination?.route ?: UsersNav.MainNav.ListUsersNavScreen.route
 
     Scaffold(
         scaffoldState = scaffoldState,
@@ -66,7 +66,7 @@ fun NavGraph(navController: NavHostController) {
     ) {
         Box(Modifier.defaultMinSize()) {
 
-            NavHost(navController = navController, startDestination = UsersNav.MainNav.ListUsersScreen.route) {
+            NavHost(navController = navController, startDestination = UsersNav.MainNav.ListUsersNavScreen.route) {
                 usersNavGraph(
                     scaffoldState = scaffoldState,
                     navActions = navActions,
@@ -83,7 +83,7 @@ fun NavGraph(navController: NavHostController) {
             backDispatcher.EmitByStatus(
                 !showSnackbar &&
                     listOf(
-                        UsersNav.MainNav.ListUsersScreen.route
+                        UsersNav.MainNav.ListUsersNavScreen.route
                     ).contains(currentRoute)
             ) {
                 showSnackbar = true

@@ -24,22 +24,55 @@ import ru.surf.users.services.dataService.UsersDataService
 import timber.log.Timber
 import javax.inject.Inject
 
+/**
+ * [ViewModel] for module
+ *
+ * @property apiService service http query
+ * @property dataService service db room
+ * @property preferences service shared preference
+ *
+ * @author Vitaliy Zarubin
+ */
 @HiltViewModel
 class UsersViewModel @Inject constructor(
     private val apiService: UsersApiService,
     private val dataService: UsersDataService,
-    preferences: UsersPreferences,
+    private val preferences: UsersPreferences,
 ) : ViewModel() {
 
+    /**
+     * [MutableStateFlow] state 404 response
+     */
     private val _error404: MutableStateFlow<Boolean> = MutableStateFlow(false)
+
+    /**
+     * [StateFlow] for [_error404]
+     */
     val error404: StateFlow<Boolean> get() = _error404.asStateFlow()
 
+    /**
+     * [MutableStateFlow] for loading state
+     */
     private val _loading: MutableStateFlow<Boolean> = MutableStateFlow(false)
+
+    /**
+     * [StateFlow] for [_loading]
+     */
     val loading: StateFlow<Boolean> get() = _loading.asStateFlow()
 
+    /**
+     * [MutableStateFlow] for search query
+     */
     private val _search: MutableStateFlow<String?> = MutableStateFlow(null)
+
+    /**
+     * [StateFlow] for [_search]
+     */
     val search = _search.asStateFlow()
 
+    /**
+     * List with paging [RemoteMediator]
+     */
     @OptIn(ExperimentalPagingApi::class)
     val listUsers: Flow<PagingData<UserModel>> = Pager(
         config = PagingConfig(pageSize = ConstantsPaging.PAGE_LIMIT),
@@ -48,6 +81,9 @@ class UsersViewModel @Inject constructor(
         dataService.pagingListUserModel()
     }.flow
 
+    /**
+     * List with paging [PagingSource]
+     */
     val searchListUsers: Flow<PagingData<UserModel>> = Pager(PagingConfig(pageSize = ConstantsPaging.PAGE_LIMIT)) {
         UsersPageSource(_search.value, apiService)
     }.flow.cachedIn(viewModelScope)
@@ -56,8 +92,16 @@ class UsersViewModel @Inject constructor(
         _search.value = search
     }
 
+    /**
+     * [Flow] room for view page
+     */
     fun getUser(userId: String) = dataService.getUserModel(userId).distinctUntilChanged()
 
+    /**
+     * Update view with model [UserModel]
+     *
+     * @param userId string user identifier
+     */
     fun updateUser(userId: String) {
         _loading.value = true
         _error404.value = false

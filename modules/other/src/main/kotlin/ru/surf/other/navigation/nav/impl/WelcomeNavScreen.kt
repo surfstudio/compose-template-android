@@ -5,9 +5,15 @@
 package ru.surf.other.navigation.nav.impl
 
 import com.keygenqt.routing.NavScreen
+import ru.surf.other.ui.screens.welcome.WelcomeScreen
 
+/**
+ * Routing for [WelcomeScreen]
+ *
+ * @author Vitaliy Zarubin
+ */
 object WelcomeNavScreen {
-    val WelcomeScreen = object : NavScreen {
+    val WelcomeNavScreen = object : NavScreen {
         override val route: String = "WelcomeScreen"
     }
 }

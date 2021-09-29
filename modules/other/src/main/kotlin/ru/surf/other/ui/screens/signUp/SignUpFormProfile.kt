@@ -41,6 +41,18 @@ import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.forms.SignUpProfileFieldsForm.*
 
+/**
+ * Form page [SignUpBody]
+ *
+ * @param state page view state
+ * @param loading state call query to api
+ * @param commonError state error response
+ * @param onActions actions page
+ * @param dataEmail data email from first page after validate
+ * @param dataPass data password from first page after validate
+ *
+ * @author Vitaliy Zarubin
+ */
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SignUpFormProfile(

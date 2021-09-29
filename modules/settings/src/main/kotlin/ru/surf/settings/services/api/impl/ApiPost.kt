@@ -4,4 +4,9 @@
  */
 package ru.surf.settings.services.api.impl
 
+/**
+ * The POST method is used to submit an entity to the specified resource, often causing a change in state or side effects on the server.
+ *
+ * @author Vitaliy Zarubin
+ */
 interface ApiPost

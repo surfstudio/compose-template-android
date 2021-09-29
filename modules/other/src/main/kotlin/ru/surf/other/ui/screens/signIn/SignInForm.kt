@@ -37,6 +37,14 @@ import ru.surf.other.ui.actions.SignInActions
 import ru.surf.other.ui.forms.SignInFieldsForm.SignInEmail
 import ru.surf.other.ui.forms.SignInFieldsForm.SignInPassword
 
+/**
+ * Form page [SignInBody]
+ *
+ * @param loading state call query to api
+ * @param onActions actions page
+ *
+ * @author Vitaliy Zarubin
+ */
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SignInForm(

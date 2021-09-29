@@ -43,7 +43,7 @@ import ru.surf.core.R as RCore
 @Composable
 fun AppDrawer(
     scaffoldState: ScaffoldState = rememberScaffoldState(),
-    currentRoute: String = UsersNav.MainNav.ListUsersScreen.route,
+    currentRoute: String = UsersNav.MainNav.ListUsersNavScreen.route,
     backDispatcher: OnBackPressedDispatcher? = null,
     onActions: (AppDrawerActions) -> Unit = {},
 ) {
@@ -72,14 +72,14 @@ fun AppDrawer(
         Spacer(modifier = Modifier.sizeMedium())
 
         AppDrawerItem(
-            isSelected = currentRoute == UsersNav.MainNav.ListUsersScreen.route,
+            isSelected = currentRoute == UsersNav.MainNav.ListUsersNavScreen.route,
             label = stringResource(id = RCore.string.menu_members),
             icon = Icons.Filled.People,
             onClick = onClick(AppDrawerActions.ToUsers)
         )
 
         AppDrawerItem(
-            isSelected = currentRoute == SettingsNav.MainNav.SettingsScreen.route,
+            isSelected = currentRoute == SettingsNav.MainNav.SettingsNavScreen.route,
             label = stringResource(id = RCore.string.menu_settings),
             icon = Icons.Filled.Settings,
             onClick = onClick(AppDrawerActions.ToSettings)

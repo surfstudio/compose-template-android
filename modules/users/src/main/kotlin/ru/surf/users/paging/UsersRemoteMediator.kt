@@ -21,6 +21,16 @@ import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
 import timber.log.Timber
 
+/**
+ * Paging list with room cache [RemoteMediator]
+ *
+ * @param apiService query service module
+ * @param dataService service room db
+ * @param preferences service shared preferences
+ *
+ * @author Vitaliy Zarubin
+ * @see <a href="https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator">RemoteMediator</a>
+ */
 @OptIn(ExperimentalPagingApi::class)
 class UsersRemoteMediator(
     private val apiService: UsersApiService,
@@ -28,10 +38,16 @@ class UsersRemoteMediator(
     private val preferences: UsersPreferences,
 ) : RemoteMediator<Int, UserModel>() {
 
+    /**
+     * Static key for offset-limit paging
+     */
     companion object {
         var key: Int? = null
     }
 
+    /**
+     * Timeout cache for refresh list at start
+     */
     override suspend fun initialize(): InitializeAction {
         return if (System.currentTimeMillis() - preferences.lastUpdateListUsers >= CACHE_TIMEOUT) {
             InitializeAction.LAUNCH_INITIAL_REFRESH
@@ -40,6 +56,9 @@ class UsersRemoteMediator(
         }
     }
 
+    /**
+     * Base logic
+     */
     override suspend fun load(
         loadType: LoadType,
         state: PagingState<Int, UserModel>,

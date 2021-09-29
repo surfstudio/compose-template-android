@@ -20,11 +20,16 @@ import ru.surf.users.ui.screens.listUsers.ListUsersScreen
 import ru.surf.users.ui.screens.viewUser.ViewUserScreen
 import ru.surf.users.ui.viewModels.UsersViewModel
 
+/**
+ * NavGraph for [ListUsersScreen], [ViewUserScreen]
+ *
+ * @author Vitaliy Zarubin
+ */
 fun NavGraphBuilder.usersScreenGraph(
     scaffoldState: ScaffoldState,
     navActions: UsersNavActions,
 ) {
-    composable(UsersNav.MainNav.ListUsersScreen.route) {
+    composable(UsersNav.MainNav.ListUsersNavScreen.route) {
         val coroutineScope = rememberCoroutineScope()
         val viewModel: UsersViewModel = hiltViewModel()
         ListUsersScreen(viewModel = viewModel) { event ->
@@ -36,16 +41,16 @@ fun NavGraphBuilder.usersScreenGraph(
         }
     }
     composable(
-        route = UsersNav.MainNav.ViewUserScreen.routeWithArgument,
+        route = UsersNav.MainNav.ViewUserNavScreen.routeWithArgument,
         arguments = listOf(
-            navArgument(UsersNav.MainNav.ViewUserScreen.argument0) {
+            navArgument(UsersNav.MainNav.ViewUserNavScreen.argument0) {
                 type = NavType.StringType
             }
         )
     ) { backStackEntry ->
         backStackEntry.arguments?.let {
             val viewModel: UsersViewModel = hiltViewModel()
-            val userId = it.getString(UsersNav.MainNav.ViewUserScreen.argument0)!!
+            val userId = it.getString(UsersNav.MainNav.ViewUserNavScreen.argument0)!!
             ViewUserScreen(
                 userId = userId,
                 viewModel = viewModel,

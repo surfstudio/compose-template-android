@@ -18,6 +18,11 @@ import ru.surf.template.services.api.TemplateApi
 // @todo getCreate{CustomName}
 // @todo getDelete{CustomName}
 // @todo getUpdate{CustomName}
+/**
+ * The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
+ *
+ * @author Vitaliy Zarubin
+ */
 interface ApiServiceGet {
 
     val api: TemplateApi

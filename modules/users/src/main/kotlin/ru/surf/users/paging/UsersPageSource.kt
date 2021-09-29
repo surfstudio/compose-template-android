@@ -11,6 +11,15 @@ import ru.surf.core.utils.ConstantsPaging
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
 
+/**
+ * Paging list without room cache [PagingSource]
+ *
+ * @param search string query to back-end
+ * @param apiService query service module
+ *
+ * @author Vitaliy Zarubin
+ * @see <a href="https://developer.android.com/reference/kotlin/androidx/paging/PagingSource">PagingSource</a>
+ */
 class UsersPageSource(
     private val search: String?,
     private val apiService: UsersApiService,

@@ -14,6 +14,15 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.keygenqt.modifier.paddingLarge
 
+/**
+ * Item list for page [SettingsBody]
+ *
+ * @param text string name item
+ * @param checked start state switch
+ * @param onCheckedChange callback click item and change state switch
+ *
+ * @author Vitaliy Zarubin
+ */
 @Composable
 fun SettingsSwitch(
     text: String,

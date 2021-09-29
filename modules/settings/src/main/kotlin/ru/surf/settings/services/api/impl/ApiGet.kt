@@ -4,4 +4,9 @@
  */
 package ru.surf.settings.services.api.impl
 
+/**
+ * The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.
+ *
+ * @author Vitaliy Zarubin
+ */
 interface ApiGet
