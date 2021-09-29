@@ -3,21 +3,21 @@ Compose Template Android
 
 #### [API documentation](https://surfstudio.github.io/compose-template-android/)
 
-Реализация шаблона для проектирования приложений с модульным подходом и архитектурой MVVM. Используется последний доступный стек на начало октября 2021.
+Implementation of a pattern for designing applications with a modular approach and MVVM architecture. The last available stack is used at the beginning of October 2021.
 
 ![picture](data/images/preview.png)
 
-### Задача
+### Task
 
-* Использования последнего стека технологий
-* Модульная система с минимальной зависимостью модулей друг от друга
-* Создание библиотек для минимизации связей модулей
-* Создание модулей-примеров для реализации типовых задач
-* Упрощение добавлении модуля к ядру, возможна автоматизация
-* Автоматизация документации
-* Автоматизация проверки код-стайла
+* Using the latest technology stack
+* Modular system with minimal dependence of modules on each other
+* Build Libraries to Minimize Module Links
+* Creation of sample modules for the implementation of typical tasks
+* Simplification of adding a module to the kernel, automation is possible
+* Documentation automation
+* Code-style checkout automation
 
-### Основные элементы реализации
+### Basic implementation elements
 
 * [Jetpack Compose](https://developer.android.com/jetpack/compose)
 * [Accompanist](https://github.com/google/accompanist)
