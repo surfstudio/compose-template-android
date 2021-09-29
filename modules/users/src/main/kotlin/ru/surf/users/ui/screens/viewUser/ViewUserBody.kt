@@ -1,6 +1,17 @@
-/*
- * Copyright Surf - All Rights Reserved
- * September 2021
+/**
+ * Copyright 2021 Surf
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 package ru.surf.users.ui.screens.viewUser
 
@@ -21,7 +32,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.paging.compose.LazyPagingItems
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
@@ -36,7 +46,6 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.users.data.mock.userModelMock
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ViewUserActions
-import ru.surf.users.ui.screens.listUsers.ListUsersScreen
 
 /**
  * Body page [ViewUserScreen]
