@@ -21,7 +21,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import ru.surf.core.base.CorePreferences
+import ru.surf.core.data.preferences.CorePreferences
 import ru.surf.template.base.TemplateDatabase
 import ru.surf.template.data.preferences.TemplatePreferences
 import ru.surf.template.services.dataService.TemplateDataService

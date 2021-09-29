@@ -41,6 +41,15 @@ android {
     // common configuration source
     this.sourceSets.configurationSource()
 
+    android.sourceSets {
+        sourceSets {
+
+            println(this.names)
+
+            getByName("test").java.srcDir("$projectDir/modules/core/src")
+        }
+    }
+
     // disable waring OptIn
     kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
