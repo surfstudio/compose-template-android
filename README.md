@@ -1,6 +1,8 @@
 Compose Template Android
 ===================
 
+#### [API documentation](https://surfstudio.github.io/compose-template-android/)
+
 Реализация шаблона для проектирования приложений с модульным подходом и архитектурой MVVM. Используется последний доступный стек на начало октября 2021.
 
 ![picture](data/images/preview.png)
