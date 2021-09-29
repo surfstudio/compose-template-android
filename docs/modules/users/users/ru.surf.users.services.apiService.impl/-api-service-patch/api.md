@@ -1,0 +1,6 @@
+//[users](../../../index.md)/[ru.surf.users.services.apiService.impl](../index.md)/[ApiServicePatch](index.md)/[api](api.md)
+
+# api
+
+[androidJvm]\
+abstract val [api](api.md): [UsersApi](../../ru.surf.users.services.api/-users-api/index.md)
