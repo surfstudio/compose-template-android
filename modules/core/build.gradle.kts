@@ -45,6 +45,13 @@ android {
     kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
     }
+
+    packagingOptions {
+        resources {
+            excludes.add("META-INF/AL2.0")
+            excludes.add("META-INF/LGPL2.1")
+        }
+    }
 }
 
 // libraries

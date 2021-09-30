@@ -103,14 +103,14 @@ fun ViewUserBody(
                     ) {
                         Text(
                             style = MaterialTheme.typography.h6,
-                            text = "User name:"
+                            text = "Info:"
                         )
 
                         Spacer(modifier = Modifier.sizeLarge())
 
                         Text(
                             style = MaterialTheme.typography.h5,
-                            text = model.name
+                            text = "User name: ${model.name}"
                         )
                     }
                 }

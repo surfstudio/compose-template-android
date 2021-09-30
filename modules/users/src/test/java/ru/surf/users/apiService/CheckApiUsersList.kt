@@ -1,4 +1,4 @@
-package ru.surf.users
+package ru.surf.users.apiService
 
 import com.keygenqt.response.ResponseResult
 import com.keygenqt.response.tests.ApiAbstract
@@ -15,7 +15,7 @@ class CheckApiUsersList : ApiAbstract() {
     private val api = api<UsersApi>()
 
     @Test
-    fun `check get list user models`() {
+    fun `check get list user models 200`() {
         runBlockingApi("getListUsers_200.json", 200) {
             // Arrange
             val sut = UsersApiService(api)

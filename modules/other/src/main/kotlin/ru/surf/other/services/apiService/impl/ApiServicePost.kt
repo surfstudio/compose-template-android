@@ -22,6 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import ru.surf.core.utils.ConstantsApp
+import ru.surf.core.utils.HelperApp
 import ru.surf.other.BuildConfig
 import ru.surf.other.data.requests.SignInRequest
 import ru.surf.other.data.requests.SignUpRequest
@@ -52,7 +53,8 @@ interface ApiServicePost {
         return withContext(Dispatchers.IO) {
             LocalTryExecuteWithResponse.executeWithResponse {
 
-                if (BuildConfig.DEBUG) delay(ConstantsApp.DEBUG_DELAY) // Simulate slow internet
+                // Simulate slow internet
+                if (BuildConfig.DEBUG && HelperApp.isNotRunningTest) delay(ConstantsApp.DEBUG_DELAY)
 
                 val request = SignInRequest(
                     username = email,
@@ -77,7 +79,10 @@ interface ApiServicePost {
     suspend fun signUpValidate(email: String): ResponseResult<SignUpValidateResponse> {
         return withContext(Dispatchers.IO) {
             LocalTryExecuteWithResponse.executeWithResponse {
-                if (BuildConfig.DEBUG) delay(ConstantsApp.DEBUG_DELAY) // Simulate slow internet
+
+                // Simulate slow internet
+                if (BuildConfig.DEBUG && HelperApp.isNotRunningTest) delay(ConstantsApp.DEBUG_DELAY)
+
                 api.signUpValidate(
                     SignUpValidateRequest(
                         email = email
@@ -116,7 +121,10 @@ interface ApiServicePost {
     ): ResponseResult<SignUpResponse> {
         return withContext(Dispatchers.IO) {
             LocalTryExecuteWithResponse.executeWithResponse {
-                if (BuildConfig.DEBUG) delay(ConstantsApp.DEBUG_DELAY) // Simulate slow internet
+
+                // Simulate slow internet
+                if (BuildConfig.DEBUG && HelperApp.isNotRunningTest) delay(ConstantsApp.DEBUG_DELAY)
+
                 api.signUp(
                     SignUpRequest(
                         email = email,

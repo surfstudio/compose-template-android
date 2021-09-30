@@ -15,6 +15,7 @@
  */
 package ru.surf.users.services.apiService.impl
 
+import android.util.Log
 import com.keygenqt.response.LocalTryExecuteWithResponse.executeWithResponse
 import com.keygenqt.response.ResponseResult
 import com.keygenqt.response.responseCheck
@@ -22,6 +23,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import ru.surf.core.utils.ConstantsApp
+import ru.surf.core.utils.HelperApp
 import ru.surf.users.BuildConfig
 import ru.surf.users.data.mappers.toModel
 import ru.surf.users.data.mappers.toModels
@@ -33,6 +35,7 @@ import ru.surf.users.services.api.UsersApi
  *
  * @author Vitaliy Zarubin
  */
+
 interface ApiServiceGet {
 
     val api: UsersApi
@@ -46,7 +49,10 @@ interface ApiServiceGet {
     suspend fun getListUsers(offset: Int, search: String? = null): ResponseResult<List<UserModel>> {
         return withContext(Dispatchers.IO) {
             executeWithResponse {
-                if (BuildConfig.DEBUG) delay(ConstantsApp.DEBUG_DELAY) // Simulate slow internet
+
+                // Simulate slow internet
+                if (BuildConfig.DEBUG && HelperApp.isNotRunningTest) delay(ConstantsApp.DEBUG_DELAY)
+
                 api.getListUsers(offset = offset, search = search)
                     .responseCheck()
                     .body()
@@ -63,7 +69,10 @@ interface ApiServiceGet {
      */
     suspend fun updateUser(userId: String): ResponseResult<UserModel> {
         return withContext(Dispatchers.IO) {
-            if (ru.surf.core.BuildConfig.DEBUG) delay(ConstantsApp.DEBUG_DELAY) // Simulate slow internet
+
+            // Simulate slow internet
+            if (BuildConfig.DEBUG && HelperApp.isNotRunningTest) delay(ConstantsApp.DEBUG_DELAY)
+
             executeWithResponse {
                 api.updateUser(userId)
                     .responseCheck()
