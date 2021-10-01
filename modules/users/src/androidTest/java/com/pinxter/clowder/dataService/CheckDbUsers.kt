@@ -1,16 +1,20 @@
 package com.pinxter.clowder.dataService
 
+import androidx.paging.PagingSource
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import org.junit.After
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
 import ru.surf.users.base.UsersDatabase
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.dataService.UsersDataService
-import java.util.*
 
 @RunWith(AndroidJUnit4::class)
 class CheckDbUsers {
@@ -47,12 +51,61 @@ class CheckDbUsers {
                 clearUserModel()
             }
             // Act
-            sut.insertUserModel(
-                UserModel(UUID.randomUUID().toString(), "First"),
-                UserModel(UUID.randomUUID().toString(), "Second")
-            )
+            sut.insertUserModel(UserModel("1", "First"), UserModel("2", "Second"))
             // Assert
             assert(sut.countUserModel() == 2)
+        }
+    }
+
+    @Test
+    fun check_get_user() {
+        runBlocking {
+            // Arrange
+            val sut = UsersDataService(db).apply {
+                clearUserModel()
+                insertUserModel(UserModel("1", "First"), UserModel("2", "Second"))
+            }
+            // Act
+            val user = sut.getUserModel("1")
+            // Assert
+            launch {
+                user.collect {
+                    assert(it.name == "First")
+                    this.cancel()
+                }
+            }
+        }
+
+    }
+
+    @Test
+    fun check_get_paging_source() {
+        runBlocking {
+            // Arrange
+            val data = listOf(UserModel("1", "First"), UserModel("2", "Second"))
+            val sut = UsersDataService(db).apply {
+                clearUserModel()
+                insertUserModel(*data.toTypedArray())
+            }
+            // Act
+            val list = sut.pagingListUserModel()
+            // Assert
+            assertEquals(
+                PagingSource.LoadResult.Page(
+                    data = data,
+                    prevKey = null,
+                    nextKey = null,
+                    itemsBefore = 0,
+                    itemsAfter = 0,
+                ),
+                list.load(
+                    PagingSource.LoadParams.Refresh(
+                        key = null,
+                        loadSize = 2,
+                        placeholdersEnabled = false
+                    )
+                )
+            )
         }
     }
 }
