@@ -67,7 +67,7 @@ fun NavGraphBuilder.usersScreenGraph(
                 viewModel = viewModel,
             ) { event ->
                 when (event) {
-                    is ViewUserActions.RefreshView -> viewModel.updateUser(event.userId)
+                    is ViewUserActions.RefreshView -> viewModel.getViewUser(event.userId)
                 }
             }
         }

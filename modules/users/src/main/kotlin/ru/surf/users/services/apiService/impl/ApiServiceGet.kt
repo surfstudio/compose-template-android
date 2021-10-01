@@ -15,10 +15,9 @@
  */
 package ru.surf.users.services.apiService.impl
 
-import android.util.Log
 import com.keygenqt.response.LocalTryExecuteWithResponse.executeWithResponse
 import com.keygenqt.response.ResponseResult
-import com.keygenqt.response.responseCheck
+import com.keygenqt.response.extensions.responseCheck
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -67,7 +66,7 @@ interface ApiServiceGet {
      *
      * @param userId string user identifier
      */
-    suspend fun updateUser(userId: String): ResponseResult<UserModel> {
+    suspend fun getViewUser(userId: String): ResponseResult<UserModel> {
         return withContext(Dispatchers.IO) {
 
             // Simulate slow internet

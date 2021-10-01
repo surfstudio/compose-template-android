@@ -113,12 +113,12 @@ class UsersViewModel @Inject constructor(
      *
      * @param userId string user identifier
      */
-    fun updateUser(userId: String) {
+    fun getViewUser(userId: String) {
         _loading.value = true
         _error404.value = false
         viewModelScope.launch {
             // update settings
-            apiService.updateUser(userId)
+            apiService.getViewUser(userId)
                 .success { model ->
                     dataService.withTransaction<UsersDataService> {
                         insertUserModel(model)

@@ -70,11 +70,11 @@ dependencies {
     implementation(libs.bundles.accompanist)
     implementation(libs.bundles.compose)
     implementation(libs.bundles.hilt)
+    implementation(libs.bundles.test)
 
     kapt(libs.bundles.hiltKapt)
     kapt(libs.bundles.roomKapt)
 
-    testImplementation(libs.bundles.test)
     debugImplementation(libs.bundles.testDebug)
     androidTestImplementation(libs.bundles.testAndroid)
 }

@@ -3,14 +3,13 @@
 test-compose-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version.ref = "compose" }
 test-compose-manifest = { module = "androidx.compose.ui:ui-test-manifest", version.ref = "compose" }
 # Unit Test
-test-response = { module = "com.keygenqt.response:android-response-result", version.ref = "androidResponseResult" }
 test-junit = { module = "junit:junit", version = "4.+" }
 test-mockwebserver = { module = "com.squareup.okhttp3:mockwebserver", version.ref = "mockWebServer" }
 test-mockito = { module = "org.mockito:mockito-core", version.ref = "mockitoCore" }
 
 [bundles]
 # testImplementation
-test = ["test-junit", "test-mockwebserver", "test-mockito", "test-response"]
+test = ["test-junit", "test-mockwebserver", "test-mockito"]
 # debugImplementation
 testDebug = ["test-compose-manifest"]
 # androidTestImplementation

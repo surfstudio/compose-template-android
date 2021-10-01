@@ -68,6 +68,7 @@ dependencies {
 
     // Common module for all modules
     implementation(project(":modules:core"))
+    testImplementation(project(":modules:core"))
 
     // Connecting internal libraries
     dependenciesInternal()

@@ -17,7 +17,7 @@ package ru.surf.template.services.apiService.impl
 
 import com.keygenqt.response.LocalTryExecuteWithResponse.executeWithResponse
 import com.keygenqt.response.ResponseResult
-import com.keygenqt.response.responseCheck
+import com.keygenqt.response.extensions.responseCheck
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.surf.template.data.mappers.toModels

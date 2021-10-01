@@ -89,17 +89,18 @@ allprojects {
     }
     // Connecting internal libraries
     extra["dependenciesInternal"] = { ex: Any ->
-        "implementation".let { implementation ->
-            (ex as? DependencyHandlerScope)?.apply {
-                if (findProperty("internalLibrariesEnable").toString().toBoolean()) {
-                    implementation(project(":android-response-result"))
-                    implementation(project(":compose-forms"))
-                    implementation(project(":compose-modifier-ext"))
-                    implementation(project(":compose-routing"))
-                    implementation(project(":surf-accompanist"))
-                } else {
-                    implementation(libs.bundles.surf)
-                }
+
+        val implementation = "implementation"
+
+        (ex as? DependencyHandlerScope)?.apply {
+            if (findProperty("internalLibrariesEnable").toString().toBoolean()) {
+                implementation(project(":android-response-result"))
+                implementation(project(":compose-forms"))
+                implementation(project(":compose-modifier-ext"))
+                implementation(project(":compose-routing"))
+                implementation(project(":surf-accompanist"))
+            } else {
+                implementation(libs.bundles.surf)
             }
         }
     }
