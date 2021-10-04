@@ -25,6 +25,8 @@ plugins {
     id("org.jetbrains.dokka")
 }
 
+apply(from = "automation/tasks.gradle.kts")
+
 apply(plugin = "org.jetbrains.dokka")
 
 // gradlew dokkaHtmlMultiModule
