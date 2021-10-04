@@ -16,6 +16,7 @@ Implementation of a pattern for designing applications with a modular approach a
 * Simplification of adding a module to the kernel, automation is possible
 * Documentation automation
 * Code-style checkout automation
+* Tests
 
 ### Basic implementation elements
 

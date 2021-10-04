@@ -15,7 +15,6 @@
  */
 package ru.surf.template.drawer
 
-import androidx.activity.OnBackPressedDispatcher
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -47,7 +46,6 @@ import ru.surf.core.R as RCore
  *
  * @param scaffoldState just [rememberScaffoldState]
  * @param currentRoute string route navigation
- * @param backDispatcher just [LocalBackPressedDispatcher]
  * @param onActions callback with [AppDrawerActions]
  *
  * @author Vitaliy Zarubin
