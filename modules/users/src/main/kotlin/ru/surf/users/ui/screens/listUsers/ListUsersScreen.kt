@@ -45,12 +45,8 @@ fun ListUsersScreen(
 
     ListUsersBody(
         search = search,
-        items = flow {
-            emit(PagingData.empty<UserModel>())
-        }.collectAsLazyPagingItems(),
-        searchItems = flow {
-            emit(PagingData.empty<UserModel>())
-        }.collectAsLazyPagingItems(),
+        items = items,
+        searchItems = searchItems,
         onActions = onActions,
     )
 }
