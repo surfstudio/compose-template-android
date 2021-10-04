@@ -18,8 +18,10 @@ package ru.surf.users.ui.screens.listUsers
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
+import kotlinx.coroutines.flow.flow
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 import ru.surf.users.ui.viewModels.UsersViewModel
@@ -43,8 +45,12 @@ fun ListUsersScreen(
 
     ListUsersBody(
         search = search,
-        items = items,
-        searchItems = searchItems,
+        items = flow {
+            emit(PagingData.empty<UserModel>())
+        }.collectAsLazyPagingItems(),
+        searchItems = flow {
+            emit(PagingData.empty<UserModel>())
+        }.collectAsLazyPagingItems(),
         onActions = onActions,
     )
 }

@@ -24,14 +24,19 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.paging.LoadState
+import androidx.paging.PagingData
 import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.accompanist.SwipeRefreshList
 import com.keygenqt.modifier.paddingSmall
+import kotlinx.coroutines.flow.flow
 import ru.surf.core.base.LocalMainViewModel
+import ru.surf.core.base.MainViewModel
 import ru.surf.core.compose.*
+import ru.surf.core.utils.HelperApp
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 import ru.surf.core.R as RCore
@@ -52,11 +57,13 @@ fun ListUsersBody(
     items: LazyPagingItems<UserModel>,
     searchItems: LazyPagingItems<UserModel>,
     onActions: (ListUsersActions) -> Unit = {},
+    localMainViewModel: MainViewModel? = LocalMainViewModel.current
 ) {
-    val localMainViewModel = LocalMainViewModel.current
     var expanded by remember { mutableStateOf(false) }
     val contentLoading = @Composable { LoaderPage() }
-    val contentEmpty = @Composable { EmptyPage() }
+    val contentEmpty = @Composable {
+        EmptyPage()
+    }
     val contentLoadState = @Composable { loadState: LoadState ->
         if (loadState is LoadState.Loading) {
             Loader(Modifier.paddingSmall())
@@ -87,7 +94,7 @@ fun ListUsersBody(
                 onDismissRequest = { expanded = false }
             ) {
                 DropdownMenuItem(onClick = {
-                    localMainViewModel.logout()
+                    localMainViewModel?.logout()
                 }) {
                     Text("Logout")
                 }
