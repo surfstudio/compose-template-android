@@ -1,24 +1,46 @@
 /*
- * Add simple module
+ * Automation create module
  * @see https://github.com/surfstudio/surf-compose-template-android-modules
  */
-task<Exec>("moduleSimple") {
+abstract class CreateModule @Inject constructor(
+    private val type: String,
+) : DefaultTask() {
 
-    try {
-        val name: String = this.args!![0]!!
+    @get:Input
+    @set:Option(option = "module", description = "Module name")
+    var module = ""
 
-        workingDir("$projectDir")
-
-        commandLine(
-            "java",
-            "-jar",
-            "$rootDir/automation/modules-0.0.1-all.jar",
-            "--path",
-            "$projectDir",
-            "--name",
-            name
-        )
-    } catch (ex: Exception) {
-        println(ex)
+    @TaskAction
+    fun doWork() {
+        project.exec {
+            if (module.isEmpty()) {
+                commandLine(
+                    "echo",
+                    "You must provide a name for the module: gradle moduleSimple --module={name}!"
+                )
+            } else {
+                commandLine(
+                    "java", "-jar", "${project.rootDir}/automation/modules-0.0.1-all.jar",
+                    "--type", "simple",
+                    "--path", project.rootDir,
+                    "--name", module
+                )
+            }
+        }
     }
 }
+
+/*
+ * Task for simple module
+ */
+tasks.register<CreateModule>("moduleSimple", "simple")
+
+/*
+ * Task for simple module
+ */
+//tasks.register<CreateModule>("moduleMiddle", "middle")
+
+/*
+ * Task for simple module
+ */
+//tasks.register<CreateModule>("moduleLarger", "larger")
