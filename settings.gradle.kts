@@ -62,11 +62,6 @@ include(":modules:other")
 include(":modules:users")
 include(":modules:settings")
 
-// Include template module
-if (internalLibrariesEnable.toBoolean()) {
-    include(":modules:_template")
-}
-
 // Include internal libraries
 // create a folder "libs" next to the application and pull libs projects there
 // access for ./gradlew :{module}:artifactoryPublish - keygenqt@gmail.com || zarubin@surfstudio.ru
