@@ -68,7 +68,8 @@ include(":modules:settings")
 if (internalLibrariesEnable.toBoolean()) {
     // git@github.com:keygenqt/android-response-result.git
     include(":android-response-result")
-    project(":android-response-result").projectDir = File(settingsDir, "../libs/android-response-result")
+    project(":android-response-result").projectDir =
+        File(settingsDir, "../libs/android-response-result")
 
     // git@github.com:keygenqt/compose-forms.git
     include(":compose-forms")
@@ -86,3 +87,6 @@ if (internalLibrariesEnable.toBoolean()) {
     include(":surf-accompanist")
     project(":surf-accompanist").projectDir = File(settingsDir, "../libs/surf-accompanist")
 }
+
+
+

@@ -21,10 +21,12 @@ package ru.surf.template.drawer
  * @author Vitaliy Zarubin
  */
 sealed class AppDrawerActions {
+
     /**
      * Navigation to user module
      */
     object ToUsers : AppDrawerActions()
+
     /**
      * Navigation to settings module
      */
