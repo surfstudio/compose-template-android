@@ -4,4 +4,6 @@
 
 ```
 ./gradlew moduleSimple --module={name}
+./gradlew moduleMiddle --module={name} # coming soon
+./gradlew moduleLarger --module={name} # coming soon
 ```

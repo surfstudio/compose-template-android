@@ -36,11 +36,11 @@ abstract class CreateModule @Inject constructor(
 tasks.register<CreateModule>("moduleSimple", "simple")
 
 /*
- * Task for simple module
+ * Task for middle module
  */
 //tasks.register<CreateModule>("moduleMiddle", "middle")
 
 /*
- * Task for simple module
+ * Task for larger module
  */
 //tasks.register<CreateModule>("moduleLarger", "larger")
