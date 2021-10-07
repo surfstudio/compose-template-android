@@ -20,7 +20,7 @@ abstract class CreateModule @Inject constructor(
                 )
             } else {
                 commandLine(
-                    "java", "-jar", "${project.rootDir}/automation/modules-0.0.1-all.jar",
+                    "java", "-jar", "${project.rootDir}/automation/modules-0.0.2-all.jar",
                     "--type", "simple",
                     "--path", project.rootDir,
                     "--name", module
