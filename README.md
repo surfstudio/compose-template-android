@@ -18,6 +18,9 @@ Implementation of a pattern for designing applications with a modular approach a
 * Code-style checkout automation
 * Tests
 
+### Automation
+* [Automation create modules](https://github.com/surfstudio/surf-compose-template-android-modules)
+
 ### Custom libs
 * [Compose Forms](https://keygenqt.github.io/compose-forms/)
 * [Surf Accompanist](https://keygenqt.github.io/surf-accompanist/)
