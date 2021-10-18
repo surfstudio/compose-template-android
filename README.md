@@ -18,6 +18,13 @@ Implementation of a pattern for designing applications with a modular approach a
 * Code-style checkout automation
 * Tests
 
+### Custom libs
+* [Compose Forms](https://keygenqt.github.io/compose-forms/)
+* [Surf Accompanist](https://keygenqt.github.io/surf-accompanist/)
+* [Compose Routing](https://keygenqt.github.io/compose-routing/)
+* [Compose Modifier Extension](https://keygenqt.github.io/compose-modifier-ext/)
+* [Android Response Result](https://keygenqt.github.io/android-response-result/)
+
 ### Basic implementation elements
 
 * [Jetpack Compose](https://developer.android.com/jetpack/compose)
