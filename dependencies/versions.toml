@@ -46,7 +46,7 @@ pagingCompose = "1.0.0-alpha12"
 roomVersion = "2.4.0-alpha04"
 # Custom libs
 # https://github.com/keygenqt/compose-modifier-ext
-composeModifierExt = "0.0.8"
+composeModifierExt = "0.0.9"
 # https://github.com/keygenqt/android-response-result
 androidResponseResult = "0.0.6"
 # https://github.com/keygenqt/compose-routing
