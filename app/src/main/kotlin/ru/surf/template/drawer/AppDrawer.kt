@@ -32,7 +32,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.google.accompanist.insets.systemBarsPadding
-import com.keygenqt.modifier.sizeMedium
+import com.keygenqt.modifier.spaceBase
+import com.keygenqt.modifier.spaceMedium
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ru.surf.core.base.LocalBackPressedDispatcher
@@ -76,7 +77,7 @@ fun AppDrawer(
             .fillMaxSize()
             .verticalScroll(rememberScrollState())
     ) {
-        Spacer(modifier = Modifier.sizeMedium())
+        Spacer(modifier = Modifier.spaceBase())
 
         AppDrawerItem(
             isSelected = currentRoute == UsersNav.MainNav.ListUsersNavScreen.route,

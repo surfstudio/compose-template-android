@@ -41,8 +41,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormFieldEmail
 import com.keygenqt.forms.fields.FormFieldPassword
-import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.sizeLarge
+import com.keygenqt.modifier.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.compose.BoxTextFieldError
@@ -77,18 +76,18 @@ fun SignUpFormCredential(
 
     Column(
         modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp)
+            .spacePageHorizontal()
             .background(MaterialTheme.colors.background)
             .fillMaxSize()
             .verticalScroll(listState)
     ) {
 
-        Spacer(modifier = Modifier.sizeLarge())
+        Spacer(modifier = Modifier.padding(bottom = SpaceSize.spacePageVertical))
 
         // common error
         commonError?.let {
             BoxTextFieldError(textError = it)
-            Spacer(Modifier.sizeLarge())
+            Spacer(Modifier.spaceForm())
             LaunchedEffect(commonError) { listState.animateScrollTo(0) }
         }
 
@@ -103,8 +102,6 @@ fun SignUpFormCredential(
             onActions = onActions,
             savedData = savedData,
         )
-
-        Spacer(modifier = Modifier.sizeLarge())
     }
 }
 
@@ -162,7 +159,7 @@ private fun SignUpForm(
             keyboardActions = KeyboardActions(onNext = { formFields.get(SignUpPassword).requestFocus() })
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         // Create field password
         FormFieldPassword(
@@ -173,7 +170,7 @@ private fun SignUpForm(
             keyboardActions = KeyboardActions(onDone = { submitClick.invoke() })
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         // Submit button
         Button(
@@ -187,6 +184,8 @@ private fun SignUpForm(
                 text = stringResource(id = R.string.sign_in_form_button_submit).uppercase(),
             )
         }
+
+        Spacer(modifier = Modifier.padding(bottom = SpaceSize.spacePageVertical))
 
         // Clear focus after end
         LaunchedEffect(Unit) {

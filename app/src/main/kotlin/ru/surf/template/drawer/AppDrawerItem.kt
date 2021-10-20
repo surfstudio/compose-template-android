@@ -35,7 +35,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.keygenqt.modifier.sizeLarge
+import com.keygenqt.modifier.spaceMedium
 import ru.surf.core.theme.MainAppTheme
 
 /**
@@ -95,7 +95,7 @@ fun AppDrawerItem(
                     alpha = imageAlpha
                 )
 
-                Spacer(modifier = Modifier.sizeLarge())
+                Spacer(modifier = Modifier.spaceMedium())
 
                 Text(
                     text = label,

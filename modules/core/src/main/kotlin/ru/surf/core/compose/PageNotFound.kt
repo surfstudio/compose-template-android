@@ -30,8 +30,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
-import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.paddingXLarge
+import com.keygenqt.modifier.spacePage
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
 
@@ -73,12 +72,11 @@ fun PageNotFound(
         modifier = modifier
             .fillMaxSize()
             .background(Color(0xFFE9FDFF))
-            .paddingLarge()
+            .spacePage()
     ) {
         Box(
             modifier = Modifier
                 .weight(1f)
-                .paddingXLarge()
                 .fillMaxSize()
         ) {
             PageNotFoundAnimation(

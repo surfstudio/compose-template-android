@@ -32,8 +32,7 @@ import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.*
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.ClickableTextColorAnimation
-import com.keygenqt.modifier.paddingXLarge
-import com.keygenqt.modifier.sizeXLarge
+import com.keygenqt.modifier.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.base.MaterialThemeCustom
@@ -77,7 +76,7 @@ fun WelcomeBody(
     Column(
         modifier = Modifier
             .systemBarsPadding()
-            .padding(start = 16.dp, end = 16.dp)
+            .spacePage()
     ) {
         Box(
             modifier = Modifier
@@ -94,7 +93,7 @@ fun WelcomeBody(
         Box(
             modifier = Modifier
                 .weight(0.4f)
-                .paddingXLarge()
+                .spacePage()
                 .fillMaxSize()
         ) {
             WelcomeAnimation(
@@ -122,7 +121,7 @@ fun WelcomeBody(
                 Text(text = stringResource(id = R.string.welcome_btn_sign_in).uppercase())
             }
 
-            Spacer(modifier = Modifier.sizeXLarge())
+            Spacer(modifier = Modifier.spaceForm())
 
             ClickableTextColorAnimation(
                 delay = delayClick,
@@ -134,7 +133,8 @@ fun WelcomeBody(
                 }
             )
 
-            Spacer(modifier = Modifier.sizeXLarge())
+            Spacer(modifier = Modifier.spaceSmall())
+            Spacer(modifier = Modifier.spaceBase())
         }
     }
 }

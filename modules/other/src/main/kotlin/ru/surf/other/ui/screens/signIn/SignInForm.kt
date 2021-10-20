@@ -19,6 +19,7 @@ import android.content.res.Configuration
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -36,9 +37,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormFieldEmail
 import com.keygenqt.forms.fields.FormFieldPassword
-import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.paddingMedium
-import com.keygenqt.modifier.paddingSmall
+import com.keygenqt.modifier.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.theme.MainAppTheme
@@ -93,8 +92,6 @@ fun SignInForm(
             }
         }
 
-        Spacer(modifier = Modifier.paddingSmall())
-
         // Create field email
         FormFieldEmail(
             label = stringResource(id = R.string.sign_in_form_email),
@@ -104,7 +101,7 @@ fun SignInForm(
             keyboardActions = KeyboardActions(onNext = { formFields.get(SignInPassword).requestFocus() })
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         // Create field password
         FormFieldPassword(
@@ -115,7 +112,7 @@ fun SignInForm(
             keyboardActions = KeyboardActions(onDone = { submitClick.invoke() })
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         // Submit button
         Button(
@@ -130,7 +127,7 @@ fun SignInForm(
             )
         }
 
-        Spacer(modifier = Modifier.paddingMedium())
+        Spacer(modifier = Modifier.padding(bottom = SpaceSize.spacePageVertical))
 
         // Clear focus after end
         LaunchedEffect(Unit) {

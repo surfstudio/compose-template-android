@@ -42,10 +42,7 @@ import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormField
 import com.keygenqt.forms.fields.FormFieldNumber
 import com.keygenqt.forms.fields.FormFieldPhone
-import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.paddingMedium
-import com.keygenqt.modifier.paddingSmall
-import com.keygenqt.modifier.sizeLarge
+import com.keygenqt.modifier.*
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
@@ -78,19 +75,19 @@ fun SignUpFormProfile(
 
     Column(
         modifier = Modifier
-            .padding(start = 16.dp, end = 16.dp)
+            .spacePageHorizontal()
             .background(MaterialTheme.colors.background)
             .navigationBarsWithImePadding()
             .fillMaxSize()
             .verticalScroll(listState)
     ) {
 
-        Spacer(modifier = Modifier.sizeLarge())
+        Spacer(modifier = Modifier.padding(bottom = SpaceSize.spacePageVertical))
 
         // common error
         commonError?.let {
             BoxTextFieldError(textError = it)
-            Spacer(Modifier.sizeLarge())
+            Spacer(Modifier.spaceForm())
             LaunchedEffect(commonError) { listState.animateScrollTo(0) }
         }
 
@@ -106,8 +103,6 @@ fun SignUpFormProfile(
             loading = loading,
             onActions = onActions
         )
-
-        Spacer(modifier = Modifier.sizeLarge())
     }
 }
 
@@ -170,14 +165,14 @@ private fun SignUpForm(
             }
         }
 
-        Spacer(modifier = Modifier.paddingSmall())
+        Spacer(modifier = Modifier.spaceSmall())
 
         Text(
             text = stringResource(id = R.string.sign_up_subtitle_info),
             style = MaterialTheme.typography.subtitle2,
         )
 
-        Spacer(modifier = Modifier.paddingSmall())
+        Spacer(modifier = Modifier.spaceSmall())
 
         FormField(
             label = stringResource(id = R.string.sign_up_required_fname),
@@ -188,7 +183,7 @@ private fun SignUpForm(
             filterEmoji = true
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         FormField(
             label = stringResource(id = R.string.sign_up_required_lname),
@@ -199,14 +194,14 @@ private fun SignUpForm(
             filterEmoji = true
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         Text(
             text = stringResource(id = R.string.sign_up_subtitle_connection),
             style = MaterialTheme.typography.subtitle2,
         )
 
-        Spacer(modifier = Modifier.paddingSmall())
+        Spacer(modifier = Modifier.spaceSmall())
 
         FormFieldPhone(
             label = stringResource(id = R.string.sign_up_required_phone_work),
@@ -218,7 +213,7 @@ private fun SignUpForm(
             placeholder = "+7 (000) 000-000-000",
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         FormFieldPhone(
             label = stringResource(id = R.string.sign_up_phone_home),
@@ -230,14 +225,14 @@ private fun SignUpForm(
             placeholder = "+380 (000) 000-000-000",
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         Text(
             text = stringResource(id = R.string.sign_up_subtitle_payment),
             style = MaterialTheme.typography.subtitle2,
         )
 
-        Spacer(modifier = Modifier.paddingSmall())
+        Spacer(modifier = Modifier.spaceSmall())
 
         FormFieldNumber(
             label = stringResource(id = R.string.sign_up_number_card),
@@ -249,7 +244,7 @@ private fun SignUpForm(
             placeholder = "0000-0000-0000-0000",
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         FormFieldNumber(
             label = stringResource(id = R.string.sign_up_cvc),
@@ -261,14 +256,14 @@ private fun SignUpForm(
             placeholder = "000",
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         Text(
             text = stringResource(id = R.string.sign_up_bio),
             style = MaterialTheme.typography.subtitle2,
         )
 
-        Spacer(modifier = Modifier.paddingSmall())
+        Spacer(modifier = Modifier.spaceSmall())
 
         FormField(
             lines = 3,
@@ -279,7 +274,7 @@ private fun SignUpForm(
             imeAction = ImeAction.Default,
         )
 
-        Spacer(modifier = Modifier.paddingLarge())
+        Spacer(modifier = Modifier.spaceForm())
 
         // Submit button
         Button(
@@ -294,7 +289,7 @@ private fun SignUpForm(
             )
         }
 
-        Spacer(modifier = Modifier.paddingMedium())
+        Spacer(modifier = Modifier.padding(bottom = SpaceSize.spacePageVertical))
     }
 }
 

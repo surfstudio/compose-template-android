@@ -23,7 +23,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.keygenqt.modifier.paddingLarge
+import com.keygenqt.modifier.spaceMedium
 
 /**
  * Item list for page [SettingsBody]
@@ -53,7 +53,7 @@ fun SettingsSwitch(
             })
     ) {
         ConstraintLayout(
-            modifier = Modifier.paddingLarge()
+            modifier = Modifier.spaceMedium()
         ) {
             val (vText, switch) = createRefs()
 

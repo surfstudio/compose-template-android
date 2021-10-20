@@ -17,6 +17,7 @@ package ru.surf.users.ui.screens.listUsers
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Card
@@ -26,6 +27,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.keygenqt.modifier.spaceItem
+import com.keygenqt.modifier.spaceList
+import com.keygenqt.modifier.spaceSmall
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 
@@ -46,15 +50,12 @@ fun ListUserItem(
         shape = MaterialTheme.shapes.medium,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(bottom = 16.dp)
             .clickable {
                 onActions(ListUsersActions.ToViewUser(model.id))
             }
     ) {
         Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 9.dp, bottom = 12.dp, start = 12.dp, end = 6.dp)
+            modifier = Modifier.fillMaxWidth().spaceItem()
         ) {
             Text(
                 text = model.name.uppercase(),
@@ -62,9 +63,9 @@ fun ListUserItem(
                 color = MaterialTheme.colors.onBackground,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
-                modifier = Modifier
-                    .fillMaxWidth()
+                modifier = Modifier.fillMaxWidth()
             )
         }
     }
+    Spacer(modifier = Modifier.spaceList())
 }

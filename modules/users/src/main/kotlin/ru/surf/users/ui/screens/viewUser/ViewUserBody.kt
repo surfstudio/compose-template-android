@@ -36,8 +36,7 @@ import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.sizeLarge
+import com.keygenqt.modifier.spaceLarge
 import ru.surf.core.compose.AppSwipeRefreshIndicator
 import ru.surf.core.compose.LoaderPage
 import ru.surf.core.compose.PageNotFound
@@ -97,7 +96,7 @@ fun ViewUserBody(
                 if (model is UserModel && !loading) {
                     Column(
                         modifier = Modifier
-                            .paddingLarge()
+                            .spaceLarge()
                             .fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
@@ -106,7 +105,7 @@ fun ViewUserBody(
                             text = "Info:"
                         )
 
-                        Spacer(modifier = Modifier.sizeLarge())
+                        Spacer(modifier = Modifier.spaceLarge())
 
                         Text(
                             style = MaterialTheme.typography.h5,

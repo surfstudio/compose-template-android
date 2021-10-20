@@ -29,8 +29,7 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
-import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.paddingXLarge
+import com.keygenqt.modifier.spacePage
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
 
@@ -72,12 +71,11 @@ fun EmptyPage(
         modifier = modifier
             .testTag("Animation not found")
             .fillMaxSize()
-            .paddingLarge()
+            .spacePage()
     ) {
         Box(
             modifier = Modifier
                 .weight(1f)
-                .paddingXLarge()
                 .fillMaxSize()
         ) {
             EmptyPageAnimation(

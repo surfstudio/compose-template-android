@@ -20,24 +20,46 @@ package ru.surf.core.initializer
 import android.content.Context
 import androidx.compose.ui.unit.dp
 import androidx.startup.Initializer
-import com.keygenqt.modifier.ModifierConfiguration
+import com.keygenqt.modifier.SpaceConfiguration
+import com.keygenqt.modifier.SpaceSize
 
 /**
- * Initialization [ModifierConfiguration]
+ * Initialization [SpaceConfiguration]
  *
  * @author Vitaliy Zarubin
  */
 class ModifierInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {
-        ModifierConfiguration.init(
-            xSmall = 2.dp,
-            small = 4.dp,
-            medium = 8.dp,
-            large = 16.dp,
-            xLarge = 24.dp,
-            xLarge2 = 48.dp,
-            xLarge3 = 96.dp,
+
+        // const sizes in SpaceSize
+        SpaceSize.spaceThin     // 2.dp
+        SpaceSize.spaceSmall    // 4.dp
+        SpaceSize.spaceBase     // 8.dp
+        SpaceSize.spaceMedium   // 16.dp
+        SpaceSize.spaceLarge    // 24.dp
+
+        // configuration sizes in SpaceSize default
+        SpaceSize.spacePageVertical     // 16.dp
+        SpaceSize.spacePageHorizontal   // 16.dp
+        SpaceSize.spaceItemVertical     // 8.dp
+        SpaceSize.spaceItemHorizontal   // 8.dp
+        SpaceSize.spaceList             // 8.dp
+        SpaceSize.spaceForm             // 16.dp
+
+        SpaceConfiguration.init(
+            // app page top & bottom
+            spacePageVertical = 16.dp,
+            // app page start & and
+            spacePageHorizontal = 16.dp,
+            // item in list application top & bottom
+            spaceItemVertical = 8.dp,
+            // item in list application start & and
+            spaceItemHorizontal = 8.dp,
+            // item space between items in list
+            spaceList = 8.dp,
+            // space from inputs and other block in form
+            spaceForm = 16.dp,
         )
     }
 

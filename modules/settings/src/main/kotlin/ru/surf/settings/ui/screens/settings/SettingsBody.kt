@@ -35,9 +35,10 @@ import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.modifier.paddingSmall
-import com.keygenqt.modifier.sizeLarge
-import com.keygenqt.modifier.sizeMedium
+import com.keygenqt.modifier.spacePageHorizontal
+import com.keygenqt.modifier.spacePageVertical
+import com.keygenqt.modifier.spaceSmall
+import com.keygenqt.modifier.spaceThin
 import ru.surf.core.compose.AppSwipeRefreshIndicator
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
@@ -82,96 +83,88 @@ fun SettingsBody(
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState())
             ) {
-                Spacer(modifier = Modifier.sizeMedium())
+                Column(Modifier.spacePageVertical()) {
 
-                Column(
-                    modifier = Modifier
-                        .padding(start = 16.dp, end = 16.dp)
-                ) {
-                    Spacer(modifier = Modifier.paddingSmall())
-                    Text(
-                        text = stringResource(id = R.string.settings_details_subtitle),
-                        style = MaterialTheme.typography.subtitle2,
-                    )
-                    Spacer(modifier = Modifier.paddingSmall())
-                }
+                    Column(Modifier.spacePageHorizontal()) {
+                        Spacer(modifier = Modifier.spaceSmall())
+                        Text(
+                            text = stringResource(id = R.string.settings_details_subtitle),
+                            style = MaterialTheme.typography.subtitle2,
+                        )
+                        Spacer(modifier = Modifier.spaceSmall())
+                    }
 
-                SettingsItem(text = stringResource(id = R.string.settings_details_about)) {
-                }
+                    SettingsItem(text = stringResource(id = R.string.settings_details_about)) {
+                    }
 
-                Spacer(modifier = Modifier.sizeMedium())
+                    Spacer(modifier = Modifier.spaceSmall())
 
-                SettingsItem(text = stringResource(id = R.string.settings_details_edit)) {
-                }
+                    SettingsItem(text = stringResource(id = R.string.settings_details_edit)) {
+                    }
 
-                Spacer(modifier = Modifier.sizeMedium())
+                    Spacer(modifier = Modifier.spaceSmall())
 
-                SettingsSwitch(
-                    checked = false,
-                    text = stringResource(id = R.string.settings_details_enable_push)
-                ) {
-                }
+                    SettingsSwitch(
+                        checked = false,
+                        text = stringResource(id = R.string.settings_details_enable_push)
+                    ) {
+                    }
 
-                Spacer(modifier = Modifier.sizeMedium())
+                    Spacer(modifier = Modifier.spaceSmall())
 
-                Column(
-                    modifier = Modifier
-                        .padding(start = 16.dp, end = 16.dp)
-                ) {
-                    Spacer(modifier = Modifier.paddingSmall())
-                    Text(
-                        text = stringResource(id = R.string.settings_info_subtitle),
-                        style = MaterialTheme.typography.subtitle2,
-                    )
-                    Spacer(modifier = Modifier.paddingSmall())
-                }
+                    Column(Modifier.spacePageHorizontal()) {
+                        Spacer(modifier = Modifier.spaceSmall())
+                        Text(
+                            text = stringResource(id = R.string.settings_info_subtitle),
+                            style = MaterialTheme.typography.subtitle2,
+                        )
+                        Spacer(modifier = Modifier.spaceSmall())
+                    }
 
-                SettingsItem(text = stringResource(id = R.string.settings_info_terms)) {
-                }
+                    SettingsItem(text = stringResource(id = R.string.settings_info_terms)) {
+                    }
 
-                Spacer(modifier = Modifier.sizeMedium())
+                    Spacer(modifier = Modifier.spaceSmall())
 
-                SettingsItem(text = stringResource(id = R.string.settings_info_policy)) {
-                }
+                    SettingsItem(text = stringResource(id = R.string.settings_info_policy)) {
+                    }
 
-                Spacer(modifier = Modifier.sizeMedium())
+                    Spacer(modifier = Modifier.spaceSmall())
 
-                Column(
-                    modifier = Modifier
-                        .padding(start = 16.dp, end = 16.dp)
-                ) {
-                    Spacer(modifier = Modifier.paddingSmall())
-                    Text(
-                        text = stringResource(id = R.string.settings_system_subtitle),
-                        style = MaterialTheme.typography.subtitle2,
-                    )
-                    Spacer(modifier = Modifier.paddingSmall())
-                }
+                    Column(Modifier.spacePageHorizontal()) {
+                        Spacer(modifier = Modifier.spaceSmall())
+                        Text(
+                            text = stringResource(id = R.string.settings_system_subtitle),
+                            style = MaterialTheme.typography.subtitle2,
+                        )
+                        Spacer(modifier = Modifier.spaceSmall())
+                    }
 
-                SettingsItem(text = stringResource(id = R.string.settings_system_appearance)) {
-                }
+                    SettingsItem(text = stringResource(id = R.string.settings_system_appearance)) {
+                    }
 
-                Spacer(modifier = Modifier.sizeMedium())
+                    Spacer(modifier = Modifier.spaceSmall())
 
-                SettingsItem(text = stringResource(id = R.string.settings_system_licences)) {
-                }
+                    SettingsItem(text = stringResource(id = R.string.settings_system_licences)) {
+                    }
 
-                Spacer(modifier = Modifier.sizeLarge())
-                Box(
-                    modifier = Modifier
-                        .padding(end = 16.dp)
-                        .fillMaxWidth()
-                ) {
-                    Spacer(
+                    Spacer(modifier = Modifier.spaceSmall())
+                    Box(
                         modifier = Modifier
-                            .background(MaterialTheme.colors.surface)
-                            .height(0.5.dp)
+                            .padding(end = 16.dp)
                             .fillMaxWidth()
-                    )
-                }
-                Spacer(modifier = Modifier.sizeLarge())
+                    ) {
+                        Spacer(
+                            modifier = Modifier
+                                .background(MaterialTheme.colors.surface)
+                                .height(0.5.dp)
+                                .fillMaxWidth()
+                        )
+                    }
+                    Spacer(modifier = Modifier.spaceSmall())
 
-                SettingsItem(text = stringResource(id = R.string.settings_logout)) {
+                    SettingsItem(text = stringResource(id = R.string.settings_logout)) {
+                    }
                 }
             }
         }

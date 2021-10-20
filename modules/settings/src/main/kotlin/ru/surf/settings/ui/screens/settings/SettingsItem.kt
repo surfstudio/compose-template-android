@@ -29,7 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.keygenqt.modifier.paddingLarge
+import com.keygenqt.modifier.spaceMedium
 
 /**
  * Item list for page [SettingsBody]
@@ -52,7 +52,7 @@ fun SettingsItem(
             .clickable(onClick = onClick)
     ) {
         ConstraintLayout(
-            modifier = Modifier.paddingLarge()
+            modifier = Modifier.spaceMedium()
         ) {
             val (vText, icon) = createRefs()
 

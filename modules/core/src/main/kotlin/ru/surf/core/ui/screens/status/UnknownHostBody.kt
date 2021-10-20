@@ -27,9 +27,7 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
 import com.google.accompanist.insets.navigationBarsWithImePadding
-import com.keygenqt.modifier.paddingLarge
-import com.keygenqt.modifier.paddingXLarge
-import com.keygenqt.modifier.sizeXLarge
+import com.keygenqt.modifier.spacePage
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.core.ui.actions.UnknownHostActions
@@ -62,7 +60,7 @@ fun UnknownHostBody(
 ) {
     Column(
         modifier = Modifier
-            .paddingLarge()
+            .spacePage()
             .navigationBarsWithImePadding()
     ) {
         Box(
@@ -80,7 +78,6 @@ fun UnknownHostBody(
         Box(
             modifier = Modifier
                 .weight(0.4f)
-                .paddingXLarge()
                 .fillMaxSize()
         ) {
             UnknownHostAnimation(
@@ -113,8 +110,6 @@ fun UnknownHostBody(
                     Text(text = stringResource(id = R.string.unknown_host_button).uppercase())
                 }
             }
-
-            Spacer(modifier = Modifier.sizeXLarge())
         }
     }
 }

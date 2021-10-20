@@ -34,10 +34,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.modifier.sizeLarge
+import com.keygenqt.modifier.SpaceSize
+import com.keygenqt.modifier.spaceForm
+import com.keygenqt.modifier.spacePageHorizontal
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
@@ -69,21 +70,20 @@ fun SignInBody(
         contentTitle = { TopBarContentTitle(stringResource(id = R.string.sign_in_title)) }
     ) {
         val listState = rememberScrollState()
-
         Column(
             modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp)
+                .spacePageHorizontal()
                 .background(MaterialTheme.colors.background)
                 .fillMaxSize()
                 .verticalScroll(listState)
         ) {
 
-            Spacer(modifier = Modifier.sizeLarge())
+            Spacer(modifier = Modifier.padding(bottom = SpaceSize.spacePageVertical))
 
             // common error
             commonError?.let {
                 BoxTextFieldError(textError = it)
-                Spacer(Modifier.sizeLarge())
+                Spacer(Modifier.spaceForm())
                 LaunchedEffect(commonError) { listState.animateScrollTo(0) }
             }
 
@@ -91,8 +91,6 @@ fun SignInBody(
                 loading = loading,
                 onActions = onActions
             )
-
-            Spacer(modifier = Modifier.sizeLarge())
         }
     }
 }
