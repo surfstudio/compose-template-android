@@ -61,7 +61,7 @@ fun SignUpBody(
     backDispatcher: OnBackPressedDispatcher? = null
 ) {
     val scope = rememberCoroutineScope()
-    val pagerState = rememberPagerState(pageCount = 2)
+    val pagerState = rememberPagerState(initialPage = 0)
     val localFocusManager = LocalFocusManager.current
     val softwareKeyboardController = LocalSoftwareKeyboardController.current
 
@@ -93,7 +93,7 @@ fun SignUpBody(
         }
 
         HorizontalPager(
-            dragEnabled = false,
+            count = 2,
             state = pagerState,
         ) { page ->
             when (page) {

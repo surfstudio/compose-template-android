@@ -66,7 +66,7 @@ import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.SignUpPassword
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SignUpFormCredential(
-    state: PagerState = rememberPagerState(pageCount = 0),
+    state: PagerState = rememberPagerState(initialPage = 0),
     loading: Boolean = false,
     commonError: String? = null,
     onActions: (SignUpActions) -> Unit = {},

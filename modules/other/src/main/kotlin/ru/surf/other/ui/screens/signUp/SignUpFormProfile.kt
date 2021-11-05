@@ -64,7 +64,7 @@ import ru.surf.other.ui.forms.SignUpProfileFieldsForm.*
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun SignUpFormProfile(
-    state: PagerState = rememberPagerState(pageCount = 0),
+    state: PagerState = rememberPagerState(initialPage = 0),
     loading: Boolean = false,
     commonError: String? = null,
     onActions: (SignUpActions) -> Unit = {},
