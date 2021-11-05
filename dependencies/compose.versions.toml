@@ -3,6 +3,7 @@
 
 [libraries]
 compose-material = { module = "androidx.compose.material:material", version.ref = "compose" }
+compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "material3" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-tooling = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
@@ -10,4 +11,12 @@ compose-icons = { module = "androidx.compose.material:material-icons-extended", 
 compose-constraintlayout = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintLayout" }
 
 [bundles]
-compose = ["compose-material", "compose-ui", "compose-tooling", "compose-activity", "compose-icons", "compose-constraintlayout"]
+compose = [
+    "compose-material",
+    "compose-material3",
+    "compose-ui",
+    "compose-tooling",
+    "compose-activity",
+    "compose-icons",
+    "compose-constraintlayout"
+]
