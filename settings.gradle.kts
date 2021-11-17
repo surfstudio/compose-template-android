@@ -87,6 +87,3 @@ if (internalLibrariesEnable.toBoolean()) {
     include(":surf-accompanist")
     project(":surf-accompanist").projectDir = File(settingsDir, "../libs/surf-accompanist")
 }
-
-
-
