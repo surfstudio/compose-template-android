@@ -125,6 +125,8 @@ fun WelcomeBody(
 
             ClickableTextColorAnimation(
                 delay = delayClick,
+                enabled = true,
+                colorDisable = MaterialThemeCustom.colors.link,
                 colorDefault = MaterialThemeCustom.colors.link,
                 colorAction = MaterialThemeCustom.colors.linkAction,
                 text = stringResource(id = R.string.welcome_btn_sign_up),
