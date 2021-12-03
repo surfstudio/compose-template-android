@@ -81,13 +81,15 @@ android {
         debug {
             isMinifyEnabled = false
             isDebuggable = true
-            //todo google services applicationIdSuffix = ".debug"
+            applicationIdSuffix = ".debug"
+            resValue("string", "app_name", "Template Debug")
         }
         create("qa") {
             isMinifyEnabled = true
             isDebuggable = true
             signingConfig = signingConfigs["qa"]
-            //todo google services applicationIdSuffix = ".qa"
+            applicationIdSuffix = ".qa"
+            resValue("string", "app_name", "Template Qa")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "$rootDir/proguard-rules.pro"

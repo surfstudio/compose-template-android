@@ -27,7 +27,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="ru.surf.template.androidx-startup"
+            android:authorities="${applicationId}.androidx-startup"
             android:exported="false"
             tools:node="merge"
             tools:replace="android:authorities">
