@@ -9,3 +9,4 @@
 .cxx
 *build*
 !build.*
+mapping.txt

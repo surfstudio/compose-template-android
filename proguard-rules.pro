@@ -19,3 +19,33 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# database
+-keep class net.sqlcipher.** { *; }
+-keep class net.sqlcipher.database.* { *; }
+
+# retrofit / okhttp
+-dontwarn retrofit.**
+-keep class retrofit.** { *; }
+-keep class okio.** { *; }
+-keep class com.squareup.okhttp.** { *; }
+-keep interface com.squareup.okhttp.** { *; }
+-dontwarn com.squareup.okhttp.**
+-dontwarn okhttp3.internal.platform.**
+-dontwarn okio.**
+-dontwarn org.conscrypt.**
+
+-keepattributes Signature
+-keepattributes Exceptions
+-keepattributes *Annotation*
+-dontwarn javax.annotation.Nullable
+-dontwarn javax.annotation.ParametersAreNonnullByDefault
+-dontwarn javax.annotation.concurrent.GuardedBy
+
+# firebase crashlytics
+-printmapping mapping.txt
+-keepattributes *Annotation*,SourceFile,LineNumberTable
+-keep public class * extends java.lang.Exception
+-keep class com.google.firebase.crashlytics.** { *; }
+-dontwarn com.google.firebase.crashlytics.**
+-dontwarn com.google.firebase.messaging.**

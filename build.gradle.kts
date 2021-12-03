@@ -132,14 +132,14 @@ allprojects {
                     isMinifyEnabled = true
                     proguardFiles(
                         getDefaultProguardFile("proguard-android-optimize.txt"),
-                        "$projectDir/proguard-rules.pro"
+                        "$rootDir/proguard-rules.pro"
                     )
                 }
                 release {
                     isMinifyEnabled = true
                     proguardFiles(
                         getDefaultProguardFile("proguard-android-optimize.txt"),
-                        "$projectDir/proguard-rules.pro"
+                        "$rootDir/proguard-rules.pro"
                     )
                 }
             }

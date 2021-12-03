@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 val configurationSource: Any.() -> Unit by project.extra
 val dependenciesInternal: Any.() -> Unit by project.extra
 
@@ -39,24 +42,64 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            val storePassword = System.getenv("storePassword")
+            val keyPassword = System.getenv("storePassword")
+            val keyAlias = System.getenv("keyAlias")
+            var storeFile = System.getenv("storeFile")
+
+            val releaseKeystorePropsFile =
+                rootProject.file("keystore/keystore_release.properties")
+            if (releaseKeystorePropsFile.exists()) {
+                println("Start extract release keystore config from keystore_release.properties")
+                val keystoreProps = Properties()
+                keystoreProps.load(FileInputStream(releaseKeystorePropsFile))
+            } else {
+                println("Start extract release keystore config from global vars")
+            }
+            if (storeFile.isNullOrBlank()) {
+                storeFile = "no_keystore_file" //fix crash file(storeFile)
+            }
+            println("Extracted keystore config: $storePassword, $keyPassword, $keyAlias, $storeFile")
+
+            this.keyAlias = keyAlias
+            this.keyPassword = keyPassword
+            this.storeFile = file(storeFile)
+            this.storePassword = storePassword
+        }
+
+        create("qa") {
+            storeFile = file("../keystore/test.keystore")
+            storePassword = "qatest"
+            keyAlias = "test"
+            keyPassword = "qatest"
+        }
+    }
+
     buildTypes {
         debug {
             isMinifyEnabled = false
+            isDebuggable = true
             //todo google services applicationIdSuffix = ".debug"
         }
         create("qa") {
             isMinifyEnabled = true
+            isDebuggable = true
+            signingConfig = signingConfigs["qa"]
             //todo google services applicationIdSuffix = ".qa"
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "$projectDir/proguard-rules.pro"
+                "$rootDir/proguard-rules.pro"
             )
         }
         release {
             isMinifyEnabled = true
+            isDebuggable = false
+            signingConfig = signingConfigs["release"]
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "$projectDir/proguard-rules.pro"
+                "$rootDir/proguard-rules.pro"
             )
         }
     }

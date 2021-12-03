@@ -131,6 +131,7 @@ class MainViewModel @Inject constructor(
                         _hasNetwork.value = true
                     }
                 }.error {
+                    _isReady.value = true
                     Timber.e(it)
                 }
                 .done {
