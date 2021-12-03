@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Surf
+ * Copyright 2021 Surf LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.airbnb.lottie.compose.*
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.ClickableTextColorAnimation

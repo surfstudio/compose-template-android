@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Surf
+ * Copyright 2021 Surf LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,19 +33,19 @@ class ModifierInitializer : Initializer<Unit> {
     override fun create(context: Context) {
 
         // const sizes in SpaceSize
-        SpaceSize.spaceThin     // 2.dp
-        SpaceSize.spaceSmall    // 4.dp
-        SpaceSize.spaceBase     // 8.dp
-        SpaceSize.spaceMedium   // 16.dp
-        SpaceSize.spaceLarge    // 24.dp
+        SpaceSize.spaceThin // 2.dp
+        SpaceSize.spaceSmall // 4.dp
+        SpaceSize.spaceBase // 8.dp
+        SpaceSize.spaceMedium // 16.dp
+        SpaceSize.spaceLarge // 24.dp
 
         // configuration sizes in SpaceSize default
-        SpaceSize.spacePageVertical     // 16.dp
-        SpaceSize.spacePageHorizontal   // 16.dp
-        SpaceSize.spaceItemVertical     // 8.dp
-        SpaceSize.spaceItemHorizontal   // 8.dp
-        SpaceSize.spaceList             // 8.dp
-        SpaceSize.spaceForm             // 16.dp
+        SpaceSize.spacePageVertical // 16.dp
+        SpaceSize.spacePageHorizontal // 16.dp
+        SpaceSize.spaceItemVertical // 8.dp
+        SpaceSize.spaceItemHorizontal // 8.dp
+        SpaceSize.spaceList // 8.dp
+        SpaceSize.spaceForm // 16.dp
 
         SpaceConfiguration.init(
             // app page top & bottom

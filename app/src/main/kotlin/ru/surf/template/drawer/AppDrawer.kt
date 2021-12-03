@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Surf
+ * Copyright 2021 Surf LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,7 +33,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.modifier.spaceBase
-import com.keygenqt.modifier.spaceMedium
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ru.surf.core.base.LocalBackPressedDispatcher
