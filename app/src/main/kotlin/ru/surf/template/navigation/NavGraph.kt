@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Surf
+ * Copyright 2021 Surf LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -96,9 +96,9 @@ fun NavGraph(navController: NavHostController) {
 
             backDispatcher.EmitByStatus(
                 !showSnackbar &&
-                        listOf(
-                            UsersNav.MainNav.ListUsersNavScreen.route
-                        ).contains(currentRoute)
+                    listOf(
+                        UsersNav.MainNav.ListUsersNavScreen.route
+                    ).contains(currentRoute)
             ) {
                 showSnackbar = true
                 scope.launch {

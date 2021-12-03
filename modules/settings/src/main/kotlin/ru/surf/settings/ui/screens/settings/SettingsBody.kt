@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Surf
+ * Copyright 2021 Surf LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,7 +38,6 @@ import com.keygenqt.accompanist.MainScaffoldSearch
 import com.keygenqt.modifier.spacePageHorizontal
 import com.keygenqt.modifier.spacePageVertical
 import com.keygenqt.modifier.spaceSmall
-import com.keygenqt.modifier.spaceThin
 import ru.surf.core.compose.AppSwipeRefreshIndicator
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme

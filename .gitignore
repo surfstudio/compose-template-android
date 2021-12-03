@@ -7,6 +7,6 @@
 /dokka
 .externalNativeBuild
 .cxx
-/app/google-services.json
 *build*
 !build.*
+mapping.txt

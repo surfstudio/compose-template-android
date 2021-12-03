@@ -1,5 +1,5 @@
-val configurationSource: Any.() -> Unit by project.extra
 val dependenciesInternal: Any.() -> Unit by project.extra
+val androidConfig: Any.() -> Unit by project.extra
 
 plugins {
     id("com.android.library")
@@ -9,48 +9,11 @@ plugins {
 }
 
 android {
-
-    compileSdk = findProperty("compileSdk").toString().toInt()
-
-    defaultConfig {
-
-        minSdk = findProperty("minSdk").toString().toInt()
-        targetSdk = findProperty("targetSdk").toString().toInt()
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.get()
-    }
-
-    buildFeatures {
-        compose = true
-    }
-
-    // common configuration source
-    this.sourceSets.configurationSource()
+    this.androidConfig()
 
     // disable waring OptIn
     kotlinOptions {
         freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-    }
-
-    packagingOptions {
-        resources {
-            excludes.add("META-INF/AL2.0")
-            excludes.add("META-INF/LGPL2.1")
-        }
     }
 }
 

@@ -106,4 +106,62 @@ allprojects {
             }
         }
     }
+    // Android
+    extra["androidConfig"] = { ex: Any ->
+        (ex as? com.android.build.gradle.LibraryExtension)?.apply {
+
+            val configurationSource: Any.() -> Unit by project.extra
+
+            compileSdk = findProperty("compileSdk").toString().toInt()
+
+            defaultConfig {
+                minSdk = findProperty("minSdk").toString().toInt()
+                targetSdk = findProperty("targetSdk").toString().toInt()
+
+                testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+                vectorDrawables {
+                    useSupportLibrary = true
+                }
+            }
+
+            buildTypes {
+                debug {
+                    isMinifyEnabled = false
+                }
+                create("qa") {
+                    isMinifyEnabled = true
+                    proguardFiles(
+                        getDefaultProguardFile("proguard-android-optimize.txt"),
+                        "$rootDir/proguard-rules.pro"
+                    )
+                }
+                release {
+                    isMinifyEnabled = true
+                    proguardFiles(
+                        getDefaultProguardFile("proguard-android-optimize.txt"),
+                        "$rootDir/proguard-rules.pro"
+                    )
+                }
+            }
+
+            composeOptions {
+                kotlinCompilerExtensionVersion = libs.versions.compose.get()
+            }
+
+            buildFeatures {
+                compose = true
+            }
+
+            // common configuration source
+            sourceSets.configurationSource()
+
+            packagingOptions {
+                resources {
+                    excludes.add("META-INF/licenses/**")
+                    excludes.add("META-INF/AL2.0")
+                    excludes.add("META-INF/LGPL2.1")
+                }
+            }
+        }
+    }
 }

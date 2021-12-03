@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 val configurationSource: Any.() -> Unit by project.extra
 val dependenciesInternal: Any.() -> Unit by project.extra
 
@@ -39,10 +42,67 @@ android {
         }
     }
 
+    signingConfigs {
+        create("release") {
+            val storePassword = System.getenv("storePassword")
+            val keyPassword = System.getenv("storePassword")
+            val keyAlias = System.getenv("keyAlias")
+            var storeFile = System.getenv("storeFile")
+
+            val releaseKeystorePropsFile =
+                rootProject.file("keystore/keystore_release.properties")
+            if (releaseKeystorePropsFile.exists()) {
+                println("Start extract release keystore config from keystore_release.properties")
+                val keystoreProps = Properties()
+                keystoreProps.load(FileInputStream(releaseKeystorePropsFile))
+            } else {
+                println("Start extract release keystore config from global vars")
+            }
+            if (storeFile.isNullOrBlank()) {
+                storeFile = "no_keystore_file" //fix crash file(storeFile)
+            }
+            println("Extracted keystore config: $storePassword, $keyPassword, $keyAlias, $storeFile")
+
+            this.keyAlias = keyAlias
+            this.keyPassword = keyPassword
+            this.storeFile = file(storeFile)
+            this.storePassword = storePassword
+        }
+
+        create("qa") {
+            storeFile = file("../keystore/test.keystore")
+            storePassword = "qatest"
+            keyAlias = "test"
+            keyPassword = "qatest"
+        }
+    }
+
     buildTypes {
-        release {
+        debug {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
+            resValue("string", "app_name", "Template Debug")
+        }
+        create("qa") {
+            isMinifyEnabled = true
+            isDebuggable = true
+            signingConfig = signingConfigs["qa"]
+            applicationIdSuffix = ".qa"
+            resValue("string", "app_name", "Template Qa")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "$rootDir/proguard-rules.pro"
+            )
+        }
+        release {
+            isMinifyEnabled = true
+            isDebuggable = false
+            signingConfig = signingConfigs["release"]
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "$rootDir/proguard-rules.pro"
+            )
         }
     }
 
@@ -81,7 +141,7 @@ dependencies {
 // libraries
 dependencies {
 
-    dependencies{
+    dependencies {
         dokkaGfmPlugin("org.jetbrains.dokka:android-documentation-plugin:${properties["dokkaVersions"]}")
     }
 
@@ -106,6 +166,3 @@ dependencies {
     debugImplementation(libs.bundles.testDebug)
     androidTestImplementation(libs.bundles.testAndroid)
 }
-
-
-

@@ -1,5 +1,5 @@
 /**
- * Copyright 2021 Surf
+ * Copyright 2021 Surf LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -131,6 +131,7 @@ class MainViewModel @Inject constructor(
                         _hasNetwork.value = true
                     }
                 }.error {
+                    _isReady.value = true
                     Timber.e(it)
                 }
                 .done {
