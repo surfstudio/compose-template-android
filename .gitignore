@@ -4,6 +4,7 @@
 /.idea/
 .DS_Store
 /captures
+/dokka
 .externalNativeBuild
 .cxx
 /app/google-services.json

@@ -31,7 +31,7 @@ apply(plugin = "org.jetbrains.dokka")
 
 // gradlew dokkaHtmlMultiModule
 tasks.withType<org.jetbrains.dokka.gradle.DokkaMultiModuleTask>().configureEach {
-    outputDirectory.set(rootDir.resolve("docs"))
+    outputDirectory.set(rootDir.resolve("dokka"))
     failOnWarning.set(true)
 }
 
