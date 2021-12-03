@@ -125,9 +125,22 @@ allprojects {
             }
 
             buildTypes {
+                debug {
+                    isMinifyEnabled = false
+                }
+                create("qa") {
+                    isMinifyEnabled = true
+                    proguardFiles(
+                        getDefaultProguardFile("proguard-android-optimize.txt"),
+                        "$projectDir/proguard-rules.pro"
+                    )
+                }
                 release {
                     isMinifyEnabled = true
-                    proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "$projectDir/proguard-rules.pro")
+                    proguardFiles(
+                        getDefaultProguardFile("proguard-android-optimize.txt"),
+                        "$projectDir/proguard-rules.pro"
+                    )
                 }
             }
 

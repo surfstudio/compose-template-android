@@ -40,9 +40,24 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            //todo google services applicationIdSuffix = ".debug"
+        }
+        create("qa") {
+            isMinifyEnabled = true
+            //todo google services applicationIdSuffix = ".qa"
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "$projectDir/proguard-rules.pro"
+            )
+        }
         release {
             isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "$projectDir/proguard-rules.pro"
+            )
         }
     }
 
@@ -81,7 +96,7 @@ dependencies {
 // libraries
 dependencies {
 
-    dependencies{
+    dependencies {
         dokkaGfmPlugin("org.jetbrains.dokka:android-documentation-plugin:${properties["dokkaVersions"]}")
     }
 
