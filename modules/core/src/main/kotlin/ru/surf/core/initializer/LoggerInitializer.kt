@@ -19,20 +19,23 @@ package ru.surf.core.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
-import ru.surf.core.BuildConfig
-import timber.log.Timber
+import ru.surf.core.logger.RemoteLogger
+import ru.surf.core.logger.strategies.local.TimberLoggingStrategy
+import ru.surf.core.logger.strategies.remote.FirebaseCrashlyticsRemoteLoggingStrategy
+import ru.surf.core.logger.strategies.remote.RemoteLoggerLoggingStrategy
+import ru.surfstudio.android.logger.Logger
 
 /**
- * Initialization [Timber]
+ * Initialization [Logger]
  *
  * @author Vitaliy Zarubin
  */
-class TimberInitializer : Initializer<Unit> {
+class LoggerInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
+        Logger.addLoggingStrategy(TimberLoggingStrategy())
+        Logger.addLoggingStrategy(RemoteLoggerLoggingStrategy())
+        RemoteLogger.addRemoteLoggingStrategy(FirebaseCrashlyticsRemoteLoggingStrategy())
     }
 
     override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()

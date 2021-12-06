@@ -51,6 +51,7 @@ androidResponseResult = "0.0.7"
 composeRouting = "0.0.1"
 surfAccompanist = "0.0.10"
 composeForms = "0.0.15"
+surfLogger = "0.5.0"
 # Tests
 mockWebServer = "4.9.1"
 mockitoCore = "3.10.0"
