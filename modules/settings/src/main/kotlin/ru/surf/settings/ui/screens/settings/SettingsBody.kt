@@ -34,7 +34,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.keygenqt.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
 import ru.surfstudio.compose.modifier.ext.spacePageHorizontal
 import ru.surfstudio.compose.modifier.ext.spacePageVertical
 import ru.surfstudio.compose.modifier.ext.spaceSmall

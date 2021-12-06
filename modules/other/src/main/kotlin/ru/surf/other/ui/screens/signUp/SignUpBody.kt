@@ -32,7 +32,7 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import com.keygenqt.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
 import kotlinx.coroutines.launch
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.extension.EmitByStatus

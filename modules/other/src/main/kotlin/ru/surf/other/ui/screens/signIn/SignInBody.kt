@@ -35,7 +35,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.insets.systemBarsPadding
-import com.keygenqt.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
 import ru.surfstudio.compose.modifier.ext.SpaceSize
 import ru.surfstudio.compose.modifier.ext.spaceForm
 import ru.surfstudio.compose.modifier.ext.spacePageHorizontal
