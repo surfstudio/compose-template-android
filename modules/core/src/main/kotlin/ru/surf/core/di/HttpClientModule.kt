@@ -27,6 +27,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import ru.surf.core.BuildConfig
 import ru.surf.core.utils.ConstantsApp.API_URL
 import timber.log.Timber
 
@@ -56,7 +57,11 @@ object HttpClientModule {
         return OkHttpClient.Builder()
             .addInterceptor(
                 HttpLoggingInterceptor { message -> Timber.i(message) }.apply {
-                    level = HttpLoggingInterceptor.Level.BODY
+                    level = if (BuildConfig.DEBUG) {
+                        HttpLoggingInterceptor.Level.BODY
+                    } else {
+                        HttpLoggingInterceptor.Level.BASIC
+                    }
                 }
             )
             .addInterceptor {
