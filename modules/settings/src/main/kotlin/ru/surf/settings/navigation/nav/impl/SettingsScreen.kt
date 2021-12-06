@@ -15,7 +15,7 @@
  */
 package ru.surf.settings.navigation.nav.impl
 
-import com.keygenqt.routing.NavScreen
+import ru.surfstudio.compose.routing.NavScreen
 import ru.surf.settings.ui.screens.settings.SettingsScreen
 
 /**

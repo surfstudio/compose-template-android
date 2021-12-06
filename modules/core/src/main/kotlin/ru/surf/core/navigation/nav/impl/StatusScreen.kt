@@ -15,7 +15,7 @@
  */
 package ru.surf.core.navigation.nav.impl
 
-import com.keygenqt.routing.NavScreen
+import ru.surfstudio.compose.routing.NavScreen
 import ru.surf.core.ui.screens.status.StatusScreen
 
 /**

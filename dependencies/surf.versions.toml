@@ -3,8 +3,8 @@
 surf-modifier = { module = "ru.surfstudio.compose:modifier-ext", version.ref = "composeModifierExt" }
 # https://github.com/surfstudio/surf-android-response-result
 surf-response = { module = "ru.surfstudio.compose:response-result", version.ref = "androidResponseResult" }
-# https://github.com/keygenqt/compose-routing
-surf-routing = { module = "com.keygenqt.routing:compose-routing", version.ref = "composeRouting" }
+# https://github.com/surfstudio/surf-compose-routing
+surf-routing = { module = "ru.surfstudio.compose:routing", version.ref = "composeRouting" }
 # https://github.com/keygenqt/surf-accompanist
 surf-accompanist = { module = "com.keygenqt.accompanist:surf-accompanist", version.ref = "surfAccompanist" }
 # https://github.com/keygenqt/compose-forms
