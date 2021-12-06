@@ -50,6 +50,9 @@
 -dontwarn com.google.firebase.crashlytics.**
 -dontwarn com.google.firebase.messaging.**
 
+# surf response-result
+-keep class ru.surfstudio.compose.response.** { *; }
+
 # Keep `Companion` object fields of serializable classes.
 # This avoids serializer lookup through `getDeclaredClasses` as done for named companion objects.
 -if @kotlinx.serialization.Serializable class **
