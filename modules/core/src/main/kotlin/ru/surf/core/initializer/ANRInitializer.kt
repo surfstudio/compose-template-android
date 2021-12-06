@@ -19,18 +19,20 @@ package ru.surf.core.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
-import com.google.firebase.crashlytics.FirebaseCrashlytics
-import ru.surf.core.BuildConfig
+import com.github.anrwatchdog.ANRWatchDog
+import ru.surf.core.logger.RemoteLogger
 
 /**
- * Initialization сrashlytics
+ * Initialization [ANRWatchDog]
  *
- * @author Vitaliy Zarubin
+ * @author Margarita Volodina
  */
-class CrashlyticsInitializer : Initializer<Unit> {
+class ANRInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {
-        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(!BuildConfig.DEBUG)
+        ANRWatchDog().setReportMainThreadOnly()
+            .setANRListener { RemoteLogger.logError(it) }
+            .start()
     }
 
     override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()

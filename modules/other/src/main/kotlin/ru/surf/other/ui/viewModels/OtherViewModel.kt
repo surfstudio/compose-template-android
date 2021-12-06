@@ -17,9 +17,6 @@ package ru.surf.other.ui.viewModels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ru.surfstudio.compose.response.extensions.done
-import ru.surfstudio.compose.response.extensions.error
-import ru.surfstudio.compose.response.extensions.success
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,7 +24,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import ru.surf.other.services.apiService.OtherApiService
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
+import ru.surfstudio.compose.response.extensions.done
+import ru.surfstudio.compose.response.extensions.error
+import ru.surfstudio.compose.response.extensions.success
 import javax.inject.Inject
 
 /**
@@ -98,7 +98,7 @@ class OtherViewModel @Inject constructor(
                 }
                 .error {
                     _commonError.value = it.message ?: "Authentication failed"
-                    Timber.e(it)
+                    Logger.w(it)
                 }
                 .done { _loading.value = false }
         }
@@ -120,7 +120,7 @@ class OtherViewModel @Inject constructor(
                 }
                 .error {
                     _commonError.value = it.message ?: "Authentication failed"
-                    Timber.e(it)
+                    Logger.w(it)
                 }
                 .done { _loading.value = false }
         }
@@ -170,7 +170,7 @@ class OtherViewModel @Inject constructor(
                 }
                 .error {
                     _commonError.value = it.message ?: "Authentication failed"
-                    Timber.e(it)
+                    Logger.w(it)
                 }
                 .done { _loading.value = false }
         }

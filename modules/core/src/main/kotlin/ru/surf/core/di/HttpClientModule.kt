@@ -27,8 +27,9 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import ru.surf.core.BuildConfig
 import ru.surf.core.utils.ConstantsApp.API_URL
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 
 /**
  * Dagger Module with Retrofit
@@ -55,8 +56,14 @@ object HttpClientModule {
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addInterceptor(
-                HttpLoggingInterceptor { message -> Timber.i(message) }.apply {
-                    level = HttpLoggingInterceptor.Level.BODY
+                HttpLoggingInterceptor { message ->
+                    Logger.d("OkHttp $message")
+                }.apply {
+                    level = if (BuildConfig.DEBUG) {
+                        HttpLoggingInterceptor.Level.BODY
+                    } else {
+                        HttpLoggingInterceptor.Level.BASIC
+                    }
                 }
             )
             .addInterceptor {

@@ -3,7 +3,7 @@
 
 [libraries]
 firebase-analytics = { module = "com.google.firebase:firebase-analytics", version.ref = "analytics" }
-firebase-appcompat = { module = "com.google.firebase:firebase-crashlytics", version.ref = "crashlytics" }
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics", version.ref = "crashlytics" }
 
 [bundles]
-firebase = ["firebase-analytics", "firebase-appcompat"]
+firebase = ["firebase-analytics", "firebase-crashlytics"]

@@ -20,7 +20,7 @@ import ru.surf.core.base.CoreDatabase
 import ru.surf.core.data.dao.SettingsModelDao
 import ru.surf.core.data.models.SettingsModel
 import ru.surf.core.interfaces.IAppDatabase
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 
 /**
  * Service part for work with model [SettingsModel]
@@ -43,7 +43,7 @@ interface SettingsModelDataService : IAppDatabase {
      * Performed when the user logs out
      */
     override fun clearCacheAfterLogout() {
-        Timber.e("Clear cache: SettingsModelDataService")
+        Logger.d("Clear cache: SettingsModelDataService")
     }
 
     /**

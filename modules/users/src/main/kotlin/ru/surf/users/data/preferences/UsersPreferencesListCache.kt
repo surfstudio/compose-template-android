@@ -17,7 +17,7 @@ package ru.surf.users.data.preferences
 
 import android.content.SharedPreferences
 import ru.surf.core.interfaces.IAppPreferences
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 
 /**
  * Lists service shared preference for module
@@ -42,7 +42,7 @@ interface UsersPreferencesListCache : IAppPreferences {
      * Performed when the user logs out
      */
     override fun clearCacheAfterLogout() {
-        Timber.e("Clear cache: UsersPreferencesListCache")
+        Logger.d("Clear cache: UsersPreferencesListCache")
         lastUpdateListUsers = 0L
     }
 

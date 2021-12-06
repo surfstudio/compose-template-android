@@ -9,6 +9,8 @@ surf-routing = { module = "ru.surfstudio.compose:routing", version.ref = "compos
 surf-accompanist = { module = "ru.surfstudio.compose:accompanist", version.ref = "surfAccompanist" }
 # https://github.com/surfstudio/surf-compose-forms
 surf-forms = { module = "ru.surfstudio.compose:forms", version.ref = "composeForms" }
+# https://github.com/surfstudio/SurfAndroidStandard/tree/dev/G-0.5.0/logger
+surf-logger = { module = "ru.surfstudio.android:logger", version.ref = "surfLogger" }
 
 [bundles]
-surf = ["surf-modifier", "surf-response", "surf-routing", "surf-accompanist", "surf-forms"]
+surf = ["surf-modifier", "surf-response", "surf-routing", "surf-accompanist", "surf-forms", "surf-logger"]

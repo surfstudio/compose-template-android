@@ -33,11 +33,15 @@
             tools:replace="android:authorities">
 
             <meta-data
-                android:name="ru.surf.core.initializer.TimberInitializer"
+                android:name="ru.surf.core.initializer.ANRInitializer"
                 android:value="androidx.startup" />
 
             <meta-data
-                android:name="ru.surf.core.initializer.CrashlyticsInitializer"
+                android:name="ru.surf.core.initializer.LoggerInitializer"
+                android:value="androidx.startup" />
+
+            <meta-data
+                android:name="ru.surf.core.initializer.FirebaseInitializer"
                 android:value="androidx.startup" />
 
             <meta-data

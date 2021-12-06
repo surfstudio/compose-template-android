@@ -11,6 +11,9 @@ other-emoji = { module = "com.vdurmont:emoji-java", version.ref = "emojiVersion"
 # reflection
 # https://kotlinlang.org/docs/reflection.html
 other-reflection = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinVersion" }
+# ANRWatchDog
+# https://github.com/SalomonBrys/ANR-WatchDog
+other-anr = { module = "com.github.anrwatchdog:anrwatchdog", version.ref = "anrWatchDog" }
 
 [bundles]
-other = ["other-timber", "other-startup", "other-emoji", "other-reflection"]
+other = ["other-timber", "other-startup", "other-emoji", "other-reflection", "other-anr"]

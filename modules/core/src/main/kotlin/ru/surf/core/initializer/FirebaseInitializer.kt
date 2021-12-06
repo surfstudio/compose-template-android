@@ -19,20 +19,20 @@ package ru.surf.core.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
+import com.google.firebase.analytics.FirebaseAnalytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 import ru.surf.core.BuildConfig
-import timber.log.Timber
 
 /**
- * Initialization [Timber]
+ * Firebase Initialization
  *
  * @author Vitaliy Zarubin
  */
-class TimberInitializer : Initializer<Unit> {
+class FirebaseInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {
-        if (BuildConfig.DEBUG) {
-            Timber.plant(Timber.DebugTree())
-        }
+        FirebaseAnalytics.getInstance(context).setAnalyticsCollectionEnabled(!BuildConfig.DEBUG)
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(!BuildConfig.DEBUG)
     }
 
     override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()
