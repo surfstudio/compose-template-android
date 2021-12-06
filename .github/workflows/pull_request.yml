@@ -16,3 +16,5 @@ jobs:
         java-version: '11'
     - name: Build with Gradle
       run: ./gradlew clean assembleQa
+    - name: Run unit tests
+      run: ./gradlew testQaUnitTest
