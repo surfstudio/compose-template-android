@@ -21,6 +21,8 @@ plugins {
     id("com.google.firebase.crashlytics")
     // https://github.com/ben-manes/gradle-versions-plugin
     id("com.github.ben-manes.versions")
+    // https://firebase.google.com/docs/app-distribution/android/distribute-gradle
+    id("com.google.firebase.appdistribution")
 }
 
 android {
@@ -94,6 +96,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "$rootDir/proguard-rules.pro"
             )
+            firebaseAppDistribution {
+                groups="Surf"
+            }
         }
         release {
             isMinifyEnabled = true
