@@ -22,7 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.TextUnit
-import com.keygenqt.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
 
 /**
  * Text for contentTitle [MainScaffoldSearch]

@@ -34,10 +34,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-import com.keygenqt.forms.base.FormFieldsState
-import com.keygenqt.forms.fields.FormFieldEmail
-import com.keygenqt.forms.fields.FormFieldPassword
-import com.keygenqt.modifier.*
+import ru.surfstudio.compose.forms.base.FormFieldsState
+import ru.surfstudio.compose.forms.fields.FormFieldEmail
+import ru.surfstudio.compose.forms.fields.FormFieldPassword
+import ru.surfstudio.compose.modifier.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.theme.MainAppTheme

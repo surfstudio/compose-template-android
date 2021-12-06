@@ -25,8 +25,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
-import com.keygenqt.modifier.spaceItem
-import com.keygenqt.modifier.spaceList
+import ru.surfstudio.compose.modifier.spaceItem
+import ru.surfstudio.compose.modifier.spaceList
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ListUsersActions
 

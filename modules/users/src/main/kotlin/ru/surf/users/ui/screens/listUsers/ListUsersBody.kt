@@ -27,10 +27,10 @@ import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.accompanist.SwipeRefreshList
-import com.keygenqt.modifier.paddingValuesSpacePage
-import com.keygenqt.modifier.spaceSmall
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.accompanist.SwipeRefreshList
+import ru.surfstudio.compose.modifier.paddingValuesSpacePage
+import ru.surfstudio.compose.modifier.spaceSmall
 import ru.surf.core.base.LocalMainViewModel
 import ru.surf.core.base.MainViewModel
 import ru.surf.core.compose.*

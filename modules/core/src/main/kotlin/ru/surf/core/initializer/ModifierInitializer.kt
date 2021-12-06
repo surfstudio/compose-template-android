@@ -20,8 +20,8 @@ package ru.surf.core.initializer
 import android.content.Context
 import androidx.compose.ui.unit.dp
 import androidx.startup.Initializer
-import com.keygenqt.modifier.SpaceConfiguration
-import com.keygenqt.modifier.SpaceSize
+import ru.surfstudio.compose.modifier.SpaceConfiguration
+import ru.surfstudio.compose.modifier.SpaceSize
 
 /**
  * Initialization [SpaceConfiguration]

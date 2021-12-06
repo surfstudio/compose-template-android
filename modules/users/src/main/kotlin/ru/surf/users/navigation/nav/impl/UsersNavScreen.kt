@@ -15,8 +15,8 @@
  */
 package ru.surf.users.navigation.nav.impl
 
-import com.keygenqt.routing.NavScreen
-import com.keygenqt.routing.NavScreenWithArgument
+import ru.surfstudio.compose.routing.NavScreen
+import ru.surfstudio.compose.routing.NavScreenWithArgument
 import ru.surf.users.ui.screens.listUsers.ListUsersScreen
 import ru.surf.users.ui.screens.viewUser.ViewUserScreen
 

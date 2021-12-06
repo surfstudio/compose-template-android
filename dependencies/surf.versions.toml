@@ -1,14 +1,14 @@
 [libraries]
-# https://github.com/keygenqt/compose-modifier-ext
-surf-modifier = { module = "com.keygenqt.modifier:compose-modifier-ext", version.ref = "composeModifierExt" }
-# https://github.com/keygenqt/android-response-result
-surf-response = { module = "com.keygenqt.response:android-response-result", version.ref = "androidResponseResult" }
-# https://github.com/keygenqt/compose-routing
-surf-routing = { module = "com.keygenqt.routing:compose-routing", version.ref = "composeRouting" }
-# https://github.com/keygenqt/surf-accompanist
-surf-accompanist = { module = "com.keygenqt.accompanist:surf-accompanist", version.ref = "surfAccompanist" }
-# https://github.com/keygenqt/compose-forms
-surf-forms = { module = "com.keygenqt.forms:compose-forms", version.ref = "composeForms" }
+# https://github.com/surfstudio/surf-compose-modifier-ext
+surf-modifier = { module = "ru.surfstudio.compose:modifier-ext", version.ref = "composeModifierExt" }
+# https://github.com/surfstudio/surf-android-response-result
+surf-response = { module = "ru.surfstudio.compose:response-result", version.ref = "androidResponseResult" }
+# https://github.com/surfstudio/surf-compose-routing
+surf-routing = { module = "ru.surfstudio.compose:routing", version.ref = "composeRouting" }
+# https://github.com/surfstudio/surf-accompanist
+surf-accompanist = { module = "ru.surfstudio.compose:accompanist", version.ref = "surfAccompanist" }
+# https://github.com/surfstudio/surf-compose-forms
+surf-forms = { module = "ru.surfstudio.compose:forms", version.ref = "composeForms" }
 
 [bundles]
 surf = ["surf-modifier", "surf-response", "surf-routing", "surf-accompanist", "surf-forms"]

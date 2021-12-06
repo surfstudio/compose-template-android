@@ -18,9 +18,9 @@ package ru.surf.users.ui.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import com.keygenqt.response.extensions.done
-import com.keygenqt.response.extensions.error
-import com.keygenqt.response.extensions.success
+import ru.surfstudio.compose.response.extensions.done
+import ru.surfstudio.compose.response.extensions.error
+import ru.surfstudio.compose.response.extensions.success
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch

@@ -15,7 +15,7 @@
  */
 package ru.surf.core.base
 
-import com.keygenqt.response.LocalTryExecuteWithResponse
+import ru.surfstudio.compose.response.LocalTryExecuteWithResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach

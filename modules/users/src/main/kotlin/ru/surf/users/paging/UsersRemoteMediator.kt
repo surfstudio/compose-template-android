@@ -19,10 +19,10 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import com.keygenqt.response.extensions.error
-import com.keygenqt.response.extensions.isEmpty
-import com.keygenqt.response.extensions.isError
-import com.keygenqt.response.extensions.success
+import ru.surfstudio.compose.response.extensions.error
+import ru.surfstudio.compose.response.extensions.isEmpty
+import ru.surfstudio.compose.response.extensions.isError
+import ru.surfstudio.compose.response.extensions.success
 import ru.surf.core.extension.withTransaction
 import ru.surf.core.utils.ConstantsPaging.CACHE_TIMEOUT
 import ru.surf.core.utils.ConstantsPaging.PAGE_LIMIT

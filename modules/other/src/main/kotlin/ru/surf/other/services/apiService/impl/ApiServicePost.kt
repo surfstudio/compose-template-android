@@ -15,9 +15,9 @@
  */
 package ru.surf.other.services.apiService.impl
 
-import com.keygenqt.response.LocalTryExecuteWithResponse
-import com.keygenqt.response.ResponseResult
-import com.keygenqt.response.extensions.responseCheck
+import ru.surfstudio.compose.response.LocalTryExecuteWithResponse
+import ru.surfstudio.compose.response.ResponseResult
+import ru.surfstudio.compose.response.extensions.responseCheck
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
