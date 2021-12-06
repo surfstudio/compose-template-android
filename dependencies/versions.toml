@@ -36,6 +36,7 @@ timberVersion = "5.0.1"
 # Startup
 # https://developer.android.com/jetpack/androidx/releases/startup
 startupVersion = "1.1.0"
+anrWatchDog = "1.4.0"
 # emoji-java
 # https://github.com/vdurmont/emoji-java
 emojiVersion = "5.1.1"

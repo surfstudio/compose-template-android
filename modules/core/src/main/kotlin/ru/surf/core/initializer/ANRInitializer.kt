@@ -19,23 +19,20 @@ package ru.surf.core.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
+import com.github.anrwatchdog.ANRWatchDog
 import ru.surf.core.logger.RemoteLogger
-import ru.surf.core.logger.strategies.local.TimberLoggingStrategy
-import ru.surf.core.logger.strategies.remote.FirebaseCrashlyticsRemoteLoggingStrategy
-import ru.surf.core.logger.strategies.remote.RemoteLoggerLoggingStrategy
-import ru.surfstudio.android.logger.Logger
 
 /**
- * Initialization [Logger]
+ * Initialization [ANRWatchDog]
  *
  * @author Margarita Volodina
  */
-class LoggerInitializer : Initializer<Unit> {
+class ANRInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {
-        Logger.addLoggingStrategy(TimberLoggingStrategy())
-        Logger.addLoggingStrategy(RemoteLoggerLoggingStrategy())
-        RemoteLogger.addRemoteLoggingStrategy(FirebaseCrashlyticsRemoteLoggingStrategy())
+        ANRWatchDog().setReportMainThreadOnly()
+            .setANRListener { RemoteLogger.logError(it) }
+            .start()
     }
 
     override fun dependencies(): List<Class<out Initializer<*>>> = emptyList()
