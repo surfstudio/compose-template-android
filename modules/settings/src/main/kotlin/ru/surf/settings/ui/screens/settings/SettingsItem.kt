@@ -29,7 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import ru.surfstudio.compose.modifier.ext.spaceMedium
+import ru.surfstudio.compose.modifier.spaceMedium
 
 /**
  * Item list for page [SettingsBody]

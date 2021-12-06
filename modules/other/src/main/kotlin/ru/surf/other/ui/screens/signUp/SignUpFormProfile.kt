@@ -41,7 +41,7 @@ import ru.surfstudio.compose.forms.base.FormFieldsState
 import ru.surfstudio.compose.forms.fields.FormField
 import ru.surfstudio.compose.forms.fields.FormFieldNumber
 import ru.surfstudio.compose.forms.fields.FormFieldPhone
-import ru.surfstudio.compose.modifier.ext.*
+import ru.surfstudio.compose.modifier.*
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R

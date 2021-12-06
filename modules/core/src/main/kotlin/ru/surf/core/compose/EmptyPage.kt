@@ -31,7 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
-import ru.surfstudio.compose.modifier.ext.spacePage
+import ru.surfstudio.compose.modifier.spacePage
 
 /**
  * Animation for page

@@ -29,8 +29,8 @@ import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import ru.surfstudio.compose.accompanist.MainScaffoldSearch
 import ru.surfstudio.compose.accompanist.SwipeRefreshList
-import ru.surfstudio.compose.modifier.ext.paddingValuesSpacePage
-import ru.surfstudio.compose.modifier.ext.spaceSmall
+import ru.surfstudio.compose.modifier.paddingValuesSpacePage
+import ru.surfstudio.compose.modifier.spaceSmall
 import ru.surf.core.base.LocalMainViewModel
 import ru.surf.core.base.MainViewModel
 import ru.surf.core.compose.*
