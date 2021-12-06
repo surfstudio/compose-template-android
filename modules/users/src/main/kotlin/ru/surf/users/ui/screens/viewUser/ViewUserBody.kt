@@ -36,7 +36,7 @@ import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.modifier.spaceLarge
+import ru.surfstudio.compose.modifier.ext.spaceLarge
 import ru.surf.core.compose.AppSwipeRefreshIndicator
 import ru.surf.core.compose.LoaderPage
 import ru.surf.core.compose.PageNotFound

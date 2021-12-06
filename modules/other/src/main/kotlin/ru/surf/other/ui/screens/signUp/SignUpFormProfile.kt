@@ -41,7 +41,7 @@ import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormField
 import com.keygenqt.forms.fields.FormFieldNumber
 import com.keygenqt.forms.fields.FormFieldPhone
-import com.keygenqt.modifier.*
+import ru.surfstudio.compose.modifier.ext.*
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R

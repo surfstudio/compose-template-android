@@ -31,7 +31,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.ClickableTextColorAnimation
-import com.keygenqt.modifier.*
+import ru.surfstudio.compose.modifier.ext.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.base.MaterialThemeCustom

@@ -36,9 +36,9 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.insets.systemBarsPadding
 import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.modifier.SpaceSize
-import com.keygenqt.modifier.spaceForm
-import com.keygenqt.modifier.spacePageHorizontal
+import ru.surfstudio.compose.modifier.ext.SpaceSize
+import ru.surfstudio.compose.modifier.ext.spaceForm
+import ru.surfstudio.compose.modifier.ext.spacePageHorizontal
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme

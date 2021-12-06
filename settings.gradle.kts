@@ -42,7 +42,8 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven("https://artifactory.keygenqt.com/artifactory/open-source")
+        maven("https://artifactory.keygenqt.com/artifactory/open-source") //todo
+        maven("https://artifactory.surfstudio.ru/artifactory/libs-release-local")
     }
     versionCatalogs {
         create("libs") {

@@ -35,9 +35,9 @@ import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.keygenqt.accompanist.MainScaffoldSearch
-import com.keygenqt.modifier.spacePageHorizontal
-import com.keygenqt.modifier.spacePageVertical
-import com.keygenqt.modifier.spaceSmall
+import ru.surfstudio.compose.modifier.ext.spacePageHorizontal
+import ru.surfstudio.compose.modifier.ext.spacePageVertical
+import ru.surfstudio.compose.modifier.ext.spaceSmall
 import ru.surf.core.compose.AppSwipeRefreshIndicator
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme

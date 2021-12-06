@@ -40,7 +40,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.keygenqt.forms.base.FormFieldsState
 import com.keygenqt.forms.fields.FormFieldEmail
 import com.keygenqt.forms.fields.FormFieldPassword
-import com.keygenqt.modifier.*
+import ru.surfstudio.compose.modifier.ext.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.compose.BoxTextFieldError

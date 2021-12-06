@@ -29,9 +29,9 @@ import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
-import com.keygenqt.modifier.spacePage
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
+import ru.surfstudio.compose.modifier.ext.spacePage
 
 /**
  * Animation for page
