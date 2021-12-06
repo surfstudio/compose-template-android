@@ -15,8 +15,8 @@
  */
 package ru.surf.users.apiService
 
-import com.keygenqt.response.HTTPResult
-import com.keygenqt.response.ResponseResult
+import ru.surfstudio.compose.response.HTTPResult
+import ru.surfstudio.compose.response.ResponseResult
 import kotlinx.serialization.SerializationException
 import org.junit.Assert.assertEquals
 import org.junit.Test
