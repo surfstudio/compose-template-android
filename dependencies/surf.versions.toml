@@ -7,8 +7,8 @@ surf-response = { module = "ru.surfstudio.compose:response-result", version.ref 
 surf-routing = { module = "ru.surfstudio.compose:routing", version.ref = "composeRouting" }
 # https://github.com/surfstudio/surf-accompanist
 surf-accompanist = { module = "ru.surfstudio.compose:accompanist", version.ref = "surfAccompanist" }
-# https://github.com/keygenqt/compose-forms
-surf-forms = { module = "com.keygenqt.forms:compose-forms", version.ref = "composeForms" }
+# https://github.com/surfstudio/surf-compose-forms
+surf-forms = { module = "ru.surfstudio.compose:forms", version.ref = "composeForms" }
 
 [bundles]
 surf = ["surf-modifier", "surf-response", "surf-routing", "surf-accompanist", "surf-forms"]

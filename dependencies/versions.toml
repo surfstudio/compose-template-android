@@ -46,15 +46,10 @@ pagingCompose = "1.0.0-alpha12"
 # https://developer.android.com/training/data-storage/room
 roomVersion = "2.4.0-alpha04"
 # Custom libs
-# https://github.com/keygenqt/compose-modifier-ext
 composeModifierExt = "0.0.10"
-# https://github.com/keygenqt/android-response-result
 androidResponseResult = "0.0.7"
-# https://github.com/keygenqt/compose-routing
 composeRouting = "0.0.1"
-# https://github.com/keygenqt/surf-accompanist
 surfAccompanist = "0.0.10"
-# https://github.com/keygenqt/compose-forms
 composeForms = "0.0.15"
 # Tests
 mockWebServer = "4.9.1"

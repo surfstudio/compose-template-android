@@ -15,9 +15,9 @@
  */
 package ru.surf.other.ui.forms
 
-import com.keygenqt.forms.base.FormFieldState
-import com.keygenqt.forms.base.FormStates
-import com.keygenqt.forms.states.EmailStateValidateRequired
+import ru.surfstudio.compose.forms.base.FormFieldState
+import ru.surfstudio.compose.forms.base.FormStates
+import ru.surfstudio.compose.forms.states.EmailStateValidateRequired
 import ru.surf.core.forms.validate.PasswordStateValidateRequired
 
 /**

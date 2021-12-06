@@ -16,8 +16,8 @@
 package ru.surf.core.forms.validate
 
 import android.content.Context
-import com.keygenqt.forms.base.FormFieldState
-import com.keygenqt.forms.validation.getErrorIsBlank
+import ru.surfstudio.compose.forms.base.FormFieldState
+import ru.surfstudio.compose.forms.validation.getErrorIsBlank
 import ru.surf.core.R
 import java.util.regex.Pattern
 
