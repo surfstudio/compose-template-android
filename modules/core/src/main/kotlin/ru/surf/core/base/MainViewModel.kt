@@ -29,7 +29,7 @@ import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.core.interfaces.IAppPreferences
 import ru.surf.core.services.apiService.CoreApiService
 import ru.surf.core.services.dataService.CoreDataService
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 import javax.inject.Inject
 
 /**
@@ -117,7 +117,7 @@ class MainViewModel @Inject constructor(
 
             // listen settings
             dataService.getSettingsModel().onEach {
-                Timber.e(it.toString())
+                Logger.d(it.toString())
             }.launchIn(viewModelScope)
 
             // update settings
@@ -132,7 +132,7 @@ class MainViewModel @Inject constructor(
                     }
                 }.error {
                     _isReady.value = true
-                    Timber.e(it)
+                    Logger.w(it)
                 }
                 .done {
                     _loading.value = false

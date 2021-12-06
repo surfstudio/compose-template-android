@@ -30,7 +30,7 @@ import ru.surf.users.data.models.UserModel
 import ru.surf.users.data.preferences.UsersPreferences
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 
 /**
  * Paging list with room cache [RemoteMediator]
@@ -101,7 +101,7 @@ class UsersRemoteMediator(
                     insertUserModel(*models.toTypedArray())
                 }
             }.error {
-                Timber.e(it)
+                Logger.w(it)
             }
 
             MediatorResult.Success(

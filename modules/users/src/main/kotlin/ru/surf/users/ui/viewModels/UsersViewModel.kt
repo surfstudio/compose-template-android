@@ -32,7 +32,7 @@ import ru.surf.users.paging.UsersPageSource
 import ru.surf.users.paging.UsersRemoteMediator
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 import javax.inject.Inject
 
 /**
@@ -125,7 +125,7 @@ class UsersViewModel @Inject constructor(
                     }
                 }.error {
                     _error404.value = true
-                    Timber.e(it)
+                    Logger.w(it)
                 }.done {
                     _loading.value = false
                 }

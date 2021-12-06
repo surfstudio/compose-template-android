@@ -20,7 +20,7 @@ import ru.surf.core.base.CoreSecurityDatabase
 import ru.surf.core.data.dao.SecurityModelDao
 import ru.surf.core.data.models.SecurityModel
 import ru.surf.core.interfaces.IAppDatabase
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 
 /**
  * Service part for work with model [SecurityModel]
@@ -43,7 +43,7 @@ interface SecurityModelDataService : IAppDatabase {
      * Performed when the user logs out
      */
     override fun clearCacheAfterLogout() {
-        Timber.e("Clear cache: SecurityModelDataService")
+        Logger.d("Clear cache: SecurityModelDataService")
     }
 
     /**

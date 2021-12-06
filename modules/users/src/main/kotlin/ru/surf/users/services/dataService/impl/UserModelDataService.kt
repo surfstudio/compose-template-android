@@ -21,7 +21,7 @@ import ru.surf.core.interfaces.IAppDatabase
 import ru.surf.users.base.UsersDatabase
 import ru.surf.users.data.dao.UserModelDao
 import ru.surf.users.data.models.UserModel
-import timber.log.Timber
+import ru.surfstudio.android.logger.Logger
 
 /**
  * Service part for work with model [UserModel]
@@ -44,7 +44,7 @@ interface UserModelDataService : IAppDatabase {
      * Performed when the user logs out
      */
     override fun clearCacheAfterLogout() {
-        Timber.e("Clear cache: UserModelDataService")
+        Logger.d("Clear cache: UserModelDataService")
     }
 
     /**
