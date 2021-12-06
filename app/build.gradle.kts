@@ -97,7 +97,7 @@ android {
                 "$rootDir/proguard-rules.pro"
             )
             firebaseAppDistribution {
-                groups="Surf"
+                groups = "Surf"
             }
         }
         release {

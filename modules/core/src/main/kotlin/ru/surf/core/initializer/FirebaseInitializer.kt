@@ -19,17 +19,19 @@ package ru.surf.core.initializer
 
 import android.content.Context
 import androidx.startup.Initializer
+import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.crashlytics.FirebaseCrashlytics
 import ru.surf.core.BuildConfig
 
 /**
- * Initialization сrashlytics
+ * Firebase Initialization
  *
  * @author Vitaliy Zarubin
  */
-class CrashlyticsInitializer : Initializer<Unit> {
+class FirebaseInitializer : Initializer<Unit> {
 
     override fun create(context: Context) {
+        FirebaseAnalytics.getInstance(context).setAnalyticsCollectionEnabled(!BuildConfig.DEBUG)
         FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(!BuildConfig.DEBUG)
     }
 

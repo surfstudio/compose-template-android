@@ -37,7 +37,7 @@
                 android:value="androidx.startup" />
 
             <meta-data
-                android:name="ru.surf.core.initializer.CrashlyticsInitializer"
+                android:name="ru.surf.core.initializer.FirebaseInitializer"
                 android:value="androidx.startup" />
 
             <meta-data

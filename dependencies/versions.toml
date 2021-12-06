@@ -16,8 +16,8 @@ activityCompose = "1.4.0"
 constraintLayout = "1.0.0-beta02"
 # Firebase
 # https://firebase.google.com
-analytics = "19.0.1"
-crashlytics = "18.2.1"
+analytics = "20.0.0"
+crashlytics = "18.2.4"
 # Hilt
 # https://dagger.dev/hilt/
 hiltCore = "2.38.1"
