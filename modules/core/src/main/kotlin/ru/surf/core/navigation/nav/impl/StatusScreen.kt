@@ -15,8 +15,8 @@
  */
 package ru.surf.core.navigation.nav.impl
 
-import ru.surfstudio.compose.routing.NavScreen
 import ru.surf.core.ui.screens.status.StatusScreen
+import ru.surfstudio.compose.routing.NavScreen
 
 /**
  * Routing for [StatusScreen]

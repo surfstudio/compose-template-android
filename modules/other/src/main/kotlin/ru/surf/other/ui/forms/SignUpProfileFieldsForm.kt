@@ -15,9 +15,9 @@
  */
 package ru.surf.other.ui.forms
 
+import ru.surf.core.forms.validate.StateValidateRequired
 import ru.surfstudio.compose.forms.base.FormFieldState
 import ru.surfstudio.compose.forms.base.FormStates
-import ru.surf.core.forms.validate.StateValidateRequired
 
 /**
  * Form state for registration

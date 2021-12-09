@@ -32,13 +32,13 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.google.accompanist.insets.systemBarsPadding
-import ru.surfstudio.compose.modifier.spaceBase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import ru.surf.core.base.LocalBackPressedDispatcher
 import ru.surf.core.extension.EmitByStatus
 import ru.surf.settings.navigation.nav.SettingsNav
 import ru.surf.users.navigation.nav.UsersNav
+import ru.surfstudio.compose.modifier.spaceBase
 import ru.surf.core.R as RCore
 
 /**

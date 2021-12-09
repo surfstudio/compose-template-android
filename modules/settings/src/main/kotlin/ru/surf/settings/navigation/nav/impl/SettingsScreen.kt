@@ -15,8 +15,8 @@
  */
 package ru.surf.settings.navigation.nav.impl
 
-import ru.surfstudio.compose.routing.NavScreen
 import ru.surf.settings.ui.screens.settings.SettingsScreen
+import ru.surfstudio.compose.routing.NavScreen
 
 /**
  * Routing for [SettingsScreen]

@@ -32,13 +32,13 @@ import com.google.accompanist.insets.statusBarsPadding
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
-import ru.surfstudio.compose.accompanist.MainScaffoldSearch
 import kotlinx.coroutines.launch
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.extension.EmitByStatus
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
 
 /**
  * Body page [SignUpScreen]

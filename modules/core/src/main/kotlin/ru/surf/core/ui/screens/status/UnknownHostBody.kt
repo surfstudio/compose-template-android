@@ -27,10 +27,10 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
 import com.google.accompanist.insets.navigationBarsWithImePadding
-import ru.surfstudio.compose.modifier.spacePage
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.core.ui.actions.UnknownHostActions
+import ru.surfstudio.compose.modifier.spacePage
 
 /**
  * Page animation for [UnknownHostBody]

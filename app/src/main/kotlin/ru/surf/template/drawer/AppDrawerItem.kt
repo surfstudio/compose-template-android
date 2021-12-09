@@ -35,8 +35,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import ru.surfstudio.compose.modifier.spaceMedium
 import ru.surf.core.theme.MainAppTheme
+import ru.surfstudio.compose.modifier.spaceMedium
 
 /**
  * Application menu item

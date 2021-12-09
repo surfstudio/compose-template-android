@@ -25,7 +25,6 @@ import ru.surf.users.services.api.UsersApi
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surfstudio.compose.response.HTTPResult
 import ru.surfstudio.compose.response.ResponseResult
-import java.lang.RuntimeException
 
 @RunWith(MockitoJUnitRunner::class)
 class CheckApiUsersList : ApiAbstract(

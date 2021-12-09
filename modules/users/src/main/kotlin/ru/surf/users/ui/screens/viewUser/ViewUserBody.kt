@@ -35,8 +35,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import ru.surfstudio.compose.accompanist.MainScaffoldSearch
-import ru.surfstudio.compose.modifier.spaceLarge
 import ru.surf.core.compose.AppSwipeRefreshIndicator
 import ru.surf.core.compose.LoaderPage
 import ru.surf.core.compose.PageNotFound
@@ -45,6 +43,8 @@ import ru.surf.core.theme.MainAppTheme
 import ru.surf.users.data.mock.userModelMock
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.ui.actions.ViewUserActions
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.modifier.spaceLarge
 
 /**
  * Body page [ViewUserScreen]
