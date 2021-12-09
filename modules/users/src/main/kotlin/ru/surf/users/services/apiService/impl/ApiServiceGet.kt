@@ -15,9 +15,6 @@
  */
 package ru.surf.users.services.apiService.impl
 
-import ru.surfstudio.compose.response.LocalTryExecuteWithResponse.executeWithResponse
-import ru.surfstudio.compose.response.ResponseResult
-import ru.surfstudio.compose.response.extensions.responseCheck
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
@@ -28,6 +25,9 @@ import ru.surf.users.data.mappers.toModel
 import ru.surf.users.data.mappers.toModels
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.api.UsersApi
+import ru.surfstudio.compose.response.LocalTryExecuteWithResponse.executeWithResponse
+import ru.surfstudio.compose.response.ResponseResult
+import ru.surfstudio.compose.response.extensions.responseCheck
 
 /**
  * The GET method requests a representation of the specified resource. Requests using GET should only retrieve data.

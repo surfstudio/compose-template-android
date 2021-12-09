@@ -35,15 +35,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.insets.systemBarsPadding
-import ru.surfstudio.compose.accompanist.MainScaffoldSearch
-import ru.surfstudio.compose.modifier.SpaceSize
-import ru.surfstudio.compose.modifier.spaceForm
-import ru.surfstudio.compose.modifier.spacePageHorizontal
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignInActions
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.modifier.SpaceSize
+import ru.surfstudio.compose.modifier.spaceForm
+import ru.surfstudio.compose.modifier.spacePageHorizontal
 
 /**
  * Body page [SignInScreen]

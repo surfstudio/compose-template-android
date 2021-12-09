@@ -15,8 +15,8 @@
  */
 package ru.surf.other.navigation.nav.impl
 
-import ru.surfstudio.compose.routing.NavScreen
 import ru.surf.other.ui.screens.signUp.SignUpScreen
+import ru.surfstudio.compose.routing.NavScreen
 
 /**
  * Routing for [SignUpScreen]

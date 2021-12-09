@@ -15,8 +15,6 @@
  */
 package ru.surf.users.apiService
 
-import ru.surfstudio.compose.response.HTTPResult
-import ru.surfstudio.compose.response.ResponseResult
 import kotlinx.serialization.SerializationException
 import org.junit.Assert.assertEquals
 import org.junit.Test
@@ -25,6 +23,8 @@ import org.mockito.junit.MockitoJUnitRunner
 import ru.surf.core.tests.ApiAbstract
 import ru.surf.users.services.api.UsersApi
 import ru.surf.users.services.apiService.UsersApiService
+import ru.surfstudio.compose.response.HTTPResult
+import ru.surfstudio.compose.response.ResponseResult
 import java.util.*
 
 @RunWith(MockitoJUnitRunner::class)

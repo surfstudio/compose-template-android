@@ -37,16 +37,16 @@ import com.google.accompanist.insets.navigationBarsWithImePadding
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
-import ru.surfstudio.compose.forms.base.FormFieldsState
-import ru.surfstudio.compose.forms.fields.FormField
-import ru.surfstudio.compose.forms.fields.FormFieldNumber
-import ru.surfstudio.compose.forms.fields.FormFieldPhone
-import ru.surfstudio.compose.modifier.*
 import ru.surf.core.compose.BoxTextFieldError
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.forms.SignUpProfileFieldsForm.*
+import ru.surfstudio.compose.forms.base.FormFieldsState
+import ru.surfstudio.compose.forms.fields.FormField
+import ru.surfstudio.compose.forms.fields.FormFieldNumber
+import ru.surfstudio.compose.forms.fields.FormFieldPhone
+import ru.surfstudio.compose.modifier.*
 
 /**
  * Form page [SignUpBody]

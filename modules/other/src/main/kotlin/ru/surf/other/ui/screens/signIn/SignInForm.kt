@@ -34,10 +34,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
-import ru.surfstudio.compose.forms.base.FormFieldsState
-import ru.surfstudio.compose.forms.fields.FormFieldEmail
-import ru.surfstudio.compose.forms.fields.FormFieldPassword
-import ru.surfstudio.compose.modifier.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.theme.MainAppTheme
@@ -46,6 +42,10 @@ import ru.surf.other.R
 import ru.surf.other.ui.actions.SignInActions
 import ru.surf.other.ui.forms.SignInFieldsForm.SignInEmail
 import ru.surf.other.ui.forms.SignInFieldsForm.SignInPassword
+import ru.surfstudio.compose.forms.base.FormFieldsState
+import ru.surfstudio.compose.forms.fields.FormFieldEmail
+import ru.surfstudio.compose.forms.fields.FormFieldPassword
+import ru.surfstudio.compose.modifier.*
 
 /**
  * Form page [SignInBody]

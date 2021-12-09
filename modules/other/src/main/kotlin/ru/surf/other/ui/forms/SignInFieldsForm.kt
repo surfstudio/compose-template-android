@@ -15,10 +15,10 @@
  */
 package ru.surf.other.ui.forms
 
+import ru.surf.core.forms.validate.PasswordStateValidateRequired
 import ru.surfstudio.compose.forms.base.FormFieldState
 import ru.surfstudio.compose.forms.base.FormStates
 import ru.surfstudio.compose.forms.states.EmailStateValidateRequired
-import ru.surf.core.forms.validate.PasswordStateValidateRequired
 
 /**
  * Form states for login

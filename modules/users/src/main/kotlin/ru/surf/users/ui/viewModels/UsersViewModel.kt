@@ -18,9 +18,6 @@ package ru.surf.users.ui.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.*
-import ru.surfstudio.compose.response.extensions.done
-import ru.surfstudio.compose.response.extensions.error
-import ru.surfstudio.compose.response.extensions.success
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -33,6 +30,9 @@ import ru.surf.users.paging.UsersRemoteMediator
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
 import ru.surfstudio.android.logger.Logger
+import ru.surfstudio.compose.response.extensions.done
+import ru.surfstudio.compose.response.extensions.error
+import ru.surfstudio.compose.response.extensions.success
 import javax.inject.Inject
 
 /**

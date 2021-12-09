@@ -17,9 +17,6 @@ package ru.surf.core.base
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ru.surfstudio.compose.response.extensions.done
-import ru.surfstudio.compose.response.extensions.error
-import ru.surfstudio.compose.response.extensions.success
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -30,6 +27,9 @@ import ru.surf.core.interfaces.IAppPreferences
 import ru.surf.core.services.apiService.CoreApiService
 import ru.surf.core.services.dataService.CoreDataService
 import ru.surfstudio.android.logger.Logger
+import ru.surfstudio.compose.response.extensions.done
+import ru.surfstudio.compose.response.extensions.error
+import ru.surfstudio.compose.response.extensions.success
 import javax.inject.Inject
 
 /**

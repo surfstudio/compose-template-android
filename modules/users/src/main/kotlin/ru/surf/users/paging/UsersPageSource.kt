@@ -17,10 +17,10 @@ package ru.surf.users.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import ru.surfstudio.compose.response.ResponseResult
 import ru.surf.core.utils.ConstantsPaging
 import ru.surf.users.data.models.UserModel
 import ru.surf.users.services.apiService.UsersApiService
+import ru.surfstudio.compose.response.ResponseResult
 
 /**
  * Paging list without room cache [PagingSource]

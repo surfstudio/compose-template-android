@@ -37,10 +37,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerState
 import com.google.accompanist.pager.rememberPagerState
-import ru.surfstudio.compose.forms.base.FormFieldsState
-import ru.surfstudio.compose.forms.fields.FormFieldEmail
-import ru.surfstudio.compose.forms.fields.FormFieldPassword
-import ru.surfstudio.compose.modifier.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.compose.BoxTextFieldError
@@ -50,6 +46,10 @@ import ru.surf.other.R
 import ru.surf.other.ui.actions.SignUpActions
 import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.SignUpEmail
 import ru.surf.other.ui.forms.SignUpCredentialFieldsForm.SignUpPassword
+import ru.surfstudio.compose.forms.base.FormFieldsState
+import ru.surfstudio.compose.forms.fields.FormFieldEmail
+import ru.surfstudio.compose.forms.fields.FormFieldPassword
+import ru.surfstudio.compose.modifier.*
 
 /**
  * Form page [SignUpBody]

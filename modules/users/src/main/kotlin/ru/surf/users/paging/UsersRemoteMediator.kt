@@ -19,10 +19,6 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
-import ru.surfstudio.compose.response.extensions.error
-import ru.surfstudio.compose.response.extensions.isEmpty
-import ru.surfstudio.compose.response.extensions.isError
-import ru.surfstudio.compose.response.extensions.success
 import ru.surf.core.extension.withTransaction
 import ru.surf.core.utils.ConstantsPaging.CACHE_TIMEOUT
 import ru.surf.core.utils.ConstantsPaging.PAGE_LIMIT
@@ -31,6 +27,10 @@ import ru.surf.users.data.preferences.UsersPreferences
 import ru.surf.users.services.apiService.UsersApiService
 import ru.surf.users.services.dataService.UsersDataService
 import ru.surfstudio.android.logger.Logger
+import ru.surfstudio.compose.response.extensions.error
+import ru.surfstudio.compose.response.extensions.isEmpty
+import ru.surfstudio.compose.response.extensions.isError
+import ru.surfstudio.compose.response.extensions.success
 
 /**
  * Paging list with room cache [RemoteMediator]

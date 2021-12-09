@@ -16,9 +16,9 @@
 package ru.surf.core.forms.validate
 
 import android.content.Context
+import ru.surf.core.R
 import ru.surfstudio.compose.forms.base.FormFieldState
 import ru.surfstudio.compose.forms.validation.getErrorIsBlank
-import ru.surf.core.R
 import java.util.regex.Pattern
 
 /**

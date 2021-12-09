@@ -30,14 +30,14 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
 import com.google.accompanist.insets.systemBarsPadding
-import ru.surfstudio.compose.accompanist.ClickableTextColorAnimation
-import ru.surfstudio.compose.modifier.*
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import ru.surf.core.base.MaterialThemeCustom
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.other.R
 import ru.surf.other.ui.actions.WelcomeActions
+import ru.surfstudio.compose.accompanist.ClickableTextColorAnimation
+import ru.surfstudio.compose.modifier.*
 
 /**
  * Page animation

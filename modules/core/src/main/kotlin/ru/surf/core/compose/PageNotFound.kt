@@ -30,9 +30,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.airbnb.lottie.compose.*
-import ru.surfstudio.compose.modifier.spacePage
 import ru.surf.core.R
 import ru.surf.core.theme.MainAppTheme
+import ru.surfstudio.compose.modifier.spacePage
 
 /**
  * Animation for page

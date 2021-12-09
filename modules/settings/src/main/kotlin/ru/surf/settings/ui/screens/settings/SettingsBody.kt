@@ -34,15 +34,15 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.insets.systemBarsPadding
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
-import ru.surfstudio.compose.accompanist.MainScaffoldSearch
-import ru.surfstudio.compose.modifier.spacePageHorizontal
-import ru.surfstudio.compose.modifier.spacePageVertical
-import ru.surfstudio.compose.modifier.spaceSmall
 import ru.surf.core.compose.AppSwipeRefreshIndicator
 import ru.surf.core.compose.TopBarContentTitle
 import ru.surf.core.theme.MainAppTheme
 import ru.surf.settings.R
 import ru.surf.settings.ui.actions.SettingsActions
+import ru.surfstudio.compose.accompanist.MainScaffoldSearch
+import ru.surfstudio.compose.modifier.spacePageHorizontal
+import ru.surfstudio.compose.modifier.spacePageVertical
+import ru.surfstudio.compose.modifier.spaceSmall
 import ru.surf.core.R as RCore
 
 /**
