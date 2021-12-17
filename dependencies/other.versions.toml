@@ -5,9 +5,6 @@ other-timber = { module = "com.jakewharton.timber:timber", version.ref = "timber
 # Startup
 # https://developer.android.com/jetpack/androidx/releases/startup
 other-startup = { module = "androidx.startup:startup-runtime", version.ref = "startupVersion" }
-# emoji-java
-# https://github.com/vdurmont/emoji-java
-other-emoji = { module = "com.vdurmont:emoji-java", version.ref = "emojiVersion" }
 # reflection
 # https://kotlinlang.org/docs/reflection.html
 other-reflection = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlinVersion" }
@@ -16,4 +13,4 @@ other-reflection = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref
 other-anr = { module = "com.github.anrwatchdog:anrwatchdog", version.ref = "anrWatchDog" }
 
 [bundles]
-other = ["other-timber", "other-startup", "other-emoji", "other-reflection", "other-anr"]
+other = ["other-timber", "other-startup", "other-reflection", "other-anr"]
