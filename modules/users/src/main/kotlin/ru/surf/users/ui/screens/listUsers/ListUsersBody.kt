@@ -103,7 +103,7 @@ fun ListUsersBody(
                 modifier = Modifier,
                 contentPadding = paddingValuesSpacePage(),
                 items = searchItems,
-                state = rememberSwipeRefreshState(searchItems.loadState.refresh is LoadState.Loading),
+                refreshState = rememberSwipeRefreshState(searchItems.loadState.refresh is LoadState.Loading),
                 indicator = { st, tr ->
                     AppSwipeRefreshIndicator(st, tr)
                 },
@@ -118,7 +118,7 @@ fun ListUsersBody(
                 modifier = Modifier,
                 contentPadding = paddingValuesSpacePage(),
                 items = items,
-                state = rememberSwipeRefreshState(items.loadState.refresh is LoadState.Loading),
+                refreshState = rememberSwipeRefreshState(items.loadState.refresh is LoadState.Loading),
                 indicator = { st, tr ->
                     AppSwipeRefreshIndicator(st, tr)
                 },
